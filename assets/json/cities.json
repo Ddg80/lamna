@@ -1,0 +1,70 @@
+[
+  {
+    "id": 1,
+    "name": "Rennes",
+    "subtitle": "Ville aux multiples facettes, Rennes est réputée pour sa qualité de vie, la richesse...",
+    "createdAt": "02/01/2024",
+    "text": "Ville aux multiples facettes, Rennes est réputée pour sa qualité de vie, la richesse de sa programmation culturelle, avec des festivals de renom comme celui des Trans Musicales, la diversité de son patrimoine, son offre autour de l’art contemporain et l’effervescence de sa vie étudiante. Située à seulement 1h25 de train de Paris, dépaysement garanti !",
+    "label": "NOUVEAU SUR L'APP",
+    "picture": "assets/pictures/rennes.png",
+    "detailPicture": "assets/pictures/Rennes/rennes_details_page.png",
+    "decoverySite": [
+      "assets/pictures/Rennes/rennes1.png",
+      "assets/pictures/Rennes/rennes2.png",
+      "assets/pictures/Rennes/rennes3.png"
+    ],
+    "titleEmblematicPlaces": "Lieux emblématiques",
+    "emblematicPlaces": [
+      "Mairie de Rennes", 
+      "Opéra", 
+      "Place du parlement",
+      "Jardin du Thabor",
+      "Piscine St-Georges",
+      "République",
+      "Saint-Anne"
+    ],
+    "enable": true
+  },
+  {
+    "id": 2,
+    "name": "Brest",
+    "subtitle": "Ville forteresse, Saint-Malo se targue de n’avoir jamais été conquise ! Cette superbe ville, aussi connue sous le nom...",
+    "createdAt": "02/01/2024",
+    "text": "Ville forteresse, Saint-Malo se targue de n’avoir jamais été conquise ! Cette superbe ville, aussi connue sous le nom de cité corsaire, s’apprivoise à pied en se promenant sur les remparts de l’intra-muros. Aujourd’hui, Saint-Malo est devenue une station balnéaire incontournable de la côte d’Émeraude avec son littoral bordé de plages de sable fin. Réputée pour ses activités nautiques, elle est la ville de départ de la Route du Rhum !",
+    "label": "Bientôt disponible",
+    "picture": "assets/pictures/brest.png",
+    "detailPicture": "",
+    "decoverySite": [],
+    "titleEmblematicPlaces": "Lieux emblématiques",
+    "emblematicPlaces": [],
+    "enable": false
+  },
+  {
+    "id": 3,
+    "name": "Saint-Malo",
+    "subtitle": "Oubliez tout ce que vous croyez savoir sur Brest. Venez découvrir une cité maritime attachante au dynamisme...",
+    "createdAt": "02/01/2024",
+    "text": "Oubliez tout ce que vous croyez savoir sur Brest. Venez découvrir une cité maritime attachante au dynamisme grandissant, dans l’une des plus belles rades de France. Au programme : une descente de la rue de Siam façon plongée dans la rade, un aquarium d’exception, des sites joyeusement reconvertis…",
+    "label": "Nouveau sur l'application",
+    "picture": "assets/pictures/saint_malo.png",
+    "detailPicture": "",
+    "decoverySite": [],
+    "titleEmblematicPlaces": "Lieux emblématiques",
+    "emblematicPlaces": [],
+    "enable": false
+  },
+  {
+    "id": 4,
+    "name": "Lorient",
+    "subtitle": "Oubliez tout ce que vous croyez savoir sur Brest. Venez découvrir une cité maritime attachante au dynamisme...",
+    "createdAt": "06/01/2024",
+    "text": "Oubliez tout ce que vous croyez savoir sur Brest. Venez découvrir une cité maritime attachante au dynamisme grandissant, dans l’une des plus belles rades de France. Au programme : une descente de la rue de Siam façon plongée dans la rade, un aquarium d’exception, des sites joyeusement reconvertis…",
+    "label": "Nouveau sur l'application",
+    "picture": "assets/pictures/lorient.png",
+    "detailPicture": "",
+    "decoverySite": [],
+    "titleEmblematicPlaces": "Lieux emblématiques",
+    "emblematicPlaces": [],
+    "enable": false
+  }
+]
