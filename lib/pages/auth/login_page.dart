@@ -4,6 +4,7 @@ import 'package:lamna/utils/constants/color_constants.dart';
 import 'package:lamna/utils/constants/font_constants.dart';
 import 'package:lamna/utils/validator_fields.dart';
 import 'package:lamna/utils/widgets/buttons/button_large.dart';
+import 'package:lamna/utils/widgets/buttons/button_large_network.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -197,6 +198,34 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         ),
                       ],
+                    ),
+                    Row(children: [
+                      Expanded(
+                          child: Padding(
+                        padding: const EdgeInsets.fromLTRB(0.0, 0.0, 8.0, 0.0),
+                        child: Divider(color: ColorConstants.greyAppColor),
+                      )),
+                      Text("ou",
+                          style: TextStyle(
+                              color: ColorConstants.greyAppColor,
+                              fontSize: 18)),
+                      Expanded(
+                          child: Padding(
+                        padding: const EdgeInsets.fromLTRB(8.0, 0.0, 0.0, 0.0),
+                        child: Divider(color: ColorConstants.greyAppColor),
+                      ))
+                    ]),
+                    const Padding(
+                      padding: EdgeInsets.only(top: 10),
+                      child: ButtonLargeNetwork(
+                          text: "Se connecter avec Google",
+                          image: 'assets/logos/logo_google.png'),
+                    ),
+                    const Padding(
+                      padding: EdgeInsets.only(top: 10),
+                      child: ButtonLargeNetwork(
+                          text: "Se connecter avec apple",
+                          image: 'assets/logos/logo_mac_os.png'),
                     ),
                   ],
                 ),
