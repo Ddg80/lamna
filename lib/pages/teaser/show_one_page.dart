@@ -3,6 +3,7 @@ import 'package:lamna/pages/auth/register_page.dart';
 import 'package:lamna/pages/teaser/show_two_page.dart';
 import 'package:lamna/utils/constants/color_constants.dart';
 import 'package:lamna/utils/constants/font_constants.dart';
+import 'package:lamna/utils/widgets/Indicators/indicators_sliders.dart';
 import 'package:lamna/utils/widgets/button_next_page_new_vision.dart';
 import 'package:lamna/utils/widgets/indicators.dart';
 
@@ -34,30 +35,7 @@ class _ShowOnePageState extends State<ShowOnePage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                InkWell(
-                  onTap: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const RegisterPage(),
-                    ),
-                  ),
-                  child: Text(
-                    'Passer',
-                    style: TextStyle(color: ColorConstants.blackAppColor),
-                  ),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: indicators(indexPageActive),
-                ),
-                SizedBox(
-                  width: MediaQuery.of(context).size.width / 4,
-                )
-              ],
-            ),
+            IndicatorsSliders(indexPageActive: indexPageActive),
             Center(
               child: Image.asset('assets/pictures/World Bicycle Day_pana.png',
                   fit: BoxFit.fill),
