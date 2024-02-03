@@ -9,11 +9,13 @@ class ButtonNextPageNewVison extends StatelessWidget {
     required this.page,
     required this.title,
     required this.color,
+    required this.icon,
   }) : super(key: key);
 
   final String title;
   final dynamic page;
   final Color color;
+  final IconData icon;
 
   void _navigate(context, page) {
     Navigator.push(
@@ -53,8 +55,8 @@ class ButtonNextPageNewVison extends StatelessWidget {
                 const SizedBox(
                   width: 10.0,
                 ),
-                const Icon(
-                  Icons.east,
+                Icon(
+                  icon,
                   color: Colors.white,
                 ),
               ],

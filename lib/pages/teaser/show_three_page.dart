@@ -70,10 +70,12 @@ class _ShowThreePageState extends State<ShowThreePage> {
               child: SizedBox(
                 width: MediaQuery.of(context).size.width * 0.60,
                 child: ButtonNextPageNewVison(
-                    context: context,
-                    page: const RegisterPage(),
-                    title: 'Terminer',
-                    color: ColorConstants.greenLightAppColor),
+                  context: context,
+                  page: const RegisterPage(),
+                  title: 'Terminer',
+                  color: ColorConstants.greenLightAppColor,
+                  icon: Icons.check_circle_outline,
+                ),
               ),
             ),
           ],

@@ -70,11 +70,11 @@ class _ShowTwoPageState extends State<ShowTwoPage> {
               child: SizedBox(
                 width: MediaQuery.of(context).size.width * 0.60,
                 child: ButtonNextPageNewVison(
-                  context: context,
-                  page: const ShowThreePage(),
-                  title: 'Suivant',
-                  color: ColorConstants.greenLightAppColor,
-                ),
+                    context: context,
+                    page: const ShowThreePage(),
+                    title: 'Suivant',
+                    color: ColorConstants.greenLightAppColor,
+                    icon: Icons.east),
               ),
             ),
           ],

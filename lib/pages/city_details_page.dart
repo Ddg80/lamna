@@ -155,11 +155,11 @@ class _CityDetailsPageState extends State<CityDetailsPage> {
                         ),
                       ),
                       ButtonNextPageNewVison(
-                        context: context,
-                        page: const ItineraryPage(),
-                        title: 'Je choisis cette destination',
-                        color: ColorConstants.greenDarkAppColor,
-                      ),
+                          context: context,
+                          page: const ItineraryPage(),
+                          title: 'Je choisis cette destination',
+                          color: ColorConstants.greenDarkAppColor,
+                          icon: Icons.east),
                       const SizedBox(
                         height: 20,
                       )

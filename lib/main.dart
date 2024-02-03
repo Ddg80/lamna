@@ -55,6 +55,7 @@ class MainApp extends StatelessWidget {
                           page: const ShowOnePage(),
                           title: 'Commencer',
                           color: ColorConstants.greenLightAppColor,
+                          icon: Icons.east,
                         ),
                       ),
                     ],
