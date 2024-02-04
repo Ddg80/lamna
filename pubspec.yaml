@@ -49,6 +49,10 @@ flutter:
     - assets/itineraryCards/route4.png
     - assets/itineraryCards/route5.png
     - assets/itineraryCards/route6.png
+    - assets/icons/chevron-left-double.svg
+    - assets/icons/chevron-right-double.svg
+    - assets/icons/like.png
+    - assets/icons/unlike.png
   fonts:
     - family: ClashDisplay
       fonts: 

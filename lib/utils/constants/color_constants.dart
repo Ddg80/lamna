@@ -20,4 +20,6 @@ class ColorConstants {
   static Color whiteAppColor = Colors.white;
   static Color blackAppColor = Colors.black;
   static Color greyAppColor = hexToColor('#C2C2C2');
+  static Color redBlurSecondaryColor = hexToColor('#E3ADAD');
+  static Color greenBlurSecondaryColor = hexToColor('#B6E3AD');
 }
