@@ -7,6 +7,7 @@ import 'package:lamna/models/itinerary.dart';
 import 'package:lamna/pages/reserved/form_transportation_page.dart';
 import 'package:lamna/provider/global_provider.dart';
 import 'package:lamna/utils/constants/color_constants.dart';
+import 'package:lamna/utils/constants/font_constants.dart';
 import 'package:lamna/utils/widgets/button_next_page_new_vision.dart';
 import 'package:lamna/utils/widgets/itinerary/title_itinerary.dart';
 import 'package:lamna/utils/widgets/itinerary/text_itinerary_counter.dart';
@@ -72,8 +73,10 @@ class _ItineraryPageState extends State<ItineraryPage> {
         children: [
           SizedBox(
             width: MediaQuery.of(context).size.width * 0.8,
-            child: const Text(
-                'Découvre les itinéraires disponibles et met de côté ceux qui te plaisent pour plus tard.'),
+            child: Text(
+              'Découvre les itinéraires disponibles et met de côté ceux qui te plaisent pour plus tard.',
+              style: TextStyle(fontFamily: FontConstants.regularFont),
+            ),
           ),
           Flexible(
             child: CardSwiper(

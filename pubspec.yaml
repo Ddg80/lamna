@@ -12,6 +12,8 @@ dependencies:
     sdk: flutter
   flutter_card_swiper: ^6.0.0
   flutter_svg: ^2.0.9
+  intl: ^0.19.0
+  numberpicker: ^2.1.2
   provider: ^6.1.1
 
 dev_dependencies:

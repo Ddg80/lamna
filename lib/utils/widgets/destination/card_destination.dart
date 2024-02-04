@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:lamna/pages/city_details_page.dart';
+import 'package:lamna/provider/global_provider.dart';
 import 'package:lamna/utils/constants/color_constants.dart';
+import 'package:lamna/utils/constants/font_constants.dart';
+import 'package:provider/provider.dart';
 
 class CardDestination extends StatelessWidget {
   const CardDestination({
@@ -25,6 +28,8 @@ class CardDestination extends StatelessWidget {
     return InkWell(
       onTap: () {
         if (enable) {
+          Provider.of<GlobalProvider>(context, listen: false)
+              .setIdCityChoose(id);
           Navigator.of(context).push(
             MaterialPageRoute(
               builder: (context) => CityDetailsPage(id: id),
@@ -90,10 +95,10 @@ class CardDestination extends StatelessWidget {
                     ),
                     Text(
                       name,
-                      style: const TextStyle(
-                        color: Color(0xFF3B6B4E),
+                      style: TextStyle(
+                        color: ColorConstants.greenDarkAppColor,
                         fontSize: 24,
-                        fontFamily: 'Clash Display Variable',
+                        fontFamily: FontConstants.regularFont,
                         fontWeight: FontWeight.w600,
                         height: 0.04,
                       ),

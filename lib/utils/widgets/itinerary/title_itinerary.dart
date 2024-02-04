@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lamna/utils/constants/color_constants.dart';
+import 'package:lamna/utils/constants/font_constants.dart';
 
 class TitleItinerary extends StatelessWidget {
   const TitleItinerary({
@@ -28,14 +29,14 @@ class TitleItinerary extends StatelessWidget {
         ),
         Container(
           transform: Matrix4.translationValues(-68, 0, 0),
-          child: const Padding(
-            padding: EdgeInsets.only(top: 12.0, left: 14.0),
+          child: Padding(
+            padding: const EdgeInsets.only(top: 12.0, left: 14.0),
             child: Text(
               'Rennes',
               style: TextStyle(
-                color: Color(0xFF3B6B4E),
+                color: ColorConstants.greenDarkAppColor,
                 fontSize: 30,
-                fontFamily: 'Clash Display Variable',
+                fontFamily: FontConstants.regularFont,
                 fontWeight: FontWeight.w600,
                 height: 0.04,
               ),

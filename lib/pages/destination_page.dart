@@ -15,7 +15,7 @@ class DestinationPage extends StatefulWidget {
 }
 
 class _DestinationPageState extends State<DestinationPage> {
-  Future<List<City>> getCities() async {
+  Future<List<City>> fetchListCities() async {
     String data = await DefaultAssetBundle.of(context)
         .loadString("assets/json/cities.json");
     List mapData = jsonDecode(data);
@@ -48,7 +48,7 @@ class _DestinationPageState extends State<DestinationPage> {
                 child: SingleChildScrollView(
                   physics: const ScrollPhysics(),
                   child: FutureBuilder<List<City>>(
-                      future: getCities(),
+                      future: fetchListCities(),
                       builder: (context, snapshot) {
                         if (snapshot.hasData) {
                           List<City> cityList = snapshot.data!;

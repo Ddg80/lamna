@@ -5,6 +5,7 @@ import 'package:lamna/models/city.dart';
 import 'package:lamna/pages/destination_page.dart';
 import 'package:lamna/pages/itinerary_page.dart';
 import 'package:lamna/utils/constants/color_constants.dart';
+import 'package:lamna/utils/constants/font_constants.dart';
 import 'package:lamna/utils/widgets/button_next_page_new_vision.dart';
 import 'package:lamna/utils/widgets/detailsDestination/header_details_destination.dart';
 
@@ -79,10 +80,10 @@ class _CityDetailsPageState extends State<CityDetailsPage> {
                           padding: const EdgeInsets.only(top: 18.0, left: 14.0),
                           child: Text(
                             city[0].name,
-                            style: const TextStyle(
-                              color: Color(0xFF3B6B4E),
+                            style: TextStyle(
+                              color: ColorConstants.greenDarkAppColor,
                               fontSize: 30,
-                              fontFamily: 'Clash Display Variable',
+                              fontFamily: FontConstants.regularFont,
                               fontWeight: FontWeight.w600,
                               height: 0.04,
                             ),
@@ -128,10 +129,10 @@ class _CityDetailsPageState extends State<CityDetailsPage> {
                           padding: const EdgeInsets.only(top: 3.0, left: 14.0),
                           child: Text(
                             city[0].titleEmblematicPlaces,
-                            style: const TextStyle(
-                              color: Color(0xFF3B6B4E),
+                            style: TextStyle(
+                              color: ColorConstants.greenDarkAppColor,
                               fontSize: 22,
-                              fontFamily: 'Clash Display Variable',
+                              fontFamily: FontConstants.regularFont,
                               fontWeight: FontWeight.w600,
                             ),
                           ),

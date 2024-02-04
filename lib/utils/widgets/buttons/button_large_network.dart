@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lamna/utils/constants/color_constants.dart';
+import 'package:lamna/utils/constants/font_constants.dart';
 
 class ButtonLargeNetwork extends StatelessWidget {
   const ButtonLargeNetwork({Key? key, required this.text, required this.image})
@@ -37,7 +38,7 @@ class ButtonLargeNetwork extends StatelessWidget {
                 style: TextStyle(
                     color: ColorConstants.blackAppColor,
                     fontSize: 16,
-                    fontFamily: 'Clash Display Variable',
+                    fontFamily: FontConstants.regularFont,
                     fontWeight: FontWeight.w600),
               ),
             ],

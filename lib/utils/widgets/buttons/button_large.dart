@@ -1,18 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:lamna/pages/home_page.dart';
 import 'package:lamna/utils/constants/color_constants.dart';
+import 'package:lamna/utils/constants/font_constants.dart';
 
 class ButtonLarge extends StatelessWidget {
-  const ButtonLarge(
-      {Key? key,
-      required this.text,
-      required this.color,
-      required this.keyForm})
-      : super(key: key);
+  const ButtonLarge({
+    Key? key,
+    required this.text,
+    required this.color,
+    required this.keyForm,
+    required this.fontsize,
+  }) : super(key: key);
 
   final String text;
   final Color color;
   final dynamic keyForm;
+  final double fontsize;
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
@@ -43,8 +46,8 @@ class ButtonLarge extends StatelessWidget {
                 text,
                 style: TextStyle(
                   color: ColorConstants.blackAppColor,
-                  fontSize: 20,
-                  fontFamily: 'Clash Display Variable',
+                  fontSize: fontsize,
+                  fontFamily: FontConstants.mediumFont,
                   fontWeight: FontWeight.w600,
                   height: 0,
                 ),

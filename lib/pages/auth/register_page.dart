@@ -160,11 +160,13 @@ class _RegisterPageState extends State<RegisterPage> {
                         Padding(
                           padding: const EdgeInsets.only(top: 18.0),
                           child: ButtonLarge(
-                              text: "S'inscrire",
-                              color: enable
-                                  ? ColorConstants.greenLightAppColor
-                                  : Colors.grey,
-                              keyForm: _formKey),
+                            text: "S'inscrire",
+                            color: enable
+                                ? ColorConstants.greenLightAppColor
+                                : Colors.grey,
+                            keyForm: _formKey,
+                            fontsize: 20,
+                          ),
                         ),
                         Row(children: [
                           Expanded(

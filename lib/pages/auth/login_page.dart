@@ -164,6 +164,7 @@ class _LoginPageState extends State<LoginPage> {
                                 ? ColorConstants.greenLightAppColor
                                 : Colors.grey,
                             keyForm: _formKey,
+                            fontsize: 20,
                           ),
                         ),
                         Center(

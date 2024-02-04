@@ -1,5 +1,7 @@
 // Button Next Page
 import 'package:flutter/material.dart';
+import 'package:lamna/utils/constants/color_constants.dart';
+import 'package:lamna/utils/constants/font_constants.dart';
 import 'package:lamna/utils/widgets/buttons/button_next_page.dart';
 
 class ButtonNextPageNewVison extends StatelessWidget {
@@ -44,10 +46,10 @@ class ButtonNextPageNewVison extends StatelessWidget {
               children: [
                 Text(
                   title,
-                  style: const TextStyle(
-                    color: Colors.white,
+                  style: TextStyle(
+                    color: ColorConstants.whiteAppColor,
                     fontSize: 20,
-                    fontFamily: 'Clash Display Variable',
+                    fontFamily: FontConstants.regularFont,
                     fontWeight: FontWeight.w600,
                     height: 0,
                   ),
