@@ -4,7 +4,6 @@ import 'package:lamna/utils/constants/color_constants.dart';
 import 'package:lamna/utils/constants/font_constants.dart';
 import 'package:lamna/utils/widgets/Indicators/indicators_sliders.dart';
 import 'package:lamna/utils/widgets/button_next_page_new_vision.dart';
-import 'package:lamna/utils/widgets/indicators.dart';
 
 class ShowThreePage extends StatefulWidget {
   const ShowThreePage({super.key});

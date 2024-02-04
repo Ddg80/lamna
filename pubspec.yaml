@@ -43,6 +43,12 @@ flutter:
     - assets/pictures/itinerary/itinerary1.png
     - assets/pictures/itinerary/itinerary2.png
     - assets/logos/darkIconTypo.svg
+    - assets/itineraryCards/route1.png
+    - assets/itineraryCards/route2.png
+    - assets/itineraryCards/route3.png
+    - assets/itineraryCards/route4.png
+    - assets/itineraryCards/route5.png
+    - assets/itineraryCards/route6.png
   fonts:
     - family: ClashDisplay
       fonts: 

@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:lamna/pages/auth/register_page.dart';
 import 'package:lamna/pages/teaser/show_two_page.dart';
 import 'package:lamna/utils/constants/color_constants.dart';
 import 'package:lamna/utils/constants/font_constants.dart';
 import 'package:lamna/utils/widgets/Indicators/indicators_sliders.dart';
 import 'package:lamna/utils/widgets/button_next_page_new_vision.dart';
-import 'package:lamna/utils/widgets/indicators.dart';
 
 class ShowOnePage extends StatefulWidget {
   const ShowOnePage({super.key});

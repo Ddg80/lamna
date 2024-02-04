@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_card_swiper/flutter_card_swiper.dart';
+import 'package:lamna/models/itinerary.dart';
 import 'package:lamna/utils/constants/color_constants.dart';
 import 'package:lamna/utils/widgets/itinerary/title_itinerary.dart';
 
@@ -11,17 +12,7 @@ class ItineraryPage extends StatefulWidget {
 }
 
 class _ItineraryPageState extends State<ItineraryPage> {
-  List<Container> cards = [
-    Container(
-      alignment: Alignment.center,
-      child: Image.asset("assets/pictures/itinerary/itinerary1.png"),
-    ),
-    Container(
-      alignment: Alignment.center,
-      child: Image.asset("assets/pictures/itinerary/itinerary2.png"),
-    ),
-  ];
-
+  final CardSwiperController controller = CardSwiperController();
   @override
   void initState() {
     super.initState();
@@ -39,12 +30,32 @@ class _ItineraryPageState extends State<ItineraryPage> {
         elevation: 0,
         toolbarHeight: 80,
       ),
-      body: Flexible(
-        child: CardSwiper(
-          cardsCount: cards.length,
-          cardBuilder: (context, index, percentThresholdX, percentThresholdY) =>
-              cards[index],
-        ),
+      body: Column(
+        children: [
+          SizedBox(
+            width: MediaQuery.of(context).size.width * 0.8,
+            child: const Text(
+                'Découvre les itinéraires disponibles et met de côté ceux qui te plaisent pour plus tard.'),
+          ),
+          Flexible(
+            child: CardSwiper(
+              controller: controller,
+              cardsCount: itineraries.length,
+              cardBuilder: (
+                context,
+                index,
+                percentThresholdX,
+                percentThresholdY,
+              ) =>
+                  Container(
+                alignment: Alignment.center,
+                child: Image.asset(
+                  itineraries[index].image,
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
