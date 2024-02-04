@@ -4,8 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_card_swiper/flutter_card_swiper.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lamna/models/itinerary.dart';
+import 'package:lamna/pages/reserved/form_transportation_page.dart';
+import 'package:lamna/provider/global_provider.dart';
 import 'package:lamna/utils/constants/color_constants.dart';
+import 'package:lamna/utils/widgets/button_next_page_new_vision.dart';
 import 'package:lamna/utils/widgets/itinerary/title_itinerary.dart';
+import 'package:lamna/utils/widgets/itinerary/text_itinerary_counter.dart';
+import 'package:provider/provider.dart';
 
 class ItineraryPage extends StatefulWidget {
   const ItineraryPage({super.key});
@@ -16,6 +21,9 @@ class ItineraryPage extends StatefulWidget {
 
 class _ItineraryPageState extends State<ItineraryPage> {
   final CardSwiperController controller = CardSwiperController();
+  int _counter = 0;
+  int _maxTap = itineraries.length;
+  int _idItinerary = 0;
   @override
   void initState() {
     super.initState();
@@ -23,10 +31,23 @@ class _ItineraryPageState extends State<ItineraryPage> {
 
   _likeAction() {
     controller.swipeRight();
+    setState(() {
+      if (_maxTap >= 1) {
+        _counter++;
+        _maxTap--;
+        _idItinerary++;
+      }
+    });
+    log(_maxTap.toString());
   }
 
   _nopeAction() {
     controller.swipeLeft();
+    if (_maxTap >= 1) {
+      _maxTap--;
+      _idItinerary++;
+    }
+    log(_maxTap.toString());
   }
 
   @override
@@ -88,7 +109,7 @@ class _ItineraryPageState extends State<ItineraryPage> {
                       InkWell(
                         borderRadius: BorderRadius.circular(100),
                         onTap: () {
-                          _likeAction();
+                          _nopeAction();
                         },
                         child: Container(
                           height: 60,
@@ -123,7 +144,9 @@ class _ItineraryPageState extends State<ItineraryPage> {
                       InkWell(
                         borderRadius: BorderRadius.circular(100),
                         onTap: () {
-                          _nopeAction();
+                          _likeAction();
+                          Provider.of<GlobalProvider>(context, listen: false)
+                              .setItinerariesSelected(_idItinerary);
                         },
                         child: Container(
                           height: 60,
@@ -161,10 +184,14 @@ class _ItineraryPageState extends State<ItineraryPage> {
                     ],
                   ),
                 ),
-                SizedBox(
-                  width: MediaQuery.of(context).size.width,
-                  child: const Center(
-                    child: Text('2 itinéraires sauvegardés'),
+                TextItineraryCounter(counter: _counter),
+                Center(
+                  child: ButtonNextPageNewVison(
+                    context: context,
+                    page: const FormTransportationPage(),
+                    title: 'Valider ma sélection',
+                    color: ColorConstants.greenDarkAppColor,
+                    icon: Icons.check_box_outlined,
                   ),
                 ),
               ],

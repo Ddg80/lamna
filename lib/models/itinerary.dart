@@ -16,6 +16,11 @@ class Itinerary {
     required this.distance,
     required this.days,
   });
+
+  @override
+  String toString() {
+    return '{"id":$id,"nameCity":$nameCity,"image":$image,"titleItinerary":$titleItinerary,"nbSite":$nbSite,"distance":$distance,"days":$days}';
+  }
 }
 
 List<Itinerary> itineraries = [
