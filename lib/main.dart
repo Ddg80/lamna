@@ -19,6 +19,9 @@ class MainApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           scaffoldBackgroundColor: ColorConstants.lightScaffoldBackgroundColor,
+          textSelectionTheme: TextSelectionThemeData(
+            cursorColor: ColorConstants.greenDarkAppColor,
+          ),
         ),
         home: const LauncherPage(),
       ),

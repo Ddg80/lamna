@@ -57,3 +57,18 @@ flutter:
     - family: ClashDisplay
       fonts: 
         - asset: fonts/ClashDisplay-Variable.ttf
+    - family: ClashDisplayBold
+      fonts: 
+        - asset: fonts/ClashDisplay-Bold.ttf
+    - family: ClashDisplayLight
+      fonts: 
+        - asset: fonts/ClashDisplay-Light.ttf
+    - family: ClashDisplayMedium
+      fonts: 
+        - asset: fonts/ClashDisplay-Medium.ttf
+    - family: ClashDisplayRegular
+      fonts: 
+        - asset: fonts/ClashDisplay-Regular.ttf
+    - family: ClashDisplaySemiBold
+      fonts: 
+        - asset: fonts/ClashDisplay-Semibold.ttf
