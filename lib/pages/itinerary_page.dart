@@ -61,7 +61,7 @@ class _ItineraryPageState extends State<ItineraryPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Padding(
-          padding: EdgeInsets.only(top: 18.0),
+          padding: EdgeInsets.only(top: 6.0),
           child: TitleItinerary(),
         ),
         backgroundColor: ColorConstants.lightScaffoldBackgroundColor,
@@ -110,6 +110,15 @@ class _ItineraryPageState extends State<ItineraryPage> {
                         borderRadius: BorderRadius.circular(100),
                         onTap: () {
                           _nopeAction();
+                          if (_maxTap == 0) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                content: Text(
+                                    'Vous êtes arrivés au maximum de vos choix.'),
+                                duration: Duration(seconds: 2),
+                              ),
+                            );
+                          }
                         },
                         child: Container(
                           height: 60,
@@ -147,6 +156,15 @@ class _ItineraryPageState extends State<ItineraryPage> {
                           _likeAction();
                           Provider.of<GlobalProvider>(context, listen: false)
                               .setItinerariesSelected(_idItinerary);
+                          if (_maxTap == 0) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                content: Text(
+                                    'Vous êtes arrivés au maximum de vos choix.'),
+                                duration: Duration(seconds: 2),
+                              ),
+                            );
+                          }
                         },
                         child: Container(
                           height: 60,
