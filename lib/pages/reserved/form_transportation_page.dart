@@ -43,7 +43,19 @@ class _FormTransportationPageState extends State<FormTransportationPage> {
         context: context,
         initialDate: currentDate,
         firstDate: DateTime(2015),
-        lastDate: DateTime(2050));
+        lastDate: DateTime(2050),
+        builder: (context, child) {
+          return Theme(
+            data: Theme.of(context).copyWith(
+              colorScheme: ColorScheme.light(
+                primary: ColorConstants.lightScaffoldBackgroundColor,
+                onPrimary: ColorConstants.greenDarkAppColor,
+                onSurface: ColorConstants.blackAppColor,
+              ),
+            ),
+            child: child!,
+          );
+        });
     if (pickedDate != null && pickedDate != currentDate) {
       setState(() {
         startDateController.text = DateFormat('dd/MM/yyyy').format(pickedDate);
@@ -56,7 +68,19 @@ class _FormTransportationPageState extends State<FormTransportationPage> {
         context: context,
         initialDate: currentDate,
         firstDate: DateTime(2015),
-        lastDate: DateTime(2050));
+        lastDate: DateTime(2050),
+        builder: (context, child) {
+          return Theme(
+            data: Theme.of(context).copyWith(
+              colorScheme: ColorScheme.light(
+                primary: ColorConstants.lightScaffoldBackgroundColor,
+                onPrimary: ColorConstants.greenDarkAppColor,
+                onSurface: ColorConstants.blackAppColor,
+              ),
+            ),
+            child: child!,
+          );
+        });
     if (pickedDate != null && pickedDate != currentDate) {
       setState(() {
         returnDateController.text = DateFormat('dd/MM/yyyy').format(pickedDate);
