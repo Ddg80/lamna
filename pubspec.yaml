@@ -56,6 +56,11 @@ flutter:
     - assets/icons/like.png
     - assets/icons/unlike.png
     - assets/avatar/avatar.jpg
+    - assets/icons/clock-refresh.svg
+    - assets/icons/info-circle.svg
+    - assets/icons/right.svg
+    - assets/icons/settings-01.svg
+    - assets/icons/users-01.svg
   fonts:
     - family: ClashDisplay
       fonts: 
