@@ -55,6 +55,7 @@ flutter:
     - assets/icons/chevron-right-double.svg
     - assets/icons/like.png
     - assets/icons/unlike.png
+    - assets/avatar/avatar.jpg
   fonts:
     - family: ClashDisplay
       fonts: 

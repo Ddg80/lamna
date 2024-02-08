@@ -28,8 +28,7 @@ class _FormTransportationPageState extends State<FormTransportationPage> {
   TextEditingController numbersTravelController = TextEditingController();
   bool enable = false;
   DateTime currentDate = DateTime.now();
-  int _currentIntValue = 1;
-  int _currentHorizontalIntValue = 10;
+  int _currentHorizontalIntValue = 1;
 
   Future<List<City>> fetchCityById(int id) async {
     String data = await DefaultAssetBundle.of(context)

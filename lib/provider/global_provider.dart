@@ -15,14 +15,13 @@ class GlobalProvider extends ChangeNotifier {
         .contains(itinerary[0].id)) {
       _itinerariesSelected.add(itinerary[0]);
     }
-    //TODO : SAVE IN BDD
-    // print('itineraries:  $_itinerariesSelected');
+    // print('itineraries:  $_itinerariesSelected');    //
     notifyListeners();
   }
 
   setIdCityChoose(int idChoose) {
     idCity = idChoose;
-    print('idCity: $idCity');
+    // print('idCity: $idCity');
   }
 
   getIdCity() {
