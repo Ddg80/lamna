@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lamna/pages/auth/login_page.dart';
+import 'package:lamna/pages/home_page.dart';
 import 'package:lamna/utils/constants/color_constants.dart';
 import 'package:lamna/utils/constants/font_constants.dart';
 import 'package:lamna/utils/validator_fields.dart';
@@ -166,6 +167,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                 : Colors.grey,
                             keyForm: _formKey,
                             fontsize: 20,
+                            page: const HomePage(),
                           ),
                         ),
                         Row(children: [

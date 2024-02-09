@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:lamna/models/city.dart';
+import 'package:lamna/pages/reserved/options_transport.dart';
 import 'package:lamna/provider/global_provider.dart';
 import 'package:lamna/utils/constants/color_constants.dart';
 import 'package:lamna/utils/constants/font_constants.dart';
@@ -48,9 +49,14 @@ class _FormTransportationPageState extends State<FormTransportationPage> {
           return Theme(
             data: Theme.of(context).copyWith(
               colorScheme: ColorScheme.light(
-                primary: ColorConstants.lightScaffoldBackgroundColor,
+                primary: ColorConstants.greenLightAppColor,
                 onPrimary: ColorConstants.greenDarkAppColor,
                 onSurface: ColorConstants.blackAppColor,
+              ),
+              textButtonTheme: TextButtonThemeData(
+                style: TextButton.styleFrom(
+                  backgroundColor: ColorConstants.greenDarkAppColor,
+                ),
               ),
             ),
             child: child!,
@@ -73,9 +79,15 @@ class _FormTransportationPageState extends State<FormTransportationPage> {
           return Theme(
             data: Theme.of(context).copyWith(
               colorScheme: ColorScheme.light(
-                primary: ColorConstants.lightScaffoldBackgroundColor,
+                primary: ColorConstants.greenLightAppColor,
                 onPrimary: ColorConstants.greenDarkAppColor,
                 onSurface: ColorConstants.blackAppColor,
+              ),
+              textButtonTheme: TextButtonThemeData(
+                style: TextButton.styleFrom(
+                  backgroundColor: ColorConstants.greenLightAppColor,
+                  foregroundColor: ColorConstants.blackAppColor,
+                ),
               ),
             ),
             child: child!,
@@ -375,6 +387,7 @@ class _FormTransportationPageState extends State<FormTransportationPage> {
                               ? ColorConstants.greenLightAppColor
                               : Colors.grey,
                           keyForm: _formkey,
+                          page: const OptionsTransportPage(),
                           fontsize: 18,
                         ),
                       ),

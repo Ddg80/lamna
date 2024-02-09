@@ -1,36 +1,43 @@
 import 'package:flutter/material.dart';
-import 'package:lamna/pages/home_page.dart';
 import 'package:lamna/utils/constants/color_constants.dart';
 import 'package:lamna/utils/constants/font_constants.dart';
 
-class ButtonLarge extends StatelessWidget {
-  const ButtonLarge({
-    Key? key,
-    required this.text,
-    required this.color,
-    required this.keyForm,
-    required this.fontsize,
-  }) : super(key: key);
-
+class ButtonLarge extends StatefulWidget {
   final String text;
   final Color color;
   final dynamic keyForm;
   final double fontsize;
+  final dynamic page;
+
+  const ButtonLarge({
+    super.key,
+    required this.text,
+    required this.color,
+    required this.keyForm,
+    required this.fontsize,
+    required this.page,
+  });
+
+  @override
+  State<ButtonLarge> createState() => _ButtonLargeState();
+}
+
+class _ButtonLargeState extends State<ButtonLarge> {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-        backgroundColor: color,
+        backgroundColor: widget.color,
         minimumSize: const Size.fromHeight(50),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10.0),
         ),
       ),
       onPressed: () {
-        if (keyForm.currentState!.validate()) {
+        if (widget.keyForm.currentState!.validate()) {
           Navigator.of(context).push(
             MaterialPageRoute(
-              builder: (_) => const HomePage(),
+              builder: (_) => widget.page,
             ),
           );
         }
@@ -43,10 +50,10 @@ class ButtonLarge extends StatelessWidget {
             crossAxisAlignment: WrapCrossAlignment.center,
             children: [
               Text(
-                text,
+                widget.text,
                 style: TextStyle(
                   color: ColorConstants.blackAppColor,
-                  fontSize: fontsize,
+                  fontSize: widget.fontsize,
                   fontFamily: FontConstants.mediumFont,
                   fontWeight: FontWeight.w600,
                   height: 0,

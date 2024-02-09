@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:lamna/utils/constants/color_constants.dart';
 
-class ExamplePage extends StatefulWidget {
-  const ExamplePage({super.key});
+class OptionsTransportPage extends StatefulWidget {
+  const OptionsTransportPage({super.key});
 
   @override
-  State<ExamplePage> createState() => _ExamplePageState();
+  State<OptionsTransportPage> createState() => _OptionsTransportPageState();
 }
 
-class _ExamplePageState extends State<ExamplePage> {
+class _OptionsTransportPageState extends State<OptionsTransportPage> {
   @override
   void initState() {
     super.initState();
@@ -20,7 +20,7 @@ class _ExamplePageState extends State<ExamplePage> {
       appBar: AppBar(
         backgroundColor: ColorConstants.lightScaffoldBackgroundColor,
       ),
-      body: const Text('Example page'),
+      body: const Text('Options transport page'),
     );
   }
 }
