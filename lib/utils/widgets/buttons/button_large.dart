@@ -40,6 +40,12 @@ class _ButtonLargeState extends State<ButtonLarge> {
               builder: (_) => widget.page,
             ),
           );
+        } else {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (_) => widget.page,
+            ),
+          );
         }
       },
       child: Row(
