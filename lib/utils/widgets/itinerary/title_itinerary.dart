@@ -14,15 +14,17 @@ class TitleItinerary extends StatelessWidget {
         Text.rich(
           textAlign: TextAlign.start,
           style: TextStyle(
-              color: ColorConstants.greenDarkAppColor), //style for all textspan
+            color: ColorConstants.greenDarkAppColor,
+          ),
           TextSpan(
             children: [
               TextSpan(
                 text: "Itinéraires à découvrir à ",
                 style: TextStyle(
-                    fontSize: 21,
-                    color: ColorConstants.greenDarkAppColor,
-                    fontWeight: FontWeight.w400),
+                  fontSize: 21,
+                  color: ColorConstants.greenDarkAppColor,
+                  fontWeight: FontWeight.w400,
+                ),
               ),
             ],
           ),

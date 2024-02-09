@@ -61,6 +61,9 @@ flutter:
     - assets/icons/right.svg
     - assets/icons/settings-01.svg
     - assets/icons/users-01.svg
+    - assets/icons/busEmoji.png
+    - assets/icons/trainEmoji.png
+    - assets/icons/voitureEmoji.png
   fonts:
     - family: ClashDisplay
       fonts: 
