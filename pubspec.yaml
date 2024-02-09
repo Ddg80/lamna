@@ -42,6 +42,9 @@ flutter:
     - assets/pictures/brest.png
     - assets/pictures/lorient.png
     - assets/json/cities.json
+    - assets/json/busTravels.json
+    - assets/json/covoitTravels.json
+    - assets/json/trainTravels.json
     - assets/pictures/itinerary/itinerary1.png
     - assets/pictures/itinerary/itinerary2.png
     - assets/logos/darkIconTypo.svg

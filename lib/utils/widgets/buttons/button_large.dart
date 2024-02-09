@@ -34,7 +34,7 @@ class _ButtonLargeState extends State<ButtonLarge> {
         ),
       ),
       onPressed: () {
-        if (widget.keyForm.currentState!.validate()) {
+        if (widget.keyForm != null && widget.keyForm.currentState!.validate()) {
           Navigator.of(context).push(
             MaterialPageRoute(
               builder: (_) => widget.page,
@@ -52,7 +52,7 @@ class _ButtonLargeState extends State<ButtonLarge> {
               Text(
                 widget.text,
                 style: TextStyle(
-                  color: ColorConstants.blackAppColor,
+                  color: ColorConstants.lightScaffoldBackgroundColor,
                   fontSize: widget.fontsize,
                   fontFamily: FontConstants.mediumFont,
                   fontWeight: FontWeight.w600,

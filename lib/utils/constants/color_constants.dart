@@ -17,8 +17,8 @@ class ColorConstants {
   static Color yellowPrimaryAppColor = hexToColor('#FDA92B');
   static Color yellowSecondaryAppColor = hexToColor('#FDC22B');
   static Color redDarkAppColor = hexToColor('#ED755B');
-  static Color whiteAppColor = Colors.white;
-  static Color blackAppColor = Colors.black;
+  static Color whiteAppColor = hexToColor('#FFFFFF');
+  static Color blackAppColor = hexToColor('#000000');
   static Color greyAppColor = hexToColor('#C2C2C2');
   static Color redBlurSecondaryColor = hexToColor('#E3ADAD');
   static Color greenBlurSecondaryColor = hexToColor('#B6E3AD');
