@@ -79,7 +79,12 @@ class _OptionsTransportPageState extends State<OptionsTransportPage> {
                   : ColorConstants.greyAppColor,
               keyForm: null,
               fontsize: 18.0,
-              page: const PaymentPage(),
+              page: provider.isNotEmptyTravelSelected()
+                  ? const PaymentPage()
+                  : null,
+              action: provider.isNotEmptyTravelSelected()
+                  ? 'Sauvegarde du billet de transport'
+                  : 'Selectionner un billet de transport',
             ),
           ),
         ),

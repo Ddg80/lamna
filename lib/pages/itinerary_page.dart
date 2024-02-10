@@ -116,6 +116,7 @@ class _ItineraryPageState extends State<ItineraryPage> {
                           if (_maxTap == 0) {
                             ScaffoldMessenger.of(context).showSnackBar(
                               const SnackBar(
+                                behavior: SnackBarBehavior.floating,
                                 content: Text(
                                     'Vous êtes arrivés au maximum de vos choix.'),
                                 duration: Duration(seconds: 2),
@@ -162,6 +163,7 @@ class _ItineraryPageState extends State<ItineraryPage> {
                           if (_maxTap == 0) {
                             ScaffoldMessenger.of(context).showSnackBar(
                               const SnackBar(
+                                behavior: SnackBarBehavior.floating,
                                 content: Text(
                                     'Vous êtes arrivés au maximum de vos choix.'),
                                 duration: Duration(seconds: 2),

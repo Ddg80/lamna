@@ -387,8 +387,11 @@ class _FormTransportationPageState extends State<FormTransportationPage> {
                               ? ColorConstants.greenLightAppColor
                               : Colors.grey,
                           keyForm: _formkey,
-                          page: const OptionsTransportPage(),
+                          page: enable ? const OptionsTransportPage() : null,
                           fontsize: 18,
+                          action: enable
+                              ? 'Sauvegarde des données du formulaire'
+                              : 'Compléter tout le formulaire',
                         ),
                       ),
                     ],

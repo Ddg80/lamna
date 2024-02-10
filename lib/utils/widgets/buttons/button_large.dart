@@ -8,6 +8,7 @@ class ButtonLarge extends StatefulWidget {
   final dynamic keyForm;
   final double fontsize;
   final dynamic page;
+  final String action;
 
   const ButtonLarge({
     super.key,
@@ -16,6 +17,7 @@ class ButtonLarge extends StatefulWidget {
     required this.keyForm,
     required this.fontsize,
     required this.page,
+    required this.action,
   });
 
   @override
@@ -35,15 +37,27 @@ class _ButtonLargeState extends State<ButtonLarge> {
       ),
       onPressed: () {
         if (widget.keyForm != null && widget.keyForm.currentState!.validate()) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              behavior: SnackBarBehavior.floating,
+              backgroundColor: ColorConstants.greenLightAppColor,
+              content: Text(widget.action),
+            ),
+          );
+        }
+
+        if (widget.page != null) {
           Navigator.of(context).push(
             MaterialPageRoute(
               builder: (_) => widget.page,
             ),
           );
         } else {
-          Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (_) => widget.page,
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              behavior: SnackBarBehavior.floating,
+              backgroundColor: ColorConstants.greenLightAppColor,
+              content: Text(widget.action),
             ),
           );
         }
