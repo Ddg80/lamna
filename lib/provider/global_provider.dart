@@ -30,8 +30,26 @@ class GlobalProvider extends ChangeNotifier {
       _travelReserved.clear();
       _travelReserved.add(travel);
     }
-    print('travel reserved:  $_travelReserved'); //
+    print('travel reserved:  $_travelReserved');
     notifyListeners();
+  }
+
+  bool isNotEmptyTravelSelected() {
+    return _travelReserved.isNotEmpty;
+  }
+
+  int getIdTravelSelected() {
+    if (_travelReserved.isNotEmpty) {
+      return _travelReserved[0].id;
+    }
+    return 0;
+  }
+
+  String getCategoryTravelSelected() {
+    if (_travelReserved.isNotEmpty) {
+      return _travelReserved[0].category;
+    }
+    return '';
   }
 
   setIdCityChoose(int idChoose) {

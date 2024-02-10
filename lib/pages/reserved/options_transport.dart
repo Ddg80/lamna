@@ -1,6 +1,8 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
 import 'package:lamna/models/travel.dart';
 import 'package:lamna/pages/reserved/payments_page.dart';
 import 'package:lamna/provider/global_provider.dart';
@@ -8,7 +10,6 @@ import 'package:lamna/utils/constants/color_constants.dart';
 import 'package:lamna/utils/constants/font_constants.dart';
 import 'package:lamna/utils/widgets/buttons/button_large.dart';
 import 'package:lamna/utils/widgets/reserved/title_options_transport.dart';
-import 'package:provider/provider.dart';
 
 class OptionsTransportPage extends StatefulWidget {
   const OptionsTransportPage({super.key});
@@ -18,6 +19,7 @@ class OptionsTransportPage extends StatefulWidget {
 }
 
 class _OptionsTransportPageState extends State<OptionsTransportPage> {
+  late final provider = Provider.of<GlobalProvider>(context, listen: true);
   @override
   void initState() {
     super.initState();
@@ -72,7 +74,9 @@ class _OptionsTransportPageState extends State<OptionsTransportPage> {
             width: MediaQuery.of(context).size.width * 0.8,
             child: ButtonLarge(
               text: 'Valider mon choix',
-              color: ColorConstants.greenDarkAppColor,
+              color: (provider.isNotEmptyTravelSelected())
+                  ? ColorConstants.greenDarkAppColor
+                  : ColorConstants.greyAppColor,
               keyForm: null,
               fontsize: 18.0,
               page: const PaymentsPage(),
@@ -96,6 +100,11 @@ class NestedTabBar extends StatefulWidget {
 class _NestedTabBarState extends State<NestedTabBar>
     with TickerProviderStateMixin {
   late final TabController _tabController;
+  late final provider = Provider.of<GlobalProvider>(context, listen: true);
+  static const train = 'Train';
+  static const bus = 'Bus';
+  static const covoit = 'Covoit';
+
   Future<List<Travel>> fetchListTravelsTrain() async {
     String data = await DefaultAssetBundle.of(context)
         .loadString("assets/json/trainTravels.json");
@@ -146,7 +155,7 @@ class _NestedTabBarState extends State<NestedTabBar>
           tabs: const <Widget>[
             Tab(text: '🚅 Train'),
             Tab(text: '🚌 Bus'),
-            Tab(text: '🚗 Covoit`'),
+            Tab(text: '🚗 Covoit'),
           ],
         ),
         Expanded(
@@ -173,7 +182,13 @@ class _NestedTabBarState extends State<NestedTabBar>
                                       .setTravelSelected(travelList[index]);
                                 },
                                 child: Card(
-                                  color: ColorConstants.whiteAppColor,
+                                  color: (provider.isNotEmptyTravelSelected() &&
+                                          provider.getIdTravelSelected() ==
+                                              travelList[index].id &&
+                                          provider.getCategoryTravelSelected() ==
+                                              train)
+                                      ? ColorConstants.greenBlurSecondaryColor
+                                      : ColorConstants.whiteAppColor,
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(6.0),
                                   ),
@@ -314,7 +329,13 @@ class _NestedTabBarState extends State<NestedTabBar>
                                       .setTravelSelected(travelList[index]);
                                 },
                                 child: Card(
-                                  color: ColorConstants.whiteAppColor,
+                                  color: (provider.isNotEmptyTravelSelected() &&
+                                          provider.getIdTravelSelected() ==
+                                              travelList[index].id &&
+                                          provider.getCategoryTravelSelected() ==
+                                              bus)
+                                      ? ColorConstants.greenBlurSecondaryColor
+                                      : ColorConstants.whiteAppColor,
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(6.0),
                                   ),
@@ -455,7 +476,13 @@ class _NestedTabBarState extends State<NestedTabBar>
                                       .setTravelSelected(travelList[index]);
                                 },
                                 child: Card(
-                                  color: ColorConstants.whiteAppColor,
+                                  color: (provider.isNotEmptyTravelSelected() &&
+                                          provider.getIdTravelSelected() ==
+                                              travelList[index].id &&
+                                          provider.getCategoryTravelSelected() ==
+                                              covoit)
+                                      ? ColorConstants.greenBlurSecondaryColor
+                                      : ColorConstants.whiteAppColor,
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(6.0),
                                   ),
