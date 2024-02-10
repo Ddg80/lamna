@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:lamna/utils/constants/color_constants.dart';
 
-class PaymentsPage extends StatefulWidget {
-  const PaymentsPage({super.key});
+class ValidateCommandPage extends StatefulWidget {
+  const ValidateCommandPage({super.key});
 
   @override
-  State<PaymentsPage> createState() => _PaymentsPageState();
+  State<ValidateCommandPage> createState() => _ValidateCommandPageState();
 }
 
-class _PaymentsPageState extends State<PaymentsPage> {
+class _ValidateCommandPageState extends State<ValidateCommandPage> {
   @override
   void initState() {
     super.initState();
@@ -20,7 +20,7 @@ class _PaymentsPageState extends State<PaymentsPage> {
       appBar: AppBar(
         backgroundColor: ColorConstants.lightScaffoldBackgroundColor,
       ),
-      body: const Text('Payments page'),
+      body: const Text('Validate Command page'),
     );
   }
 }

@@ -68,6 +68,10 @@ flutter:
     - assets/icons/busEmoji.png
     - assets/icons/trainEmoji.png
     - assets/icons/voitureEmoji.png
+    - assets/mastercard/bgDark.png
+    - assets/mastercard/bgLight.png
+    - assets/mastercard/cardBg.png
+    - assets/mastercard/mastercard.png
   fonts:
     - family: ClashDisplay
       fonts: 

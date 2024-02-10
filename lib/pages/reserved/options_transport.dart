@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'package:lamna/models/travel.dart';
-import 'package:lamna/pages/reserved/payments_page.dart';
+import 'package:lamna/pages/payments/payment_page.dart';
 import 'package:lamna/provider/global_provider.dart';
 import 'package:lamna/utils/constants/color_constants.dart';
 import 'package:lamna/utils/constants/font_constants.dart';
@@ -79,7 +79,7 @@ class _OptionsTransportPageState extends State<OptionsTransportPage> {
                   : ColorConstants.greyAppColor,
               keyForm: null,
               fontsize: 18.0,
-              page: const PaymentsPage(),
+              page: const PaymentPage(),
             ),
           ),
         ),
@@ -221,13 +221,13 @@ class _NestedTabBarState extends State<NestedTabBar>
                                                 Text(
                                                   travelList[index].finishHour,
                                                   style: TextStyle(
-                                                      color: ColorConstants
-                                                          .greenDarkAppColor,
-                                                      fontFamily: FontConstants
-                                                          .regularFont,
-                                                      fontSize: 19,
-                                                      fontWeight:
-                                                          FontWeight.w600),
+                                                    color: ColorConstants
+                                                        .greenDarkAppColor,
+                                                    fontFamily: FontConstants
+                                                        .regularFont,
+                                                    fontSize: 19,
+                                                    fontWeight: FontWeight.w600,
+                                                  ),
                                                 )
                                               ],
                                             ),

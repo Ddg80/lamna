@@ -22,4 +22,10 @@ class ColorConstants {
   static Color greyAppColor = hexToColor('#C2C2C2');
   static Color redBlurSecondaryColor = hexToColor('#E3ADAD');
   static Color greenBlurSecondaryColor = hexToColor('#B6E3AD');
+  static Color cardBgColor = hexToColor('#363636');
+  static Color cardBgLightColor = hexToColor('#999999');
+  static Color colorB58D67 = hexToColor('#B58D67');
+  static Color colorE5D1B2 = hexToColor('#E5D1B2');
+  static Color colorF9EED2 = hexToColor('#F9EED2');
+  static Color colorEFEFED = hexToColor('#EFEFED');
 }

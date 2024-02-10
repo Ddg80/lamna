@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:lamna/models/city.dart';
 import 'package:lamna/models/itinerary.dart';
+import 'package:lamna/models/mastercard.dart';
 import 'package:lamna/models/travel.dart';
 
 class GlobalProvider extends ChangeNotifier {
   int idCity = 0;
   final List<Itinerary> _itinerariesSelected = [];
   final List<Travel> _travelReserved = [];
+  final List<MasterCard> _masterCard = [];
   List<City> cities = [];
 
   // Add Itinerary selected
@@ -18,7 +20,7 @@ class GlobalProvider extends ChangeNotifier {
         .contains(itinerary[0].id)) {
       _itinerariesSelected.add(itinerary[0]);
     }
-    print('itineraries:  $_itinerariesSelected');
+    // print('itineraries:  $_itinerariesSelected');
     notifyListeners();
   }
 
@@ -30,7 +32,7 @@ class GlobalProvider extends ChangeNotifier {
       _travelReserved.clear();
       _travelReserved.add(travel);
     }
-    print('travel reserved:  $_travelReserved');
+    // print('travel reserved:  $_travelReserved');
     notifyListeners();
   }
 
@@ -60,5 +62,17 @@ class GlobalProvider extends ChangeNotifier {
 
   getIdCity() {
     return idCity;
+  }
+
+  // Add MasterCards
+  setMasterCard(MasterCard card) {
+    if (_masterCard.isEmpty) {
+      _masterCard.add(card);
+    } else {
+      _masterCard.clear();
+      _masterCard.add(card);
+    }
+    print('masterCard save:  $_masterCard');
+    notifyListeners();
   }
 }
