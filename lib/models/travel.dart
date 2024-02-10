@@ -7,6 +7,7 @@ class Travel {
   late double pricePerPerson;
   late String timeTravel;
   late int percent;
+  late String category;
 
   Travel({
     required this.id,
@@ -17,6 +18,7 @@ class Travel {
     required this.pricePerPerson,
     required this.timeTravel,
     required this.percent,
+    required this.category,
   });
 
   Travel.fromJson(Map<String, dynamic> json) {
@@ -28,6 +30,7 @@ class Travel {
     pricePerPerson = json['pricePerPerson'];
     timeTravel = json['timeTravel'];
     percent = json['percent'];
+    category = json['category'];
   }
 
   Map<String, dynamic> toJson() {
@@ -40,11 +43,12 @@ class Travel {
     data['pricePerPerson'] = pricePerPerson;
     data['timeTravel'] = timeTravel;
     data['percent'] = percent;
+    data['category'] = category;
     return data;
   }
 
   @override
   String toString() {
-    return '{"id":$id,"startHour":$startHour,"cityStart":$cityStart,"finishHour":$finishHour,"cityFinish":$cityFinish,"cityFinish":$cityFinish,"pricePerPerson":$pricePerPerson,"timeTravel": $timeTravel,"percent":$percent}';
+    return '{"id":$id,"startHour":$startHour,"cityStart":$cityStart,"finishHour":$finishHour,"cityFinish":$cityFinish,"cityFinish":$cityFinish,"pricePerPerson":$pricePerPerson,"timeTravel": $timeTravel,"percent":$percent,"category":$category}';
   }
 }

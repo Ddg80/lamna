@@ -3,10 +3,12 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:lamna/models/travel.dart';
 import 'package:lamna/pages/reserved/payments_page.dart';
+import 'package:lamna/provider/global_provider.dart';
 import 'package:lamna/utils/constants/color_constants.dart';
 import 'package:lamna/utils/constants/font_constants.dart';
 import 'package:lamna/utils/widgets/buttons/button_large.dart';
 import 'package:lamna/utils/widgets/reserved/title_options_transport.dart';
+import 'package:provider/provider.dart';
 
 class OptionsTransportPage extends StatefulWidget {
   const OptionsTransportPage({super.key});
@@ -166,8 +168,9 @@ class _NestedTabBarState extends State<NestedTabBar>
                             itemBuilder: (context, index) {
                               return GestureDetector(
                                 onTap: () {
-                                  // TODO: Mettre le choix dans le GlobalProvider
-                                  print('${travelList[index]} train');
+                                  Provider.of<GlobalProvider>(context,
+                                          listen: false)
+                                      .setTravelSelected(travelList[index]);
                                 },
                                 child: Card(
                                   color: ColorConstants.whiteAppColor,
@@ -306,8 +309,9 @@ class _NestedTabBarState extends State<NestedTabBar>
                             itemBuilder: (context, index) {
                               return GestureDetector(
                                 onTap: () {
-                                  // TODO: Mettre le choix dans le GlobalProvider
-                                  print('${travelList[index]} Bus');
+                                  Provider.of<GlobalProvider>(context,
+                                          listen: false)
+                                      .setTravelSelected(travelList[index]);
                                 },
                                 child: Card(
                                   color: ColorConstants.whiteAppColor,
@@ -446,8 +450,9 @@ class _NestedTabBarState extends State<NestedTabBar>
                             itemBuilder: (context, index) {
                               return GestureDetector(
                                 onTap: () {
-                                  // TODO: Mettre le choix dans le GlobalProvider
-                                  print('${travelList[index]} covoit');
+                                  Provider.of<GlobalProvider>(context,
+                                          listen: false)
+                                      .setTravelSelected(travelList[index]);
                                 },
                                 child: Card(
                                   color: ColorConstants.whiteAppColor,

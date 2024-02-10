@@ -7,7 +7,8 @@
         "cityFinish": "Rouen Rive droite",
         "pricePerPerson": 45.00,
         "timeTravel": "4:52",
-        "percent": 5 
+        "percent": 5,
+        "category": "bus"
     },
     {
         "id": 2,
@@ -17,7 +18,8 @@
         "cityFinish": "Rouen Rive droite",
         "pricePerPerson": 51.00,
         "timeTravel": "4:54",
-        "percent": 5 
+        "percent": 5,
+        "category": "bus"
     },
     {
         "id": 3,
@@ -27,7 +29,8 @@
         "cityFinish": "Rouen Rive droite",
         "pricePerPerson": 48.00,
         "timeTravel": "4:50",
-        "percent": 5 
+        "percent": 5,
+        "category": "bus"
     },
     {
         "id": 4,
@@ -37,7 +40,8 @@
         "cityFinish": "Rouen Rive droite",
         "pricePerPerson": 58.00,
         "timeTravel": "4:50",
-        "percent": 5 
+        "percent": 5,
+        "category": "bus"
     },
     {
         "id": 5,
@@ -47,6 +51,7 @@
         "cityFinish": "Rouen Rive droite",
         "pricePerPerson": 42.00,
         "timeTravel": "4:50",
-        "percent": 5 
+        "percent": 5,
+        "category": "bus"
     }
 ]
