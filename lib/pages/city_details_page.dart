@@ -155,15 +155,6 @@ class _CityDetailsPageState extends State<CityDetailsPage> {
                           }),
                         ),
                       ),
-                      ButtonNextPageNewVison(
-                          context: context,
-                          page: const ItineraryPage(),
-                          title: 'Je choisis cette destination',
-                          color: ColorConstants.greenDarkAppColor,
-                          icon: Icons.east),
-                      const SizedBox(
-                        height: 20,
-                      )
                     ],
                   ),
                 ],
@@ -173,6 +164,20 @@ class _CityDetailsPageState extends State<CityDetailsPage> {
             return const CircularProgressIndicator();
           }
         },
+      ),
+      bottomNavigationBar: Container(
+        alignment: Alignment.center,
+        color: Colors.transparent,
+        height: 50,
+        child: SizedBox(
+          width: MediaQuery.of(context).size.width * 0.95,
+          child: ButtonNextPageNewVison(
+              context: context,
+              page: const ItineraryPage(),
+              title: 'Je choisis cette destination',
+              color: ColorConstants.greenDarkAppColor,
+              icon: Icons.east),
+        ),
       ),
     );
   }

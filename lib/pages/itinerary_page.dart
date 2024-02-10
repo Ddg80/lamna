@@ -208,19 +208,25 @@ class _ItineraryPageState extends State<ItineraryPage> {
                   ),
                 ),
                 TextItineraryCounter(counter: _counter),
-                Center(
-                  child: ButtonNextPageNewVison(
-                    context: context,
-                    page: const FormTransportationPage(),
-                    title: 'Valider ma sélection',
-                    color: ColorConstants.greenDarkAppColor,
-                    icon: Icons.check_box_outlined,
-                  ),
-                ),
               ],
             ),
           )
         ],
+      ),
+      bottomNavigationBar: Container(
+        alignment: Alignment.center,
+        color: Colors.transparent,
+        height: 50,
+        child: SizedBox(
+          width: MediaQuery.of(context).size.width * 0.95,
+          child: ButtonNextPageNewVison(
+            context: context,
+            page: const FormTransportationPage(),
+            title: 'Valider ma sélection',
+            color: ColorConstants.greenDarkAppColor,
+            icon: Icons.check_box_outlined,
+          ),
+        ),
       ),
     );
   }

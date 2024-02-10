@@ -63,9 +63,12 @@ class _FormTransportationPageState extends State<FormTransportationPage> {
           );
         });
     if (pickedDate != null && pickedDate != currentDate) {
+      enable = true;
       setState(() {
         startDateController.text = DateFormat('dd/MM/yyyy').format(pickedDate);
       });
+    } else {
+      enable = false;
     }
   }
 
@@ -94,9 +97,12 @@ class _FormTransportationPageState extends State<FormTransportationPage> {
           );
         });
     if (pickedDate != null && pickedDate != currentDate) {
+      enable = true;
       setState(() {
         returnDateController.text = DateFormat('dd/MM/yyyy').format(pickedDate);
       });
+    } else {
+      enable = false;
     }
   }
 
@@ -379,27 +385,30 @@ class _FormTransportationPageState extends State<FormTransportationPage> {
                           ),
                         ],
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 18.0),
-                        child: ButtonLarge(
-                          text: "Voir les options de transports",
-                          color: enable
-                              ? ColorConstants.greenLightAppColor
-                              : Colors.grey,
-                          keyForm: _formkey,
-                          page: enable ? const OptionsTransportPage() : null,
-                          fontsize: 18,
-                          action: enable
-                              ? 'Sauvegarde des données du formulaire'
-                              : 'Compléter tout le formulaire',
-                        ),
-                      ),
                     ],
                   ),
                 ),
               ),
             )
           ],
+        ),
+      ),
+      bottomNavigationBar: Container(
+        alignment: Alignment.center,
+        color: Colors.transparent,
+        height: 50,
+        child: SizedBox(
+          width: MediaQuery.of(context).size.width * 0.95,
+          child: ButtonLarge(
+            text: "Voir les options de transports",
+            color: enable ? ColorConstants.greenLightAppColor : Colors.grey,
+            keyForm: _formkey,
+            page: enable ? const OptionsTransportPage() : null,
+            fontsize: 18,
+            action: enable
+                ? 'Sauvegarde des données du formulaire'
+                : 'Compléter tout le formulaire',
+          ),
         ),
       ),
     );

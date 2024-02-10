@@ -24,6 +24,10 @@ class GlobalProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  int getLengthItineraiesSelected() {
+    return _itinerariesSelected.length;
+  }
+
   // Add Travel Selected
   setTravelSelected(Travel travel) {
     if (_travelReserved.isEmpty) {
