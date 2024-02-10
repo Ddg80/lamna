@@ -4,6 +4,7 @@ import 'package:lamna/utils/constants/color_constants.dart';
 import 'package:lamna/utils/constants/font_constants.dart';
 import 'package:lamna/utils/widgets/Indicators/indicators_sliders.dart';
 import 'package:lamna/utils/widgets/button_next_page_new_vision.dart';
+import 'package:lamna/utils/widgets/teaser/travel_title.dart';
 
 class ShowThreePage extends StatefulWidget {
   const ShowThreePage({super.key});
@@ -34,69 +35,40 @@ class _ShowThreePageState extends State<ShowThreePage> {
         child: Column(
           children: [
             IndicatorsSliders(indexPageActive: indexPageActive),
-            Center(
-              child: Image.asset('assets/pictures/Retail markdown_pana.png',
-                  fit: BoxFit.fill),
+            Padding(
+              padding: const EdgeInsets.only(top: 10.0),
+              child: Center(
+                child: Image.asset(
+                  'assets/pictures/Retail markdown_pana.png',
+                  fit: BoxFit.fill,
+                ),
+              ),
             ),
             SizedBox(
               width: MediaQuery.of(context).size.width * 0.80,
-              child: const TravelTitle(),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 18.0),
-              child: SizedBox(
-                width: MediaQuery.of(context).size.width * 0.60,
-                child: ButtonNextPageNewVison(
-                  context: context,
-                  page: const RegisterPage(),
-                  title: 'Terminer',
-                  color: ColorConstants.greenLightAppColor,
-                  icon: Icons.check_circle_outline,
-                ),
+              child: const TravelTitle(
+                text1: "Et en faisant des ",
+                text2: "économies ",
               ),
             ),
           ],
         ),
       ),
-    );
-  }
-}
-
-// Title Page
-class TravelTitle extends StatelessWidget {
-  const TravelTitle({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text.rich(
-          textAlign: TextAlign.center,
-          style: TextStyle(
-              color: ColorConstants.greenDarkAppColor), //style for all textspan
-          TextSpan(
-            children: [
-              TextSpan(
-                text: "Et en faisant des ",
-                style: TextStyle(
-                    fontSize: 28,
-                    color: ColorConstants.greenDarkAppColor,
-                    fontWeight: FontWeight.w400),
-              ),
-              TextSpan(
-                text: "économies ",
-                style: TextStyle(
-                    color: ColorConstants.yellowPrimaryAppColor,
-                    fontSize: 30,
-                    fontWeight: FontWeight.w700),
-              ),
-            ],
+      bottomNavigationBar: Container(
+        alignment: Alignment.center,
+        color: Colors.transparent,
+        height: 50,
+        child: SizedBox(
+          width: MediaQuery.of(context).size.width * 0.60,
+          child: ButtonNextPageNewVison(
+            context: context,
+            page: const RegisterPage(),
+            title: 'Terminer',
+            color: ColorConstants.greenLightAppColor,
+            icon: Icons.check_circle_outline,
           ),
         ),
-      ],
+      ),
     );
   }
 }

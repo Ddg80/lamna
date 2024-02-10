@@ -4,6 +4,7 @@ import 'package:lamna/utils/constants/color_constants.dart';
 import 'package:lamna/utils/constants/font_constants.dart';
 import 'package:lamna/utils/widgets/Indicators/indicators_sliders.dart';
 import 'package:lamna/utils/widgets/button_next_page_new_vision.dart';
+import 'package:lamna/utils/widgets/teaser/travel_title.dart';
 
 class ShowOnePage extends StatefulWidget {
   const ShowOnePage({super.key});
@@ -17,6 +18,7 @@ class _ShowOnePageState extends State<ShowOnePage> {
   Widget build(BuildContext context) {
     int indexPageActive = 0;
     return Scaffold(
+      extendBody: true,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: Text(
@@ -35,68 +37,36 @@ class _ShowOnePageState extends State<ShowOnePage> {
           children: [
             IndicatorsSliders(indexPageActive: indexPageActive),
             Center(
-              child: Image.asset('assets/pictures/World Bicycle Day_pana.png',
-                  fit: BoxFit.fill),
+              child: Image.asset(
+                'assets/pictures/World Bicycle Day_pana.png',
+                fit: BoxFit.fill,
+              ),
             ),
             SizedBox(
               width: MediaQuery.of(context).size.width * 0.80,
-              child: const TravelTitle(),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 18.0),
-              child: SizedBox(
-                width: MediaQuery.of(context).size.width * 0.60,
-                child: ButtonNextPageNewVison(
-                  context: context,
-                  page: const ShowTwoPage(),
-                  title: 'Suivant',
-                  color: ColorConstants.greenLightAppColor,
-                  icon: Icons.east,
-                ),
+              child: const TravelTitle(
+                text1: "Voyagez de manière ",
+                text2: " éco-responsable ",
               ),
             ),
           ],
         ),
       ),
-    );
-  }
-}
-
-// Title Page
-class TravelTitle extends StatelessWidget {
-  const TravelTitle({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text.rich(
-          textAlign: TextAlign.center,
-          style: TextStyle(
-              color: ColorConstants.greenDarkAppColor), //style for all textspan
-          TextSpan(
-            children: [
-              TextSpan(
-                text: "Voyagez de manière ",
-                style: TextStyle(
-                    fontSize: 30,
-                    color: ColorConstants.greenDarkAppColor,
-                    fontWeight: FontWeight.w400),
-              ),
-              TextSpan(
-                text: " éco-responsable ",
-                style: TextStyle(
-                    color: ColorConstants.yellowPrimaryAppColor,
-                    fontSize: 30,
-                    fontWeight: FontWeight.w700),
-              ),
-            ],
+      bottomNavigationBar: Container(
+        alignment: Alignment.center,
+        color: Colors.transparent,
+        height: 50,
+        child: SizedBox(
+          width: MediaQuery.of(context).size.width * 0.60,
+          child: ButtonNextPageNewVison(
+            context: context,
+            page: const ShowTwoPage(),
+            title: 'Suivant',
+            color: ColorConstants.greenLightAppColor,
+            icon: Icons.east,
           ),
         ),
-      ],
+      ),
     );
   }
 }
