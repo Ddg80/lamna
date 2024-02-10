@@ -169,6 +169,21 @@ class PaymentPageState extends State<PaymentPage> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: <Widget>[
+                      Center(
+                        child: SizedBox(
+                          width: MediaQuery.of(context).size.width * 0.8,
+                          child: Padding(
+                            padding: const EdgeInsets.only(top: 8.0),
+                            child: Text(
+                              'Finalisez votre réservation en procédant au paiement sécurisé des billets.',
+                              style: TextStyle(
+                                fontWeight: FontWeight.w300,
+                                fontFamily: FontConstants.regularFont,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
                       IconButton(
                         onPressed: () => setState(() {
                           isLightTheme = !isLightTheme;
