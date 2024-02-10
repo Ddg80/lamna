@@ -165,94 +165,88 @@ class PaymentPageState extends State<PaymentPage> {
                 ),
               ),
               child: SafeArea(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: <Widget>[
-                    IconButton(
-                      onPressed: () => setState(() {
-                        isLightTheme = !isLightTheme;
-                      }),
-                      icon: Icon(
-                        isLightTheme ? Icons.light_mode : Icons.dark_mode,
+                child: SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: <Widget>[
+                      IconButton(
+                        onPressed: () => setState(() {
+                          isLightTheme = !isLightTheme;
+                        }),
+                        icon: Icon(
+                          isLightTheme ? Icons.light_mode : Icons.dark_mode,
+                        ),
                       ),
-                    ),
-                    CreditCardWidget(
-                      enableFloatingCard: useFloatingAnimation,
-                      glassmorphismConfig: _getGlassmorphismConfig(),
-                      cardNumber: cardNumber,
-                      expiryDate: expiryDate,
-                      cardHolderName: cardHolderName,
-                      cvvCode: cvvCode,
-                      bankName: 'Axis Bank',
-                      frontCardBorder: useGlassMorphism
-                          ? null
-                          : Border.all(color: Colors.grey),
-                      backCardBorder: useGlassMorphism
-                          ? null
-                          : Border.all(color: Colors.grey),
-                      showBackView: isCvvFocused,
-                      obscureCardNumber: true,
-                      obscureCardCvv: true,
-                      isHolderNameVisible: true,
-                      cardBgColor: isLightTheme
-                          ? ColorConstants.cardBgLightColor
-                          : ColorConstants.cardBgColor,
-                      backgroundImage: useBackgroundImage
-                          ? 'assets/mastercard/cardBg.png'
-                          : null,
-                      isSwipeGestureEnabled: true,
-                      onCreditCardWidgetChange:
-                          (CreditCardBrand creditCardBrand) {},
-                      customCardTypeIcons: <CustomCardTypeIcon>[
-                        CustomCardTypeIcon(
-                          cardType: CardType.mastercard,
-                          cardImage: Image.asset(
-                            'assets/mastercard/mastercard.png',
-                            height: 24,
-                            width: 24,
+                      CreditCardWidget(
+                        enableFloatingCard: useFloatingAnimation,
+                        glassmorphismConfig: _getGlassmorphismConfig(),
+                        cardNumber: cardNumber,
+                        expiryDate: expiryDate,
+                        cardHolderName: cardHolderName,
+                        cvvCode: cvvCode,
+                        bankName: 'Axis Bank',
+                        frontCardBorder: useGlassMorphism
+                            ? null
+                            : Border.all(color: Colors.grey),
+                        backCardBorder: useGlassMorphism
+                            ? null
+                            : Border.all(color: Colors.grey),
+                        showBackView: isCvvFocused,
+                        obscureCardNumber: true,
+                        obscureCardCvv: true,
+                        isHolderNameVisible: true,
+                        cardBgColor: isLightTheme
+                            ? ColorConstants.cardBgLightColor
+                            : ColorConstants.cardBgColor,
+                        backgroundImage: useBackgroundImage
+                            ? 'assets/mastercard/cardBg.png'
+                            : null,
+                        isSwipeGestureEnabled: true,
+                        onCreditCardWidgetChange:
+                            (CreditCardBrand creditCardBrand) {},
+                        customCardTypeIcons: <CustomCardTypeIcon>[
+                          CustomCardTypeIcon(
+                            cardType: CardType.mastercard,
+                            cardImage: Image.asset(
+                              'assets/mastercard/mastercard.png',
+                              height: 24,
+                              width: 24,
+                            ),
+                          ),
+                        ],
+                      ),
+                      CreditCardForm(
+                        formKey: formKey,
+                        obscureCvv: true,
+                        obscureNumber: true,
+                        cardNumber: cardNumber,
+                        cvvCode: cvvCode,
+                        isHolderNameVisible: true,
+                        isCardNumberVisible: true,
+                        isExpiryDateVisible: true,
+                        cardHolderName: cardHolderName,
+                        expiryDate: expiryDate,
+                        inputConfiguration: const InputConfiguration(
+                          cardNumberDecoration: InputDecoration(
+                            labelText: 'Numéro',
+                            hintText: 'XXXX XXXX XXXX XXXX',
+                          ),
+                          expiryDateDecoration: InputDecoration(
+                            labelText: 'MM / YY',
+                            hintText: 'XX/XX',
+                          ),
+                          cvvCodeDecoration: InputDecoration(
+                            labelText: 'CVV',
+                            hintText: 'XXX',
+                          ),
+                          cardHolderDecoration: InputDecoration(
+                            labelText: 'Nom Prénom',
                           ),
                         ),
-                      ],
-                    ),
-                    Expanded(
-                      child: SingleChildScrollView(
-                        child: Column(
-                          children: <Widget>[
-                            CreditCardForm(
-                              formKey: formKey,
-                              obscureCvv: true,
-                              obscureNumber: true,
-                              cardNumber: cardNumber,
-                              cvvCode: cvvCode,
-                              isHolderNameVisible: true,
-                              isCardNumberVisible: true,
-                              isExpiryDateVisible: true,
-                              cardHolderName: cardHolderName,
-                              expiryDate: expiryDate,
-                              inputConfiguration: const InputConfiguration(
-                                cardNumberDecoration: InputDecoration(
-                                  labelText: 'Numéro',
-                                  hintText: 'XXXX XXXX XXXX XXXX',
-                                ),
-                                expiryDateDecoration: InputDecoration(
-                                  labelText: 'MM / YY',
-                                  hintText: 'XX/XX',
-                                ),
-                                cvvCodeDecoration: InputDecoration(
-                                  labelText: 'CVV',
-                                  hintText: 'XXX',
-                                ),
-                                cardHolderDecoration: InputDecoration(
-                                  labelText: 'Nom Prénom',
-                                ),
-                              ),
-                              onCreditCardModelChange: onCreditCardModelChange,
-                            ),
-                          ],
-                        ),
+                        onCreditCardModelChange: onCreditCardModelChange,
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             );
