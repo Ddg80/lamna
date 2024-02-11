@@ -71,20 +71,31 @@ class _OptionsTransportPageState extends State<OptionsTransportPage> {
           color: Colors.transparent,
           height: 50,
           child: SizedBox(
-            width: MediaQuery.of(context).size.width * 0.8,
+            width: MediaQuery.of(context).size.width * 0.9,
             child: ButtonLarge(
               text: 'Valider mon choix',
               color: (provider.isNotEmptyTravelSelected())
-                  ? ColorConstants.greenDarkAppColor
+                  ? ColorConstants.greenLightAppColor
                   : ColorConstants.greyAppColor,
-              keyForm: null,
               fontsize: 18.0,
-              page: provider.isNotEmptyTravelSelected()
-                  ? const PaymentPage()
-                  : null,
-              action: provider.isNotEmptyTravelSelected()
-                  ? 'Sauvegarde du billet de transport'
-                  : 'Selectionner un billet de transport',
+              onPressed: () {
+                if (provider.isNotEmptyTravelSelected()) {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (_) => const PaymentPage(),
+                    ),
+                  );
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      behavior: SnackBarBehavior.floating,
+                      backgroundColor: ColorConstants.greenLightAppColor,
+                      content: provider.isNotEmptyTravelSelected()
+                          ? const Text('Bienvenue')
+                          : const Text('Veuillez remplir les champs'),
+                    ),
+                  );
+                }
+              },
             ),
           ),
         ),

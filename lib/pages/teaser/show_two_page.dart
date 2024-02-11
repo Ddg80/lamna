@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lamna/pages/teaser/show_three_page.dart';
 import 'package:lamna/utils/constants/color_constants.dart';
-import 'package:lamna/utils/constants/font_constants.dart';
 import 'package:lamna/utils/widgets/Indicators/indicators_sliders.dart';
 import 'package:lamna/utils/widgets/button_next_page_new_vision.dart';
 
@@ -20,13 +20,12 @@ class _ShowTwoPageState extends State<ShowTwoPage> {
     int indexPageActive = 1;
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          'lämna',
-          style: TextStyle(
-            fontWeight: FontWeight.w400,
-            fontSize: 40,
-            color: ColorConstants.greenLightAppColor,
-            fontFamily: FontConstants.principalFont,
+        automaticallyImplyLeading: false,
+        title: SizedBox(
+          height: 50,
+          child: SvgPicture.asset(
+            'assets/logos/logoLamnaApp.svg',
+            width: 150,
           ),
         ),
         backgroundColor: ColorConstants.lightScaffoldBackgroundColor,

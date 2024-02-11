@@ -20,16 +20,17 @@ class FormTransportationPage extends StatefulWidget {
 }
 
 class _FormTransportationPageState extends State<FormTransportationPage> {
-  final _formkey = GlobalKey<FormState>();
+  final _formkeyTransportation = GlobalKey<FormState>();
   late List<City> city;
   TextEditingController startCityController = TextEditingController();
   TextEditingController finishCityController = TextEditingController();
   TextEditingController startDateController = TextEditingController();
   TextEditingController returnDateController = TextEditingController();
-  TextEditingController numbersTravelController = TextEditingController();
+  TextEditingController numberPassengersController = TextEditingController();
   bool enable = false;
   DateTime currentDate = DateTime.now();
   int _currentHorizontalIntValue = 1;
+  late final provider = Provider.of<GlobalProvider>(context, listen: false);
 
   Future<List<City>> fetchCityById(int id) async {
     String data = await DefaultAssetBundle.of(context)
@@ -111,6 +112,7 @@ class _FormTransportationPageState extends State<FormTransportationPage> {
     city = result;
     // print(city[0]);
     finishCityController.text = city[0].name;
+    enable = true;
   }
 
   @override
@@ -126,7 +128,7 @@ class _FormTransportationPageState extends State<FormTransportationPage> {
     finishCityController.dispose();
     startDateController.dispose();
     returnDateController.dispose();
-    numbersTravelController.dispose();
+    numberPassengersController.dispose();
     super.dispose();
   }
 
@@ -161,7 +163,7 @@ class _FormTransportationPageState extends State<FormTransportationPage> {
               ),
             ),
             Form(
-              key: _formkey,
+              key: _formkeyTransportation,
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: SingleChildScrollView(
@@ -343,7 +345,7 @@ class _FormTransportationPageState extends State<FormTransportationPage> {
                       ),
                       NumberPicker(
                         value: _currentHorizontalIntValue,
-                        minValue: 0,
+                        minValue: 1,
                         maxValue: 100,
                         step: 1,
                         itemHeight: 30,
@@ -367,6 +369,7 @@ class _FormTransportationPageState extends State<FormTransportationPage> {
                               final newValue = _currentHorizontalIntValue - 1;
                               _currentHorizontalIntValue =
                                   newValue.clamp(0, 100);
+                              enable = true;
                             }),
                           ),
                           Text(
@@ -381,6 +384,7 @@ class _FormTransportationPageState extends State<FormTransportationPage> {
                               final newValue = _currentHorizontalIntValue + 1;
                               _currentHorizontalIntValue =
                                   newValue.clamp(0, 100);
+                              enable = true;
                             }),
                           ),
                         ],
@@ -402,12 +406,32 @@ class _FormTransportationPageState extends State<FormTransportationPage> {
           child: ButtonLarge(
             text: "Voir les options de transports",
             color: enable ? ColorConstants.greenLightAppColor : Colors.grey,
-            keyForm: _formkey,
-            page: enable ? const OptionsTransportPage() : null,
             fontsize: 18,
-            action: enable
-                ? 'Sauvegarde des données du formulaire'
-                : 'Compléter tout le formulaire',
+            onPressed: () {
+              if (enable && _formkeyTransportation.currentState!.validate()) {
+                provider.setReservationSelected({
+                  'startCity': startCityController.text,
+                  'startDate': startDateController.text,
+                  'finishCity': finishCityController.text,
+                  'returnDate': returnDateController.text,
+                  'numberPassengers': _currentHorizontalIntValue.toString()
+                });
+              }
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (_) => const OptionsTransportPage(),
+                ),
+              );
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  behavior: SnackBarBehavior.floating,
+                  backgroundColor: ColorConstants.greenLightAppColor,
+                  content: enable
+                      ? const Text('Sauvegarde des données du formulaire')
+                      : const Text('Tous les champs doivent être remplis'),
+                ),
+              );
+            },
           ),
         ),
       ),

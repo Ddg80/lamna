@@ -3,7 +3,7 @@ import 'package:flutter_credit_card/flutter_credit_card.dart';
 import 'package:flutter/services.dart';
 import 'package:lamna/models/mastercard.dart';
 import 'package:lamna/pages/reserved/options_transport.dart';
-import 'package:lamna/pages/validate_command_page.dart';
+import 'package:lamna/pages/payments/validate_command_page.dart';
 import 'package:lamna/provider/global_provider.dart';
 import 'package:lamna/utils/constants/color_constants.dart';
 import 'package:lamna/utils/constants/font_constants.dart';
@@ -33,7 +33,7 @@ class PaymentPageState extends State<PaymentPage> {
     ),
   );
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-  late final provider = Provider.of<GlobalProvider>(context, listen: false);
+  late final provider = Provider.of<GlobalProvider>(context, listen: true);
 
   void _navigate() {
     Navigator.pop(
@@ -184,6 +184,77 @@ class PaymentPageState extends State<PaymentPage> {
                           ),
                         ),
                       ),
+                      Center(
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 15.0),
+                          child: SizedBox(
+                              width: MediaQuery.of(context).size.width * 0.8,
+                              child: Row(
+                                children: [
+                                  const Text(
+                                    'Total :',
+                                    style: TextStyle(
+                                      color: Color(0xFF5A5A5A),
+                                      fontSize: 27,
+                                      fontFamily: 'Inter',
+                                      fontWeight: FontWeight.w700,
+                                      height: 0.05,
+                                    ),
+                                  ),
+                                  Text(
+                                    ' ${provider.getTotalReservation().toString()} €',
+                                    style: const TextStyle(
+                                      color: Color(0xFF68B382),
+                                      fontSize: 27,
+                                      fontFamily: 'Inter',
+                                      fontWeight: FontWeight.w700,
+                                      height: 0.03,
+                                    ),
+                                  )
+                                ],
+                              )),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Center(
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 15.0),
+                          child: SizedBox(
+                              width: MediaQuery.of(context).size.width * 0.8,
+                              child: Row(
+                                children: [
+                                  const Opacity(
+                                    opacity: 0.75,
+                                    child: Text(
+                                      'Commision lämna :',
+                                      style: TextStyle(
+                                        color: Color(0xFF5A5A5A),
+                                        fontSize: 16,
+                                        fontFamily: 'Inter',
+                                        fontWeight: FontWeight.w700,
+                                        height: 0.08,
+                                      ),
+                                    ),
+                                  ),
+                                  Opacity(
+                                    opacity: 0.75,
+                                    child: Text(
+                                      ' ${provider.getCommissionReservation().toString()} € (5%)',
+                                      style: const TextStyle(
+                                        color: Color(0xFF68B382),
+                                        fontSize: 18,
+                                        fontFamily: 'Inter',
+                                        fontWeight: FontWeight.w700,
+                                        height: 0.07,
+                                      ),
+                                    ),
+                                  )
+                                ],
+                              )),
+                        ),
+                      ),
                       IconButton(
                         onPressed: () => setState(() {
                           isLightTheme = !isLightTheme;
@@ -313,7 +384,6 @@ class PaymentPageState extends State<PaymentPage> {
 
   void _onValidate() {
     if (formKey.currentState?.validate() ?? false) {
-      print('valid!');
       MasterCard card = MasterCard(
         id: 1,
         numberCard: cardNumber,
@@ -329,7 +399,13 @@ class PaymentPageState extends State<PaymentPage> {
         ),
       );
     } else {
-      print('invalid!');
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          behavior: SnackBarBehavior.floating,
+          content: Text('Une Erreur est survenue lors du paiement.'),
+          duration: Duration(seconds: 2),
+        ),
+      );
     }
   }
 

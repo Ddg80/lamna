@@ -49,6 +49,6 @@ class Travel {
 
   @override
   String toString() {
-    return '{"id":$id,"startHour":$startHour,"cityStart":$cityStart,"finishHour":$finishHour,"cityFinish":$cityFinish,"cityFinish":$cityFinish,"pricePerPerson":$pricePerPerson,"timeTravel": $timeTravel,"percent":$percent,"category":$category}';
+    return '{"id":$id,"startHour":$startHour,"cityStart":$cityStart,"finishHour":$finishHour,"cityFinish":$cityFinish,"pricePerPerson":$pricePerPerson,"timeTravel": $timeTravel,"percent":$percent,"category":$category}';
   }
 }

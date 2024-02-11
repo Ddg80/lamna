@@ -5,12 +5,13 @@ class MasterCard {
   late String cvv;
   late String fullname;
 
-  MasterCard(
-      {required this.id,
-      required this.numberCard,
-      required this.expiredDate,
-      required this.cvv,
-      required this.fullname});
+  MasterCard({
+    required this.id,
+    required this.numberCard,
+    required this.expiredDate,
+    required this.cvv,
+    required this.fullname,
+  });
 
   MasterCard.fromJson(Map<String, dynamic> json) {
     id = json['id'];

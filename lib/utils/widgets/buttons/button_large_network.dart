@@ -36,10 +36,11 @@ class ButtonLargeNetwork extends StatelessWidget {
               Text(
                 text,
                 style: TextStyle(
-                    color: ColorConstants.blackAppColor,
-                    fontSize: 16,
-                    fontFamily: FontConstants.regularFont,
-                    fontWeight: FontWeight.w600),
+                  color: ColorConstants.blackAppColor,
+                  fontSize: 16,
+                  fontFamily: FontConstants.interExtraLightFont,
+                  fontWeight: FontWeight.w900,
+                ),
               ),
             ],
           )

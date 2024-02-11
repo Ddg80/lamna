@@ -8,7 +8,7 @@ import 'package:lamna/pages/reserved/form_transportation_page.dart';
 import 'package:lamna/provider/global_provider.dart';
 import 'package:lamna/utils/constants/color_constants.dart';
 import 'package:lamna/utils/constants/font_constants.dart';
-import 'package:lamna/utils/widgets/button_next_page_new_vision.dart';
+import 'package:lamna/utils/widgets/buttons/button_large.dart';
 import 'package:lamna/utils/widgets/itinerary/title_itinerary.dart';
 import 'package:lamna/utils/widgets/itinerary/text_itinerary_counter.dart';
 import 'package:provider/provider.dart';
@@ -219,12 +219,26 @@ class _ItineraryPageState extends State<ItineraryPage> {
         height: 50,
         child: SizedBox(
           width: MediaQuery.of(context).size.width * 0.95,
-          child: ButtonNextPageNewVison(
-            context: context,
-            page: const FormTransportationPage(),
-            title: 'Valider ma sélection',
-            color: ColorConstants.greenDarkAppColor,
-            icon: Icons.check_box_outlined,
+          child: ButtonLarge(
+            text: "Valider mes itinéraires",
+            color: ColorConstants.greenLightAppColor,
+            fontsize: 18,
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (_) => const FormTransportationPage(),
+                ),
+              );
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  behavior: SnackBarBehavior.floating,
+                  backgroundColor: ColorConstants.greenLightAppColor,
+                  content: _counter > 0
+                      ? const Text('Sauvegarde de vos itinéraires')
+                      : const Text('Aucun itinéraire sauvegardé'),
+                ),
+              );
+            },
           ),
         ),
       ),

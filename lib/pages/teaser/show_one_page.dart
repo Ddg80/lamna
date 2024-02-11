@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lamna/pages/teaser/show_two_page.dart';
 import 'package:lamna/utils/constants/color_constants.dart';
-import 'package:lamna/utils/constants/font_constants.dart';
 import 'package:lamna/utils/widgets/Indicators/indicators_sliders.dart';
 import 'package:lamna/utils/widgets/button_next_page_new_vision.dart';
 import 'package:lamna/utils/widgets/teaser/travel_title.dart';
@@ -21,13 +21,11 @@ class _ShowOnePageState extends State<ShowOnePage> {
       extendBody: true,
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text(
-          'lämna',
-          style: TextStyle(
-            fontWeight: FontWeight.w400,
-            fontSize: 40,
-            color: ColorConstants.greenLightAppColor,
-            fontFamily: FontConstants.principalFont,
+        title: SizedBox(
+          height: 50,
+          child: SvgPicture.asset(
+            'assets/logos/logoLamnaApp.svg',
+            width: 150,
           ),
         ),
         backgroundColor: ColorConstants.lightScaffoldBackgroundColor,

@@ -30,6 +30,7 @@ flutter:
     - assets/logos/logoSimple.svg
     - assets/logos/logo_google.png
     - assets/logos/logo_mac_os.png
+    - assets/logos/logoLamnaApp.svg
     - assets/pictures/Location search_pana.png
     - assets/pictures/Madrid_pana.png
     - assets/pictures/Retail markdown_pana.png
@@ -91,3 +92,31 @@ flutter:
     - family: ClashDisplaySemiBold
       fonts: 
         - asset: fonts/ClashDisplay-Semibold.ttf
+    - family: InterBlack
+      fonts: 
+        - asset: fonts/Inter-Black.ttf
+    - family: InterBold
+      fonts: 
+        - asset: fonts/Inter-Bold.ttf
+    - family: InterExtraBold
+      fonts: 
+        - asset: fonts/Inter-ExtraBold.ttf
+    - family: InterExtraLight
+      fonts: 
+        - asset: fonts/Inter-ExtraLight.ttf
+    - family: InterLight
+      fonts: 
+        - asset: fonts/Inter-Light.ttf
+    - family: InterMedium
+      fonts: 
+        - asset: fonts/Inter-Medium.ttf
+    - family: InterRegular
+      fonts: 
+        - asset: fonts/Inter-Regular.ttf
+    - family: InterSemiBold
+      fonts: 
+        - asset: fonts/Inter-SemiBold.ttf
+    - family: InterThin
+      fonts: 
+        - asset: fonts/Inter-Thin.ttf
+    
