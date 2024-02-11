@@ -33,6 +33,14 @@ flutter:
     - assets/logos/logo_google.png
     - assets/logos/logo_mac_os.png
     - assets/logos/logoLamnaApp.svg
+    - assets/menu-icons/home.svg
+    - assets/menu-icons/homeDisabled.svg
+    - assets/menu-icons/map.svg
+    - assets/menu-icons/mapDisabled.svg
+    - assets/menu-icons/route.svg
+    - assets/menu-icons/routeDisabled.svg
+    - assets/menu-icons/user.svg
+    - assets/menu-icons/userDisabled.svg
     - assets/pictures/Location search_pana.png
     - assets/pictures/Madrid_pana.png
     - assets/pictures/Retail markdown_pana.png
