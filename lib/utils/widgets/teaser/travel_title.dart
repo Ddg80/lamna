@@ -36,9 +36,10 @@ class TravelTitle extends StatelessWidget {
                   ? TextSpan(
                       text: "des",
                       style: TextStyle(
-                          fontSize: 30,
-                          color: ColorConstants.greenDarkAppColor,
-                          fontWeight: FontWeight.w400),
+                        fontSize: 30,
+                        color: ColorConstants.greenDarkAppColor,
+                        fontWeight: FontWeight.w400,
+                      ),
                     )
                   : const TextSpan(),
               TextSpan(

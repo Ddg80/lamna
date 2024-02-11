@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:lamna/pages/destination_page.dart';
+import 'package:lamna/pages/map/map_page.dart';
 import 'package:lamna/pages/profile_page.dart';
 import 'package:lamna/utils/constants/color_constants.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
-
   @override
   State<HomePage> createState() => _HomePageState();
 }
@@ -13,7 +13,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int currentIndex = 0;
   final screens = [
-    const Center(child: Text('Carte', style: TextStyle(fontSize: 60))),
+    const MapPage(),
     const DestinationPage(),
     const ProfilePage()
   ];

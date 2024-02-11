@@ -31,7 +31,6 @@ class _ItineraryPageState extends State<ItineraryPage> {
   }
 
   _likeAction() {
-    controller.swipeRight();
     setState(() {
       if (_maxTap >= 1) {
         _counter++;
@@ -43,7 +42,6 @@ class _ItineraryPageState extends State<ItineraryPage> {
   }
 
   _nopeAction() {
-    controller.swipeLeft();
     if (_maxTap >= 1) {
       _maxTap--;
       _idItinerary++;
@@ -113,6 +111,7 @@ class _ItineraryPageState extends State<ItineraryPage> {
                         borderRadius: BorderRadius.circular(100),
                         onTap: () {
                           _nopeAction();
+                          controller.swipe(CardSwiperDirection.right);
                           if (_maxTap == 0) {
                             ScaffoldMessenger.of(context).showSnackBar(
                               const SnackBar(
@@ -158,6 +157,7 @@ class _ItineraryPageState extends State<ItineraryPage> {
                         borderRadius: BorderRadius.circular(100),
                         onTap: () {
                           _likeAction();
+                          controller.swipe(CardSwiperDirection.right);
                           Provider.of<GlobalProvider>(context, listen: false)
                               .setItinerariesSelected(_idItinerary);
                           if (_maxTap == 0) {

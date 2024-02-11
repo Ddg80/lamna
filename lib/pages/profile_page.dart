@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:lamna/pages/home_page.dart';
 import 'package:lamna/utils/constants/color_constants.dart';
 import 'package:lamna/utils/constants/font_constants.dart';
 import 'package:lamna/utils/widgets/button_next_page_new_vision.dart';
@@ -12,6 +13,11 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
+  void _navigate() {
+    Navigator.pop(
+        context, MaterialPageRoute(builder: (context) => const HomePage()));
+  }
+
   @override
   void initState() {
     super.initState();
@@ -21,17 +27,23 @@ class _ProfilePageState extends State<ProfilePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: ColorConstants.lightScaffoldBackgroundColor,
+        automaticallyImplyLeading: false,
+        elevation: 0.0,
+        backgroundColor: Colors.transparent,
       ),
+      extendBodyBehindAppBar: true,
       body: SingleChildScrollView(
         child: Column(
           children: [
-            const CircleAvatar(
-              backgroundColor: Colors.white70,
-              minRadius: 60.0,
+            const Padding(
+              padding: EdgeInsets.only(top: 19.0),
               child: CircleAvatar(
-                radius: 50.0,
-                backgroundImage: AssetImage('assets/avatar/avatar.jpg'),
+                backgroundColor: Colors.white70,
+                minRadius: 60.0,
+                child: CircleAvatar(
+                  radius: 50.0,
+                  backgroundImage: AssetImage('assets/avatar/avatar.jpg'),
+                ),
               ),
             ),
             const SizedBox(

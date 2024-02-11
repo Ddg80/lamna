@@ -39,6 +39,7 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
+        elevation: 0.0,
         backgroundColor: ColorConstants.lightScaffoldBackgroundColor,
       ),
       body: SingleChildScrollView(
