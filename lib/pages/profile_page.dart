@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:lamna/pages/home_page.dart';
 import 'package:lamna/utils/constants/color_constants.dart';
 import 'package:lamna/utils/constants/font_constants.dart';
 import 'package:lamna/utils/widgets/button_next_page_new_vision.dart';
@@ -13,11 +12,6 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  void _navigate() {
-    Navigator.pop(
-        context, MaterialPageRoute(builder: (context) => const HomePage()));
-  }
-
   @override
   void initState() {
     super.initState();

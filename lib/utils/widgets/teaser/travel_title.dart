@@ -4,11 +4,11 @@ import 'package:lamna/utils/constants/color_constants.dart';
 
 class TravelTitle extends StatelessWidget {
   const TravelTitle({
-    Key? key,
+    super.key,
     required this.text1,
     required this.text2,
     this.text3 = '',
-  }) : super(key: key);
+  });
 
   final String text1;
   final String text2;

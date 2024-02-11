@@ -7,14 +7,14 @@ import 'package:provider/provider.dart';
 
 class CardDestination extends StatelessWidget {
   const CardDestination({
-    Key? key,
+    super.key,
     required this.id,
     required this.picture,
     required this.enable,
     required this.name,
     required this.label,
     required this.subtitle,
-  }) : super(key: key);
+  });
 
   final int id;
   final String picture;

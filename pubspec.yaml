@@ -41,6 +41,9 @@ flutter:
     - assets/menu-icons/routeDisabled.svg
     - assets/menu-icons/user.svg
     - assets/menu-icons/userDisabled.svg
+    - assets/pictures/landingPagePana.svg
+    - assets/pictures/TravelersPana.svg
+    - assets/pictures/Trip-pana.svg
     - assets/pictures/Location search_pana.png
     - assets/pictures/Madrid_pana.png
     - assets/pictures/Retail markdown_pana.png

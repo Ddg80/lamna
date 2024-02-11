@@ -6,13 +6,13 @@ import 'package:lamna/utils/widgets/buttons/button_next_page.dart';
 
 class ButtonNextPageNewVison extends StatelessWidget {
   const ButtonNextPageNewVison({
-    Key? key,
+    super.key,
     required BuildContext context,
     required this.page,
     required this.title,
     required this.color,
     required this.icon,
-  }) : super(key: key);
+  });
 
   final String title;
   final dynamic page;

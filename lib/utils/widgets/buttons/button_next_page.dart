@@ -5,11 +5,12 @@ class ButtonNextPage extends StatefulWidget {
   final GestureTapCallback onPressed;
   final Color color;
 
-  const ButtonNextPage(
-      {super.key,
-      required this.onPressed,
-      required this.child,
-      required this.color});
+  const ButtonNextPage({
+    super.key,
+    required this.onPressed,
+    required this.child,
+    required this.color,
+  });
 
   @override
   State<ButtonNextPage> createState() => _ButtonNextPageState();

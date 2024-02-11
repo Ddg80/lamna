@@ -14,6 +14,7 @@ class ColorConstants {
   static Color lightScaffoldBackgroundColor = hexToColor('#FFFAE9');
   static Color greenLightAppColor = hexToColor('#69B483');
   static Color greenDarkAppColor = hexToColor('#3B6B4F');
+  static Color greenUltraDarkColor = hexToColor('#3C674C');
   static Color yellowPrimaryAppColor = hexToColor('#FDA92B');
   static Color yellowSecondaryAppColor = hexToColor('#FDC22B');
   static Color redDarkAppColor = hexToColor('#ED755B');

@@ -3,7 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lamna/pages/destination_page.dart';
 import 'package:lamna/pages/map/map_page.dart';
 import 'package:lamna/pages/profile_page.dart';
-import 'package:lamna/pages/welcome_page.dart';
+import 'package:lamna/pages/welcome/welcome_page.dart';
 import 'package:lamna/utils/constants/color_constants.dart';
 
 class HomePage extends StatefulWidget {
