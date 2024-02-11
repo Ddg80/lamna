@@ -80,6 +80,7 @@ class _OptionsTransportPageState extends State<OptionsTransportPage> {
               fontsize: 18.0,
               onPressed: () {
                 if (provider.isNotEmptyTravelSelected()) {
+                  provider.getInfosSelectedForTravel();
                   Navigator.of(context).push(
                     MaterialPageRoute(
                       builder: (_) => const PaymentPage(),
