@@ -8,6 +8,7 @@ import 'package:lamna/models/travel.dart';
 
 class GlobalProvider extends ChangeNotifier {
   int idCity = 0;
+  int _counterItinerary = 0;
   final List<Itinerary> _itinerariesSelected = [];
   final List<Travel> _travelReserved = [];
   final List<MasterCard> _masterCard = [];
@@ -15,6 +16,16 @@ class GlobalProvider extends ChangeNotifier {
   Map<String, String> _formReservation = {};
   double _total = 0.0;
   double _commission = 0.0;
+  String _startDate = '';
+  String _returnDate = '';
+
+  getCounterItinerary() {
+    return _counterItinerary;
+  }
+
+  setCounterItinerary(int counter) {
+    _counterItinerary = counter;
+  }
 
   getInfosSelectedForTravel() {
     if (_travelReserved.isNotEmpty && _formReservation.isNotEmpty) {
@@ -48,6 +59,22 @@ class GlobalProvider extends ChangeNotifier {
 
   getTotalReservation() {
     return _total;
+  }
+
+  getStartDate() {
+    return _startDate.toString();
+  }
+
+  getReturnDate() {
+    return _returnDate.toString();
+  }
+
+  setStartDate(newDate) {
+    _startDate = newDate;
+  }
+
+  setReturnDate(newDate) {
+    _returnDate = newDate;
   }
 
   getCommissionReservation() {
@@ -129,6 +156,8 @@ class GlobalProvider extends ChangeNotifier {
       _formReservation.clear();
       _formReservation = data;
     }
+    setStartDate(_formReservation['startDate']);
+    setReturnDate(_formReservation['returnDate']);
     notifyListeners();
   }
 }

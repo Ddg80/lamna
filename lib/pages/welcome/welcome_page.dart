@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lamna/pages/city_details_page.dart';
 import 'package:lamna/pages/destination_page.dart';
+import 'package:lamna/provider/global_provider.dart';
 import 'package:lamna/utils/constants/color_constants.dart';
 import 'package:lamna/utils/constants/font_constants.dart';
 import 'package:lamna/utils/widgets/buttons/button_large.dart';
+import 'package:provider/provider.dart';
 
 class WelcomePage extends StatefulWidget {
   const WelcomePage({super.key});
@@ -14,6 +16,7 @@ class WelcomePage extends StatefulWidget {
 }
 
 class _WelcomePageState extends State<WelcomePage> {
+  late final provider = Provider.of<GlobalProvider>(context, listen: false);
   @override
   void initState() {
     super.initState();
@@ -294,6 +297,7 @@ class _WelcomePageState extends State<WelcomePage> {
                                     ),
                                     child: GestureDetector(
                                       onTap: () {
+                                        provider.setIdCityChoose(1);
                                         Navigator.of(context).push(
                                           MaterialPageRoute(
                                             builder: (context) =>

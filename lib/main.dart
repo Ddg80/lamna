@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lamna/pages/teaser/launcher_page.dart';
+import 'package:lamna/pages/onboarding/launcher_page.dart';
 import 'package:provider/provider.dart';
 import 'package:lamna/provider/global_provider.dart';
 import 'package:lamna/utils/constants/color_constants.dart';

@@ -39,20 +39,20 @@ class _OptionsTransportPageState extends State<OptionsTransportPage> {
             dividerColor: Colors.transparent,
             labelColor: ColorConstants.greenDarkAppColor,
             indicatorColor: ColorConstants.greenDarkAppColor,
-            tabs: const <Widget>[
+            tabs: <Widget>[
               Tab(
                 child: Column(
                   children: [
-                    Text('Aller'),
-                    Text('21/02/2023'),
+                    const Text('Aller'),
+                    Text(provider.getStartDate()),
                   ],
                 ),
               ),
               Tab(
                 child: Column(
                   children: [
-                    Text('Retour'),
-                    Text('21/02/2023'),
+                    const Text('Retour'),
+                    Text(provider.getReturnDate()),
                   ],
                 ),
               ),

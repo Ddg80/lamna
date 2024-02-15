@@ -22,6 +22,7 @@ class ItineraryPage extends StatefulWidget {
 
 class _ItineraryPageState extends State<ItineraryPage> {
   final CardSwiperController controller = CardSwiperController();
+  late final provider = Provider.of<GlobalProvider>(context, listen: true);
   int _counter = 0;
   int _maxTap = itineraries.length;
   int _idItinerary = 0;
@@ -34,6 +35,7 @@ class _ItineraryPageState extends State<ItineraryPage> {
     setState(() {
       if (_maxTap >= 1) {
         _counter++;
+        provider.setCounterItinerary(_counter);
         _maxTap--;
         _idItinerary++;
       }
@@ -110,18 +112,8 @@ class _ItineraryPageState extends State<ItineraryPage> {
                       InkWell(
                         borderRadius: BorderRadius.circular(100),
                         onTap: () {
-                          _nopeAction();
                           controller.swipe(CardSwiperDirection.right);
-                          if (_maxTap == 0) {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(
-                                behavior: SnackBarBehavior.floating,
-                                content: Text(
-                                    'Vous êtes arrivés au maximum de vos choix.'),
-                                duration: Duration(seconds: 2),
-                              ),
-                            );
-                          }
+                          _nopeAction();
                         },
                         child: Container(
                           height: 60,
@@ -156,20 +148,10 @@ class _ItineraryPageState extends State<ItineraryPage> {
                       InkWell(
                         borderRadius: BorderRadius.circular(100),
                         onTap: () {
-                          _likeAction();
                           controller.swipe(CardSwiperDirection.right);
+                          _likeAction();
                           Provider.of<GlobalProvider>(context, listen: false)
                               .setItinerariesSelected(_idItinerary);
-                          if (_maxTap == 0) {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(
-                                behavior: SnackBarBehavior.floating,
-                                content: Text(
-                                    'Vous êtes arrivés au maximum de vos choix.'),
-                                duration: Duration(seconds: 2),
-                              ),
-                            );
-                          }
                         },
                         child: Container(
                           height: 60,
@@ -207,7 +189,7 @@ class _ItineraryPageState extends State<ItineraryPage> {
                     ],
                   ),
                 ),
-                TextItineraryCounter(counter: _counter),
+                TextItineraryCounter(counter: provider.getCounterItinerary()),
               ],
             ),
           )
@@ -233,7 +215,7 @@ class _ItineraryPageState extends State<ItineraryPage> {
                 SnackBar(
                   behavior: SnackBarBehavior.floating,
                   backgroundColor: ColorConstants.greenLightAppColor,
-                  content: _counter > 0
+                  content: provider.getCounterItinerary() > 0
                       ? const Text('Sauvegarde de vos itinéraires')
                       : const Text('Aucun itinéraire sauvegardé'),
                 ),
