@@ -25,7 +25,7 @@ class _WelcomePageState extends State<WelcomePage> {
 
   @override
   Widget build(BuildContext context) {
-    // provider.setHaveATrip(true);
+    // provider.setHaveATravel(true);
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -117,7 +117,7 @@ class _WelcomePageState extends State<WelcomePage> {
               ),
               child: Column(
                 children: [
-                  !provider.getHaveAtrip()
+                  !provider.getHaveAtravel()
                       ? const HaveNotTravel()
                       : const HaveItinerary()
                 ],
@@ -136,7 +136,7 @@ class _WelcomePageState extends State<WelcomePage> {
                       TextSpan(
                         children: [
                           TextSpan(
-                            text: !provider.getHaveAtrip()
+                            text: !provider.getHaveAtravel()
                                 ? 'Notre destination '
                                 : 'Notre itinéraire ',
                             style: TextStyle(
@@ -148,7 +148,7 @@ class _WelcomePageState extends State<WelcomePage> {
                             ),
                           ),
                           TextSpan(
-                            text: !provider.getHaveAtrip()
+                            text: !provider.getHaveAtravel()
                                 ? 'principale'
                                 : ' à la une',
                             style: const TextStyle(
@@ -165,7 +165,7 @@ class _WelcomePageState extends State<WelcomePage> {
                     const SizedBox(
                       height: 20.0,
                     ),
-                    !provider.getHaveAtrip()
+                    !provider.getHaveAtravel()
                         ? const BlockNoTravelWidget()
                         : const BlockHavetrip(),
                   ],

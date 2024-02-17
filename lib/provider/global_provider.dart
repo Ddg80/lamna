@@ -19,7 +19,8 @@ class GlobalProvider extends ChangeNotifier {
   double _commission = 0.0;
   String _startDate = '';
   String _returnDate = '';
-  bool _haveATrip = false;
+  bool _haveATravel = false;
+  bool _haveAItinerary = false;
   int _days = 0;
 
   getCounterItinerary() {
@@ -58,15 +59,23 @@ class GlobalProvider extends ChangeNotifier {
       _commission = infosReservation.commission;
       notifyListeners();
     }
-    setHaveATrip(false);
+    setHaveATravel(false);
   }
 
-  getHaveAtrip() {
-    return _haveATrip;
+  getHaveAtravel() {
+    return _haveATravel;
   }
 
-  setHaveATrip(bool newValue) {
-    _haveATrip = newValue;
+  setHaveATravel(bool newValue) {
+    _haveATravel = newValue;
+  }
+
+  getHaveAItinerary() {
+    return _haveAItinerary;
+  }
+
+  setHaveAItinerary(bool newValue) {
+    _haveAItinerary = newValue;
   }
 
   getTotalReservation() {
@@ -127,20 +136,28 @@ class GlobalProvider extends ChangeNotifier {
     List<Itinerary> itinerary =
         itineraries.where((it) => it.id == index).toList();
     if (!_itinerariesSelected
-        .map((item) => item.id)
-        .contains(itinerary[0].id)) {
+            .map((item) => item.id)
+            .contains(itinerary[0].id) &&
+        !_itinerariesNoSelected
+            .map((item) => item.id)
+            .contains(itinerary[0].id)) {
       _itinerariesSelected.add(itinerary[0]);
     }
+    setHaveAItinerary(true);
     print('itineraries SELECTED:  $_itinerariesSelected');
+    print('Have a Itinerary: $_haveAItinerary');
     notifyListeners();
   }
 
   setItinerariesNoSelected(int index) {
     List<Itinerary> itinerary =
         itineraries.where((it) => it.id == index).toList();
-    if (!_itinerariesSelected
-        .map((item) => item.id)
-        .contains(itinerary[0].id)) {
+    if (!_itinerariesNoSelected
+            .map((item) => item.id)
+            .contains(itinerary[0].id) &&
+        !_itinerariesSelected
+            .map((item) => item.id)
+            .contains(itinerary[0].id)) {
       _itinerariesNoSelected.add(itinerary[0]);
     }
     print('itineraries NO SELECTED:  $_itinerariesNoSelected');
