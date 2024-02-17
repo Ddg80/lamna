@@ -61,8 +61,6 @@ flutter:
     - assets/json/busTravels.json
     - assets/json/covoitTravels.json
     - assets/json/trainTravels.json
-    - assets/pictures/itinerary/itinerary1.png
-    - assets/pictures/itinerary/itinerary2.png
     - assets/logos/darkIconTypo.svg
     - assets/itineraryCards/route1.png
     - assets/itineraryCards/route2.png
@@ -70,6 +68,12 @@ flutter:
     - assets/itineraryCards/route4.png
     - assets/itineraryCards/route5.png
     - assets/itineraryCards/route6.png
+    - assets/miniCardsItineraries/route1S.png
+    - assets/miniCardsItineraries/route2S.png
+    - assets/miniCardsItineraries/route3S.png
+    - assets/miniCardsItineraries/route4S.png
+    - assets/miniCardsItineraries/route5S.png
+    - assets/miniCardsItineraries/route6S.png
     - assets/icons/chevron-left-double.svg
     - assets/icons/chevron-right-double.svg
     - assets/icons/like.png
@@ -88,6 +92,7 @@ flutter:
     - assets/mastercard/bgLight.png
     - assets/mastercard/cardBg.png
     - assets/mastercard/mastercard.png
+    - assets/icons/heart.svg
   fonts:
     - family: ClashDisplay
       fonts: 

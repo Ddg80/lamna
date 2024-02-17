@@ -12,7 +12,7 @@ class TitleOptionsTransport extends StatelessWidget {
     return Column(
       children: [
         Container(
-          transform: Matrix4.translationValues(-20, 0, 0),
+          transform: Matrix4.translationValues(-28, 0, 0),
           child: Text.rich(
             textAlign: TextAlign.start,
             style: TextStyle(
@@ -23,16 +23,16 @@ class TitleOptionsTransport extends StatelessWidget {
                 TextSpan(
                   text: "Choississez",
                   style: TextStyle(
-                    fontSize: 23,
+                    fontSize: 20,
                     color: ColorConstants.greenDarkAppColor,
                     fontFamily: FontConstants.semiBoldFont,
                     fontWeight: FontWeight.w500,
                   ),
                 ),
                 TextSpan(
-                  text: " parmi les ",
+                  text: " parmi les moyens ",
                   style: TextStyle(
-                    fontSize: 21,
+                    fontSize: 19,
                     color: ColorConstants.greenDarkAppColor,
                     fontWeight: FontWeight.w400,
                   ),
@@ -42,12 +42,12 @@ class TitleOptionsTransport extends StatelessWidget {
           ),
         ),
         Container(
-          transform: Matrix4.translationValues(-8, 0, 0),
+          transform: Matrix4.translationValues(-38, 0, 0),
           child: Text(
             'de transport responsable',
             style: TextStyle(
               color: ColorConstants.greenDarkAppColor,
-              fontSize: 21,
+              fontSize: 20,
               fontFamily: FontConstants.regularFont,
             ),
           ),

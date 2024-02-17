@@ -392,6 +392,8 @@ class PaymentPageState extends State<PaymentPage> {
         fullname: cardHolderName,
       );
       provider.setMasterCard(card);
+      provider.setHaveATrip(true);
+      provider.setDays();
       Navigator.push(
         context,
         MaterialPageRoute(

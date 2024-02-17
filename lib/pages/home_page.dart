@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:lamna/pages/destination_page.dart';
+import 'package:lamna/pages/itineraries/itineraries_page.dart';
 import 'package:lamna/pages/map/map_page.dart';
 import 'package:lamna/pages/profile_page.dart';
 import 'package:lamna/pages/welcome/welcome_page.dart';
@@ -17,7 +17,7 @@ class _HomePageState extends State<HomePage> {
   final screens = [
     const WelcomePage(),
     const MapPage(),
-    const DestinationPage(),
+    const ItinerariesPage(),
     const ProfilePage()
   ];
   @override

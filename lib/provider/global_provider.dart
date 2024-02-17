@@ -10,6 +10,7 @@ class GlobalProvider extends ChangeNotifier {
   int idCity = 0;
   int _counterItinerary = 0;
   final List<Itinerary> _itinerariesSelected = [];
+  final List<Itinerary> _itinerariesNoSelected = [];
   final List<Travel> _travelReserved = [];
   final List<MasterCard> _masterCard = [];
   List<City> cities = [];
@@ -18,6 +19,8 @@ class GlobalProvider extends ChangeNotifier {
   double _commission = 0.0;
   String _startDate = '';
   String _returnDate = '';
+  bool _haveATrip = false;
+  int _days = 0;
 
   getCounterItinerary() {
     return _counterItinerary;
@@ -55,6 +58,15 @@ class GlobalProvider extends ChangeNotifier {
       _commission = infosReservation.commission;
       notifyListeners();
     }
+    setHaveATrip(false);
+  }
+
+  getHaveAtrip() {
+    return _haveATrip;
+  }
+
+  setHaveATrip(bool newValue) {
+    _haveATrip = newValue;
   }
 
   getTotalReservation() {
@@ -81,6 +93,35 @@ class GlobalProvider extends ChangeNotifier {
     return _commission;
   }
 
+  setDays() {
+    var arrayStartDate = getStartDate().split('/');
+    DateTime dateNow = DateTime.now();
+    DateTime dateStart = DateTime(
+      int.parse(arrayStartDate[2]),
+      int.parse(arrayStartDate[1]),
+      int.parse(arrayStartDate[0]),
+      dateNow.hour,
+      dateNow.minute,
+    );
+
+    Duration difference = dateStart.difference(dateNow);
+
+    _days = difference.inDays;
+    int hours = difference.inHours % 24;
+    int minutes = difference.inMinutes % 60;
+    int seconds = difference.inSeconds % 60;
+    if (hours > 1) {
+      _days++;
+    }
+    print(
+        "$_days day(s) $hours hour(s) $minutes minute(s) $seconds second(s).");
+    return _days;
+  }
+
+  getDays() {
+    return _days;
+  }
+
   // Add Itinerary selected
   setItinerariesSelected(int index) {
     List<Itinerary> itinerary =
@@ -90,8 +131,28 @@ class GlobalProvider extends ChangeNotifier {
         .contains(itinerary[0].id)) {
       _itinerariesSelected.add(itinerary[0]);
     }
-    // print('itineraries:  $_itinerariesSelected');
+    print('itineraries SELECTED:  $_itinerariesSelected');
     notifyListeners();
+  }
+
+  setItinerariesNoSelected(int index) {
+    List<Itinerary> itinerary =
+        itineraries.where((it) => it.id == index).toList();
+    if (!_itinerariesSelected
+        .map((item) => item.id)
+        .contains(itinerary[0].id)) {
+      _itinerariesNoSelected.add(itinerary[0]);
+    }
+    print('itineraries NO SELECTED:  $_itinerariesNoSelected');
+    notifyListeners();
+  }
+
+  getItinerariesSelected() {
+    return _itinerariesSelected;
+  }
+
+  getItinerariesNoSelected() {
+    return _itinerariesNoSelected;
   }
 
   int getLengthItineraiesSelected() {

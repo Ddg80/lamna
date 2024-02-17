@@ -3,10 +3,10 @@ import 'package:lamna/utils/constants/color_constants.dart';
 
 class HeaderDetailsDestination extends StatelessWidget {
   const HeaderDetailsDestination({
-    Key? key,
+    super.key,
     required this.detailPicture,
     required this.label,
-  }) : super(key: key);
+  });
 
   final String detailPicture;
   final String label;

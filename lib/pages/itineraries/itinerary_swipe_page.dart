@@ -114,6 +114,8 @@ class _ItineraryPageState extends State<ItineraryPage> {
                         onTap: () {
                           controller.swipe(CardSwiperDirection.right);
                           _nopeAction();
+                          Provider.of<GlobalProvider>(context, listen: false)
+                              .setItinerariesNoSelected(_idItinerary);
                         },
                         child: Container(
                           height: 60,

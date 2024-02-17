@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lamna/pages/city_details_page.dart';
+import 'package:lamna/pages/reserved/city_details_page.dart';
 import 'package:lamna/provider/global_provider.dart';
 import 'package:lamna/utils/constants/color_constants.dart';
 import 'package:lamna/utils/constants/font_constants.dart';
