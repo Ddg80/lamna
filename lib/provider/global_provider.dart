@@ -23,14 +23,7 @@ class GlobalProvider extends ChangeNotifier {
   bool _haveAItinerary = false;
   int _days = 0;
 
-  getCounterItinerary() {
-    return _counterItinerary;
-  }
-
-  setCounterItinerary(int counter) {
-    _counterItinerary = counter;
-  }
-
+// TRAVEL
   getInfosSelectedForTravel() {
     if (_travelReserved.isNotEmpty && _formReservation.isNotEmpty) {
       var dataFormReservation = _formReservation.values.toList();
@@ -70,6 +63,44 @@ class GlobalProvider extends ChangeNotifier {
     _haveATravel = newValue;
   }
 
+// Add Travel Selected
+  setTravelSelected(Travel travel) {
+    if (_travelReserved.isEmpty) {
+      _travelReserved.add(travel);
+    } else {
+      _travelReserved.clear();
+      _travelReserved.add(travel);
+    }
+    notifyListeners();
+  }
+
+  bool isNotEmptyTravelSelected() {
+    return _travelReserved.isNotEmpty;
+  }
+
+  int getIdTravelSelected() {
+    if (_travelReserved.isNotEmpty) {
+      return _travelReserved[0].id;
+    }
+    return 0;
+  }
+
+  String getCategoryTravelSelected() {
+    if (_travelReserved.isNotEmpty) {
+      return _travelReserved[0].category;
+    }
+    return '';
+  }
+
+// ITINERARY
+  getCounterItinerary() {
+    return _counterItinerary;
+  }
+
+  setCounterItinerary(int counter) {
+    _counterItinerary = counter;
+  }
+
   getHaveAItinerary() {
     return _haveAItinerary;
   }
@@ -78,9 +109,111 @@ class GlobalProvider extends ChangeNotifier {
     _haveAItinerary = newValue;
   }
 
+// Add Itinerary selected
+  setReservationSelected(data) {
+    if (_formReservation.isEmpty) {
+      _formReservation = data;
+    } else {
+      _formReservation.clear();
+      _formReservation = data;
+    }
+    setStartDate(_formReservation['startDate']);
+    setReturnDate(_formReservation['returnDate']);
+    notifyListeners();
+  }
+
+  // setLikeItinerary(int index, bool like) {
+  //   if (like) {
+  //     List<Itinerary> itinerary =
+  //         _itinerariesSelected.where((it) => it.id == index).toList();
+  //     final indexItinerary = _itinerariesSelected.indexOf(itinerary[0]);
+  //     itinerary[0].like = false;
+  //     print('$index, $like');
+  //     print('$itinerary');
+  //     print('$indexItinerary');
+  //     print('$_itinerariesSelected');
+  //   } else {
+  //     List<Itinerary> itinerary =
+  //         _itinerariesNoSelected.where((it) => it.id == index).toList();
+  //     final indexItinerary = _itinerariesNoSelected.indexOf(itinerary[0]);
+  //     itinerary[0].like = true;
+  //     print('$index, $like');
+  //     print('$itinerary');
+  //     print('$indexItinerary');
+  //     print('$_itinerariesNoSelected');
+
+  //     // // Retrouver dans les itinéraires dislike
+  //     // List<Itinerary> itinerary =
+  //     //     _itinerariesSelected.where((it) => it.id == index).toList();
+  //     // print('ITINERARY OLD : ${itinerary}');
+  //     // // Mettre la valeur like = true
+  //     // itinerary[0].like = true;
+  //     // print('New LIKE  : ${itinerary[0].like}');
+  //     // // Mettre dans les itinéraires like
+  //     // _itinerariesNoSelected.add(itinerary[0]);
+  //     // print(' _itinerariesNoSelected : ${_itinerariesNoSelected}');
+  //     // // Supprimer des itinéraires dislike
+  //     // final indexItinerary = _itinerariesSelected.indexOf(itinerary[0]);
+  //     // _itinerariesSelected.removeAt(indexItinerary);
+  //     // print(' _itinerariesSelected : ${_itinerariesSelected}');
+  //   }
+  //   notifyListeners();
+  // }
+
+  // Add Itinerary selected
+  setItinerariesSelected(int index) {
+    List<Itinerary> itinerary =
+        itineraries.where((it) => it.id == index).toList();
+    if (!_itinerariesSelected
+            .map((item) => item.id)
+            .contains(itinerary[0].id) &&
+        !_itinerariesNoSelected
+            .map((item) => item.id)
+            .contains(itinerary[0].id)) {
+      itinerary[0].like = true;
+      _itinerariesSelected.add(itinerary[0]);
+    }
+    setHaveAItinerary(true);
+    // print('itineraries SELECTED:  $_itinerariesSelected');
+    // print('Have a Itinerary: $_haveAItinerary');
+    notifyListeners();
+  }
+
+  setItinerariesNoSelected(int index) {
+    List<Itinerary> itinerary =
+        itineraries.where((it) => it.id == index).toList();
+    if (!_itinerariesNoSelected
+            .map((item) => item.id)
+            .contains(itinerary[0].id) &&
+        !_itinerariesSelected
+            .map((item) => item.id)
+            .contains(itinerary[0].id)) {
+      itinerary[0].like = false;
+      _itinerariesNoSelected.add(itinerary[0]);
+    }
+    // print('itineraries NO SELECTED:  $_itinerariesNoSelected');
+    notifyListeners();
+  }
+
+  getItinerariesSelected() {
+    return _itinerariesSelected;
+  }
+
+  getItinerariesNoSelected() {
+    return _itinerariesNoSelected;
+  }
+
+  int getLengthItineraiesSelected() {
+    return _itinerariesSelected.length;
+  }
+
+  // RESERVATION
+
   getTotalReservation() {
     return _total;
   }
+
+  // DATE
 
   getStartDate() {
     return _startDate.toString();
@@ -131,80 +264,7 @@ class GlobalProvider extends ChangeNotifier {
     return _days;
   }
 
-  // Add Itinerary selected
-  setItinerariesSelected(int index) {
-    List<Itinerary> itinerary =
-        itineraries.where((it) => it.id == index).toList();
-    if (!_itinerariesSelected
-            .map((item) => item.id)
-            .contains(itinerary[0].id) &&
-        !_itinerariesNoSelected
-            .map((item) => item.id)
-            .contains(itinerary[0].id)) {
-      _itinerariesSelected.add(itinerary[0]);
-    }
-    setHaveAItinerary(true);
-    // print('itineraries SELECTED:  $_itinerariesSelected');
-    // print('Have a Itinerary: $_haveAItinerary');
-    notifyListeners();
-  }
-
-  setItinerariesNoSelected(int index) {
-    List<Itinerary> itinerary =
-        itineraries.where((it) => it.id == index).toList();
-    if (!_itinerariesNoSelected
-            .map((item) => item.id)
-            .contains(itinerary[0].id) &&
-        !_itinerariesSelected
-            .map((item) => item.id)
-            .contains(itinerary[0].id)) {
-      _itinerariesNoSelected.add(itinerary[0]);
-    }
-    // print('itineraries NO SELECTED:  $_itinerariesNoSelected');
-    notifyListeners();
-  }
-
-  getItinerariesSelected() {
-    return _itinerariesSelected;
-  }
-
-  getItinerariesNoSelected() {
-    return _itinerariesNoSelected;
-  }
-
-  int getLengthItineraiesSelected() {
-    return _itinerariesSelected.length;
-  }
-
-  // Add Travel Selected
-  setTravelSelected(Travel travel) {
-    if (_travelReserved.isEmpty) {
-      _travelReserved.add(travel);
-    } else {
-      _travelReserved.clear();
-      _travelReserved.add(travel);
-    }
-    notifyListeners();
-  }
-
-  bool isNotEmptyTravelSelected() {
-    return _travelReserved.isNotEmpty;
-  }
-
-  int getIdTravelSelected() {
-    if (_travelReserved.isNotEmpty) {
-      return _travelReserved[0].id;
-    }
-    return 0;
-  }
-
-  String getCategoryTravelSelected() {
-    if (_travelReserved.isNotEmpty) {
-      return _travelReserved[0].category;
-    }
-    return '';
-  }
-
+// CITY
   setIdCityChoose(int idChoose) {
     idCity = idChoose;
     notifyListeners();
@@ -223,19 +283,6 @@ class GlobalProvider extends ChangeNotifier {
       _masterCard.clear();
       _masterCard.add(card);
     }
-    notifyListeners();
-  }
-
-  // Add Itinerary selected
-  setReservationSelected(data) {
-    if (_formReservation.isEmpty) {
-      _formReservation = data;
-    } else {
-      _formReservation.clear();
-      _formReservation = data;
-    }
-    setStartDate(_formReservation['startDate']);
-    setReturnDate(_formReservation['returnDate']);
     notifyListeners();
   }
 }

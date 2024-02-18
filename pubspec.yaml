@@ -75,10 +75,10 @@ flutter:
     - assets/miniCardsItineraries/route4S.png
     - assets/miniCardsItineraries/route5S.png
     - assets/miniCardsItineraries/route6S.png
-    - assets/labelsItineraries/createdByBrunoMaltor.svg
-    - assets/labelsItineraries/createdByDestinationRennes.svg
-    - assets/labelsItineraries/createdByLamna.svg
-    - assets/labelsItineraries/createdByNosCurieuxVoyageurs.svg
+    - assets/labelsItineraries/createdByBrunoMaltor.png
+    - assets/labelsItineraries/createdByDestinationRennes.png
+    - assets/labelsItineraries/createdByLamna.png
+    - assets/labelsItineraries/createdByNosCurieuxVoyageurs.png
     - assets/auFilDeLeau/image1.png
     - assets/auFilDeLeau/image2.png
     - assets/auFilDeLeau/image3.png
@@ -129,6 +129,9 @@ flutter:
     - assets/mastercard/cardBg.png
     - assets/mastercard/mastercard.png
     - assets/icons/heart.svg
+    - assets/FakeMap.png
+    - assets/icons/dislike.svg
+    - assets/icons/like.svg
   fonts:
     - family: ClashDisplay
       fonts: 

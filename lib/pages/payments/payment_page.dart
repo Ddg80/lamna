@@ -17,7 +17,7 @@ class PaymentPage extends StatefulWidget {
 }
 
 class PaymentPageState extends State<PaymentPage> {
-  bool isLightTheme = false;
+  bool isLightTheme = true;
   String cardNumber = '';
   String expiryDate = '';
   String cardHolderName = '';

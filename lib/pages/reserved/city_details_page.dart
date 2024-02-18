@@ -27,8 +27,12 @@ class _CityDetailsPageState extends State<CityDetailsPage> {
   }
 
   void _navigate() {
-    Navigator.pop(context,
-        MaterialPageRoute(builder: (context) => const DestinationPage()));
+    Navigator.pop(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const DestinationPage(),
+      ),
+    );
   }
 
   @override

@@ -209,7 +209,7 @@ class _FormTransportationPageState extends State<FormTransportationPage> {
                         },
                         validator: (value) {
                           if (value == null || value.isEmpty) {
-                            return 'Merci de renseigner une ville de départ email valide.';
+                            return 'Merci de renseigner une ville de départ valide.';
                           }
                           return null;
                         },
@@ -285,7 +285,7 @@ class _FormTransportationPageState extends State<FormTransportationPage> {
                           bottom: 8.0,
                         ),
                         child: Text(
-                          'Date d\'arrivée',
+                          'Date de retour',
                           style: TextStyle(
                             fontFamily: FontConstants.principalFont,
                             color: ColorConstants.greenDarkAppColor,

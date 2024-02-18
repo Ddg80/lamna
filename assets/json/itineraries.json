@@ -1,0 +1,126 @@
+[
+  {
+    "id": 1,
+    "nameCity": "Rennes",
+    "titleItinerary": "Au fil de l'eau",
+    "image": "assets/itineraryCards/route1.png",
+    "smallImage": "assets/miniCardsItineraries/route1S.png",
+    "nbSite": 12,
+    "distance": 27.4,
+    "days": 2,
+    "createdBy": "assets/labelsItineraries/createdByDestinationRennes.svg",
+    "headerImage": "assets/auFilDeLeau/header.png",
+    "description":
+        "Explorez Rennes à travers ses cours d'eau, découvrant ses quais pittoresques et ses parcs verdoyants bordés d'eau, offrant une perspective paisible de la ville.",
+    "images": [
+      "assets/auFilDeLeau/image1.png",
+      "assets/auFilDeLeau/image2.png",
+      "assets/auFilDeLeau/image3.png",
+      "assets/auFilDeLeau/image4.png"
+    ],
+    "like": false
+  },
+  {
+    "id": 2,
+    "nameCity": "Rennes",
+    "titleItinerary": "Echappée gourmande",
+    "image": "assets/itineraryCards/route2.png",
+    "smallImage": "assets/miniCardsItineraries/route2S.png",
+    "nbSite": 9,
+    "distance": 12,
+    "days": 3,
+    "createdBy": "assets/labelsItineraries/createdByLamna.svg",
+    "headerImage": "assets/EchappeGourmande/header.png",
+    "description":
+        "Laissez-vous séduire par les délices culinaires de Rennes en explorant ses marchés animés, ses rues pavées bordées de restaurants et ses places accueillantes, offrant une expérience gastronomique inoubliable.",
+    "images": [
+      "assets/EchappeGourmande/image1.png",
+      "assets/EchappeGourmande/image2.png",
+      "assets/EchappeGourmande/image3.png",
+      "assets/EchappeGourmande/image4.png"
+    ],
+    "like": false
+  },
+{
+  "id": 3,
+    "nameCity": "Rennes",
+    "titleItinerary": "Flâneries médiévales au coeur de Rennes",
+    "image": "assets/itineraryCards/route3.png",
+    "smallImage": "assets/miniCardsItineraries/route3S.png",
+    "nbSite": 8,
+    "distance": 6,
+    "days": 1,
+    "createdBy": "assets/labelsItineraries/createdByNosCurieuxVoyageurs.svg",
+    "headerImage": "assets/medieval/header.png",
+    "description":
+        "Plongez dans une expérience immersive à travers les ruelles médiévales de Rennes, où chaque pas vous transporte dans l'atmosphère envoûtante du Moyen Âge. Parcourez les chemins pavés qui ont vu défiler les chevaliers et les marchands, imprégnant chaque pierre d'une histoire millénaire.",
+    "images": [
+      "assets/medieval/image1.png",
+      "assets/medieval/image2.png",
+      "assets/medieval/image3.png",
+      "assets/medieval/image4.png"
+    ],
+    "like": false
+},
+{
+  "id": 4,
+    "nameCity": "Rennes",
+    "titleItinerary": "Trésors historiques cachés",
+    "image": "assets/itineraryCards/route4.png",
+    "smallImage": "assets/miniCardsItineraries/route4S.png",
+    "nbSite": 15,
+    "distance": 19,
+    "days": 1,
+    "createdBy": "assets/labelsItineraries/createdByBrunoMaltor.svg",
+    "headerImage": "assets/tresorsCaches/header.png",
+    "description":
+        "Plongez dans le riche passé de Rennes en explorant ses trésors historiques cachés, des églises anciennes aux ruelles médiévales, en passant par les imposants bâtiments de la période de la Renaissance.",
+    "images": [
+      "assets/tresorsCaches/image1.png",
+      "assets/tresorsCaches/image2.png",
+      "assets/tresorsCaches/image3.png"
+    ],
+    "like": false
+},
+{
+  "id": 5,
+  "nameCity": "Rennes",
+  "titleItinerary": "Odyssée moderne",
+  "image": "assets/itineraryCards/route5.png",
+  "smallImage": "assets/miniCardsItineraries/route5S.png",
+  "nbSite": 12,
+  "distance": 15,
+  "days": 2,
+  "createdBy": "assets/labelsItineraries/createdByDestinationRennes.svg",
+  "headerImage": "assets/odysseModerne/header.png",
+  "description":
+      "Découvrez le visage contemporain de Rennes à travers ses bâtiments modernes et ses quartiers dynamiques, témoignant de son évolution urbaine et de son engagement envers l'innovation architecturale.",
+  "images": [
+    "assets/odysseModerne/image1.png",
+    "assets/odysseModerne/image2.png",
+    "assets/odysseModerne/image3.png",
+    "assets/odysseModerne/image4.png"
+  ],
+  "like": false
+},
+{
+  "id": 6,
+    "nameCity": "Rennes",
+    "titleItinerary": "Rennes en rythme",
+    "image": "assets/itineraryCards/route6.png",
+    "smallImage": "assets/miniCardsItineraries/route6S.png",
+    "nbSite": 8,
+    "distance": 27,
+    "days": 3,
+    "createdBy": "assets/labelsItineraries/createdByLamna.svg",
+    "headerImage": "assets/enRythme/header.png",
+    "description":
+        "Vibrez au son de Rennes en découvrant ses lieux de musique emblématiques, des salles de concert animées aux bars intimistes, offrant une expérience musicale variée et dynamique.",
+    "images": [
+      "assets/enRythme/image1.png",
+      "assets/enRythme/image2.png",
+      "assets/enRythme/image3.png"
+        ], 
+    "like": false
+  }
+]
