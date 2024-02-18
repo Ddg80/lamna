@@ -7,6 +7,10 @@ class Itinerary {
   late int nbSite;
   late double distance;
   late int days;
+  late String createdBy;
+  late String headerImage;
+  late String description;
+  late List images;
 
   Itinerary({
     required this.id,
@@ -17,11 +21,15 @@ class Itinerary {
     required this.nbSite,
     required this.distance,
     required this.days,
+    required this.createdBy,
+    required this.headerImage,
+    required this.description,
+    required this.images,
   });
 
   @override
   String toString() {
-    return '{"id":$id,"nameCity":$nameCity,"image":$image,"smallImage": $smallImage,"titleItinerary":$titleItinerary,"nbSite":$nbSite,"distance":$distance,"days":$days}';
+    return '{"id":$id,"nameCity":$nameCity,"image":$image,"smallImage": $smallImage,"titleItinerary":$titleItinerary,"nbSite":$nbSite,"distance":$distance,"days":$days, "createdBy": $createdBy, "headerImage": $headerImage, "description": $description}';
   }
 }
 
@@ -35,6 +43,16 @@ List<Itinerary> itineraries = [
     nbSite: 12,
     distance: 27.4,
     days: 2,
+    createdBy: "assets/labelsItineraries/createdByDestinationRennes.svg",
+    headerImage: "assets/auFilDeLeau/header.png",
+    description:
+        "Explorez Rennes à travers ses cours d'eau, découvrant ses quais pittoresques et ses parcs verdoyants bordés d'eau, offrant une perspective paisible de la ville.",
+    images: [
+      "assets/auFilDeLeau/image1.png",
+      "assets/auFilDeLeau/image2.png",
+      "assets/auFilDeLeau/image3.png",
+      "assets/auFilDeLeau/image4.png"
+    ],
   ),
   Itinerary(
     id: 2,
@@ -45,6 +63,16 @@ List<Itinerary> itineraries = [
     nbSite: 9,
     distance: 12,
     days: 3,
+    createdBy: "assets/labelsItineraries/createdByLamna.svg",
+    headerImage: "assets/EchappeGourmande/header.png",
+    description:
+        "Laissez-vous séduire par les délices culinaires de Rennes en explorant ses marchés animés, ses rues pavées bordées de restaurants et ses places accueillantes, offrant une expérience gastronomique inoubliable.",
+    images: [
+      "assets/EchappeGourmande/image1.png",
+      "assets/EchappeGourmande/image2.png",
+      "assets/EchappeGourmande/image3.png",
+      "assets/EchappeGourmande/image4.png"
+    ],
   ),
   Itinerary(
     id: 3,
@@ -55,6 +83,16 @@ List<Itinerary> itineraries = [
     nbSite: 8,
     distance: 6,
     days: 1,
+    createdBy: "assets/labelsItineraries/createdByNosCurieuxVoyageurs.svg",
+    headerImage: "assets/medieval/header.png",
+    description:
+        "Plongez dans une expérience immersive à travers les ruelles médiévales de Rennes, où chaque pas vous transporte dans l'atmosphère envoûtante du Moyen Âge. Parcourez les chemins pavés qui ont vu défiler les chevaliers et les marchands, imprégnant chaque pierre d'une histoire millénaire.",
+    images: [
+      "assets/medieval/image1.png",
+      "assets/medieval/image2.png",
+      "assets/medieval/image3.png",
+      "assets/medieval/image4.png"
+    ],
   ),
   Itinerary(
     id: 4,
@@ -65,6 +103,15 @@ List<Itinerary> itineraries = [
     nbSite: 15,
     distance: 19,
     days: 1,
+    createdBy: "assets/labelsItineraries/createdByBrunoMaltor.svg",
+    headerImage: "assets/tresorsCaches/header.png",
+    description:
+        "Plongez dans le riche passé de Rennes en explorant ses trésors historiques cachés, des églises anciennes aux ruelles médiévales, en passant par les imposants bâtiments de la période de la Renaissance.",
+    images: [
+      "assets/tresorsCaches/image1.png",
+      "assets/tresorsCaches/image2.png",
+      "assets/tresorsCaches/image3.png"
+    ],
   ),
   Itinerary(
     id: 5,
@@ -75,6 +122,16 @@ List<Itinerary> itineraries = [
     nbSite: 12,
     distance: 15,
     days: 2,
+    createdBy: "assets/labelsItineraries/createdByDestinationRennes.svg",
+    headerImage: "assets/odysseModerne/header.png",
+    description:
+        "Découvrez le visage contemporain de Rennes à travers ses bâtiments modernes et ses quartiers dynamiques, témoignant de son évolution urbaine et de son engagement envers l'innovation architecturale.",
+    images: [
+      "assets/odysseModerne/image1.png",
+      "assets/odysseModerne/image2.png",
+      "assets/odysseModerne/image3.png",
+      "assets/odysseModerne/image4.png"
+    ],
   ),
   Itinerary(
     id: 6,
@@ -85,5 +142,14 @@ List<Itinerary> itineraries = [
     nbSite: 8,
     distance: 27,
     days: 3,
+    createdBy: "assets/labelsItineraries/createdByLamna.svg",
+    headerImage: "assets/enRythme/header.png",
+    description:
+        "Vibrez au son de Rennes en découvrant ses lieux de musique emblématiques, des salles de concert animées aux bars intimistes, offrant une expérience musicale variée et dynamique.",
+    images: [
+      "assets/enRythme/image1.png",
+      "assets/enRythme/image2.png",
+      "assets/enRythme/image3.png",
+    ],
   ),
 ];

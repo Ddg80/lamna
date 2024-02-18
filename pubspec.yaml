@@ -71,10 +71,42 @@ flutter:
     - assets/itineraryCards/route6.png
     - assets/miniCardsItineraries/route1S.png
     - assets/miniCardsItineraries/route2S.png
-    - assets/miniCardsItineraries/route3S.png
+    - assets/miniCardsItineraries/route3S.png 
     - assets/miniCardsItineraries/route4S.png
     - assets/miniCardsItineraries/route5S.png
     - assets/miniCardsItineraries/route6S.png
+    - assets/labelsItineraries/createdByBrunoMaltor.svg
+    - assets/labelsItineraries/createdByDestinationRennes.svg
+    - assets/labelsItineraries/createdByLamna.svg
+    - assets/labelsItineraries/createdByNosCurieuxVoyageurs.svg
+    - assets/auFilDeLeau/image1.png
+    - assets/auFilDeLeau/image2.png
+    - assets/auFilDeLeau/image3.png
+    - assets/auFilDeLeau/image4.png
+    - assets/auFilDeLeau/header.png
+    - assets/medieval/image1.png
+    - assets/medieval/image2.png
+    - assets/medieval/image3.png
+    - assets/medieval/image4.png
+    - assets/medieval/header.png
+    - assets/EchappeGourmande/image1.png
+    - assets/EchappeGourmande/image2.png
+    - assets/EchappeGourmande/image3.png
+    - assets/EchappeGourmande/image4.png
+    - assets/EchappeGourmande/header.png
+    - assets/tresorsCaches/image1.png
+    - assets/tresorsCaches/image2.png
+    - assets/tresorsCaches/image3.png
+    - assets/tresorsCaches/header.png
+    - assets/odysseModerne/image1.png
+    - assets/odysseModerne/image2.png
+    - assets/odysseModerne/image3.png
+    - assets/odysseModerne/image4.png
+    - assets/odysseModerne/header.png
+    - assets/enRythme/image1.png
+    - assets/enRythme/image2.png
+    - assets/enRythme/image3.png
+    - assets/enRythme/header.png
     - assets/icons/chevron-left-double.svg
     - assets/icons/chevron-right-double.svg
     - assets/icons/like.png
@@ -89,6 +121,9 @@ flutter:
     - assets/icons/busEmoji.png
     - assets/icons/trainEmoji.png
     - assets/icons/voitureEmoji.png
+    - assets/icons/route.svg
+    - assets/icons/ping.svg
+    - assets/icons/calendar.svg
     - assets/mastercard/bgDark.png
     - assets/mastercard/bgLight.png
     - assets/mastercard/cardBg.png

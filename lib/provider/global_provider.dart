@@ -117,13 +117,13 @@ class GlobalProvider extends ChangeNotifier {
 
     _days = difference.inDays;
     int hours = difference.inHours % 24;
-    int minutes = difference.inMinutes % 60;
-    int seconds = difference.inSeconds % 60;
+    // int minutes = difference.inMinutes % 60;
+    // int seconds = difference.inSeconds % 60;
     if (hours > 1) {
       _days++;
     }
-    print(
-        "$_days day(s) $hours hour(s) $minutes minute(s) $seconds second(s).");
+    // print(
+    //     "$_days day(s) $hours hour(s) $minutes minute(s) $seconds second(s).");
     return _days;
   }
 
@@ -144,8 +144,8 @@ class GlobalProvider extends ChangeNotifier {
       _itinerariesSelected.add(itinerary[0]);
     }
     setHaveAItinerary(true);
-    print('itineraries SELECTED:  $_itinerariesSelected');
-    print('Have a Itinerary: $_haveAItinerary');
+    // print('itineraries SELECTED:  $_itinerariesSelected');
+    // print('Have a Itinerary: $_haveAItinerary');
     notifyListeners();
   }
 
@@ -160,7 +160,7 @@ class GlobalProvider extends ChangeNotifier {
             .contains(itinerary[0].id)) {
       _itinerariesNoSelected.add(itinerary[0]);
     }
-    print('itineraries NO SELECTED:  $_itinerariesNoSelected');
+    // print('itineraries NO SELECTED:  $_itinerariesNoSelected');
     notifyListeners();
   }
 

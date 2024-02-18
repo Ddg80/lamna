@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lamna/models/itinerary.dart';
+import 'package:lamna/pages/itineraries/single_itinerary_page.dart';
 import 'package:lamna/pages/reserved/destination_page.dart';
 import 'package:lamna/provider/global_provider.dart';
 import 'package:lamna/utils/constants/color_constants.dart';
@@ -98,8 +99,16 @@ class _ItinerariesPageState extends State<ItinerariesPage> {
                                       i++)
                                     GestureDetector(
                                       onTap: () {
-                                        print(
-                                            'itineray ${listItinerariesSelected[i].id}');
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                SingleItineraryPage(
+                                              itinerary:
+                                                  listItinerariesSelected[i],
+                                            ),
+                                          ),
+                                        );
                                       },
                                       child: Padding(
                                         padding: const EdgeInsets.only(
@@ -150,8 +159,16 @@ class _ItinerariesPageState extends State<ItinerariesPage> {
                                       i++)
                                     GestureDetector(
                                       onTap: () {
-                                        print(
-                                            'itineray ${listItinerariesNoSelected[i].id}');
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                SingleItineraryPage(
+                                              itinerary:
+                                                  listItinerariesNoSelected[i],
+                                            ),
+                                          ),
+                                        );
                                       },
                                       child: Padding(
                                         padding: const EdgeInsets.only(

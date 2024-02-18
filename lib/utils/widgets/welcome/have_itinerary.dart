@@ -53,34 +53,42 @@ class HaveItinerary extends StatelessWidget {
               const SizedBox(
                 height: 15,
               ),
-              Row(
-                children: [
-                  Text(
-                    provider.getDays().toString(),
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: const Color(0xFF5A5A5A),
-                      fontSize: 32,
-                      fontFamily: FontConstants.regularFont,
-                      fontWeight: FontWeight.w600,
-                      height: 0.08,
+              Padding(
+                padding: const EdgeInsets.only(left: 8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      provider.getDays().toString(),
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: const Color(0xFF5A5A5A),
+                        fontSize: 32,
+                        fontFamily: FontConstants.regularFont,
+                        fontWeight: FontWeight.w600,
+                        height: 0.08,
+                      ),
                     ),
-                  ),
-                  const SizedBox(
-                    height: 15,
-                  ),
-                  Text(
-                    (provider.getDays() >= 2) ? ' Jours' : ' Jour',
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(
-                      color: Color(0xFF5A5A5A),
-                      fontSize: 16,
-                      fontFamily: 'Inter',
-                      fontWeight: FontWeight.w400,
-                      height: 0.08,
+                    const SizedBox(
+                      height: 15,
                     ),
-                  ),
-                ],
+                    Padding(
+                      padding: const EdgeInsets.only(top: 15.0),
+                      child: Text(
+                        (provider.getDays() >= 2) ? ' Jours' : ' Jour',
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(
+                          color: Color(0xFF5A5A5A),
+                          fontSize: 16,
+                          fontFamily: 'Inter',
+                          fontWeight: FontWeight.w400,
+                          height: 0.08,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
