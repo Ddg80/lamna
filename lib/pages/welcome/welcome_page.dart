@@ -103,7 +103,7 @@ class _WelcomePageState extends State<WelcomePage> {
             ),
             Container(
               width: 255,
-              height: 136,
+              height: 146,
               transform: Matrix4.translationValues(0, -72, 0),
               decoration: ShapeDecoration(
                 color: ColorConstants.whiteAppColor,

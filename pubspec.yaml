@@ -132,6 +132,8 @@ flutter:
     - assets/FakeMap.png
     - assets/icons/dislike.svg
     - assets/icons/like.svg
+    - assets/pictures/Collaboration-pana.svg
+    - assets/pictures/QRCode-pana.svg
   fonts:
     - family: ClashDisplay
       fonts: 

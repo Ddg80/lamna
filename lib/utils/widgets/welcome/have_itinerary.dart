@@ -20,34 +20,48 @@ class HaveItinerary extends StatelessWidget {
         children: [
           Row(
             children: [
-              const Column(
+              Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    'Vous partez à : ',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Color(0xFF5A5A5A),
-                      fontSize: 16,
-                      fontFamily: 'Inter',
-                      fontWeight: FontWeight.w400,
-                      height: 0.08,
-                    ),
-                  ),
-                  SizedBox(
+                  (provider.getDays() > 0)
+                      ? Text(
+                          'Vous partez à : ',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: ColorConstants.greenDarkAppColor,
+                            fontSize: 16,
+                            fontFamily: 'Inter',
+                            fontWeight: FontWeight.w400,
+                            height: 0.08,
+                          ),
+                        )
+                      : Text(
+                          'Bien arrivé ',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: ColorConstants.greenDarkAppColor,
+                            fontSize: 16,
+                            fontFamily: FontConstants.semiBoldFont,
+                            fontWeight: FontWeight.w700,
+                            height: 0.08,
+                          ),
+                        ),
+                  const SizedBox(
                     height: 15,
                   ),
-                  Text(
-                    ' Rennes dans',
-                    style: TextStyle(
-                      color: Color(0xFF5A5A5A),
-                      fontSize: 16,
-                      fontFamily: 'Inter',
-                      fontWeight: FontWeight.w400,
-                      height: 0.08,
-                    ),
-                  ),
+                  (provider.getDays() > 0)
+                      ? Text(
+                          ' Rennes dans',
+                          style: TextStyle(
+                            color: ColorConstants.greenDarkAppColor,
+                            fontSize: 16,
+                            fontFamily: 'Inter',
+                            fontWeight: FontWeight.w400,
+                            height: 0.08,
+                          ),
+                        )
+                      : Container(),
                 ],
               ),
               const SizedBox(
@@ -59,39 +73,89 @@ class HaveItinerary extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Text(
-                      provider.getDays().toString(),
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: const Color(0xFF5A5A5A),
-                        fontSize: 32,
-                        fontFamily: FontConstants.regularFont,
-                        fontWeight: FontWeight.w600,
-                        height: 0.08,
-                      ),
-                    ),
+                    (provider.getDays() > 0)
+                        ? Text(
+                            provider.getDays().toString(),
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: ColorConstants.greenDarkAppColor,
+                              fontSize: 32,
+                              fontFamily: FontConstants.regularFont,
+                              fontWeight: FontWeight.w600,
+                              height: 0.08,
+                            ),
+                          )
+                        : Container(),
                     const SizedBox(
                       height: 15,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 15.0),
-                      child: Text(
-                        (provider.getDays() >= 2) ? ' Jours' : ' Jour',
-                        textAlign: TextAlign.center,
-                        style: const TextStyle(
-                          color: Color(0xFF5A5A5A),
+                    (provider.getDays() > 0)
+                        ? Padding(
+                            padding: const EdgeInsets.only(top: 15.0),
+                            child: Text(
+                              (provider.getDays() >= 2) ? ' Jours' : ' Jour',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: ColorConstants.greenDarkAppColor,
+                                fontSize: 16,
+                                fontFamily: 'Inter',
+                                fontWeight: FontWeight.w400,
+                                height: 0.08,
+                              ),
+                            ),
+                          )
+                        : Container(
+                            transform: Matrix4.translationValues(-6, -8, 0),
+                            child: Text(
+                              'à destination ?',
+                              style: TextStyle(
+                                color: ColorConstants.greenDarkAppColor,
+                                fontSize: 16,
+                                fontFamily: FontConstants.lightFont,
+                                fontWeight: FontWeight.w600,
+                                height: 0.08,
+                              ),
+                            ),
+                          )
+                  ],
+                ),
+              ),
+            ],
+          ),
+          (provider.getDays() > 0)
+              ? Container()
+              : Padding(
+                  padding: const EdgeInsets.only(top: 3.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'L’équipe LÄMNA vous',
+                        style: TextStyle(
+                          color: ColorConstants.greenDarkAppColor,
                           fontSize: 16,
                           fontFamily: 'Inter',
                           fontWeight: FontWeight.w400,
                           height: 0.08,
                         ),
                       ),
-                    ),
-                  ],
+                      const SizedBox(
+                        height: 15,
+                      ),
+                      Text(
+                        'souhaite un excellent séjour !',
+                        style: TextStyle(
+                          color: ColorConstants.greenDarkAppColor,
+                          fontSize: 16,
+                          fontFamily: 'Inter',
+                          fontWeight: FontWeight.w400,
+                          height: 0.08,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            ],
-          ),
           const SizedBox(
             height: 20,
           ),
