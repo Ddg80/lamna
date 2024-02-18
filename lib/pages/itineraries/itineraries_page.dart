@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:lamna/models/itinerary.dart';
 import 'package:lamna/pages/reserved/destination_page.dart';
 import 'package:lamna/provider/global_provider.dart';
 import 'package:lamna/utils/constants/color_constants.dart';
@@ -24,6 +25,9 @@ class _ItinerariesPageState extends State<ItinerariesPage> {
 
   @override
   Widget build(BuildContext context) {
+    List<Itinerary> listItinerariesSelected = provider.getItinerariesSelected();
+    List<Itinerary> listItinerariesNoSelected =
+        provider.getItinerariesNoSelected();
     return Scaffold(
       appBar: AppBar(
         title: (provider.getHaveAItinerary())
@@ -45,38 +49,130 @@ class _ItinerariesPageState extends State<ItinerariesPage> {
             Padding(
               padding: const EdgeInsets.only(left: 18.0, top: 18.0),
               child: (provider.getHaveAItinerary())
-                  ? Row(
+                  ? Column(
                       children: [
-                        const Text.rich(
-                          TextSpan(
-                            children: [
+                        Row(
+                          children: [
+                            const Text.rich(
                               TextSpan(
-                                text: 'Itinéraires',
-                                style: TextStyle(
-                                  color: Color(0xFF3C674C),
-                                  fontSize: 16,
-                                  fontFamily: 'Inter',
-                                  fontWeight: FontWeight.w500,
-                                  height: 0.08,
-                                ),
+                                children: [
+                                  TextSpan(
+                                    text: 'Itinéraires',
+                                    style: TextStyle(
+                                      color: Color(0xFF3C674C),
+                                      fontSize: 16,
+                                      fontFamily: 'Inter',
+                                      fontWeight: FontWeight.w500,
+                                      height: 0.08,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: ' sauvegardés',
+                                    style: TextStyle(
+                                      color: Color(0xFF3C674C),
+                                      fontSize: 16,
+                                      fontFamily: 'Inter',
+                                      fontWeight: FontWeight.w700,
+                                      height: 0.08,
+                                    ),
+                                  ),
+                                ],
                               ),
-                              TextSpan(
-                                text: ' sauvegardés',
-                                style: TextStyle(
-                                  color: Color(0xFF3C674C),
-                                  fontSize: 16,
-                                  fontFamily: 'Inter',
-                                  fontWeight: FontWeight.w700,
-                                  height: 0.08,
-                                ),
-                              ),
-                            ],
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 8.0),
+                              child: SvgPicture.asset('assets/icons/heart.svg'),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        provider.getItinerariesSelected().length > 0
+                            ? Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  for (var i = 0;
+                                      i < listItinerariesSelected.length;
+                                      i++)
+                                    GestureDetector(
+                                      onTap: () {
+                                        print(
+                                            'itineray ${listItinerariesSelected[i].id}');
+                                      },
+                                      child: Padding(
+                                        padding: const EdgeInsets.only(
+                                            top: 8.0, bottom: 8.0),
+                                        child: Container(
+                                          transform: Matrix4.translationValues(
+                                              -10, 0, 0),
+                                          width: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              .9,
+                                          child: Image.asset(
+                                            listItinerariesSelected[i]
+                                                .smallImage,
+                                          ),
+                                        ),
+                                      ),
+                                    )
+                                ],
+                              )
+                            : Container(),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        Container(
+                          transform: Matrix4.translationValues(-60, 0, 0),
+                          child: const Text(
+                            'Autres itinéraires disponibles',
+                            style: TextStyle(
+                              color: Color(0xFF3C674C),
+                              fontSize: 16,
+                              fontFamily: 'Inter',
+                              fontWeight: FontWeight.w500,
+                              height: 0.08,
+                            ),
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 8.0),
-                          child: SvgPicture.asset('assets/icons/heart.svg'),
+                        const SizedBox(
+                          height: 20,
                         ),
+                        provider.getItinerariesSelected().length > 0
+                            ? Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  for (var i = 0;
+                                      i < listItinerariesNoSelected.length;
+                                      i++)
+                                    GestureDetector(
+                                      onTap: () {
+                                        print(
+                                            'itineray ${listItinerariesNoSelected[i].id}');
+                                      },
+                                      child: Padding(
+                                        padding: const EdgeInsets.only(
+                                            top: 8.0, bottom: 8.0),
+                                        child: Container(
+                                          transform: Matrix4.translationValues(
+                                              -10, 0, 0),
+                                          width: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              .9,
+                                          child: Image.asset(
+                                            listItinerariesNoSelected[i]
+                                                .smallImage,
+                                          ),
+                                        ),
+                                      ),
+                                    )
+                                ],
+                              )
+                            : Container()
                       ],
                     )
                   : Column(
