@@ -1,0 +1,62 @@
+[ 
+    {
+        "id": 1,
+        "startHour": "09:17",
+        "cityStart": "Rennes",
+        "finishHour": "14:09",
+        "cityFinish": "Rouen Rive droite",
+        "pricePerPerson": 45.00,
+        "timeTravel": "4:52",
+        "percent": 5,
+        "category": "Covoit",
+        "travelType": "Retour"
+    },
+    {
+        "id": 2,
+        "startHour": "10:34",
+        "cityStart": "Rennes",
+        "finishHour": "15:22",
+        "cityFinish": "Rouen Rive droite",
+        "pricePerPerson": 51.00,
+        "timeTravel": "4:54",
+        "percent": 5,
+        "category": "Covoit",
+        "travelType": "Retour"
+    },
+    {
+        "id": 3,
+        "startHour": "12:12",
+        "cityStart": "Rennes",
+        "finishHour": "17:02",
+        "cityFinish": "Rouen Rive droite",
+        "pricePerPerson": 48.00,
+        "timeTravel": "4:50",
+        "percent": 5,
+        "category": "Covoit",
+        "travelType": "Retour"
+    },
+    {
+        "id": 4,
+        "startHour": "15:12",
+        "cityStart": "Rennes",
+        "finishHour": "21:02",
+        "cityFinish": "Rouen Rive droite",
+        "pricePerPerson": 58.00,
+        "timeTravel": "4:50",
+        "percent": 5,
+        "category": "Covoit",
+        "travelType": "Retour"
+    },
+    {
+        "id": 5,
+        "startHour": "17:32",
+        "cityStart": "Rennes",
+        "finishHour": "23:02",
+        "cityFinish": "Rouen Rive droite",
+        "pricePerPerson": 42.00,
+        "timeTravel": "4:50",
+        "percent": 5,
+        "category": "Covoit",
+        "travelType": "Retour"
+    }
+]

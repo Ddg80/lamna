@@ -8,7 +8,8 @@
         "pricePerPerson": 45.00,
         "timeTravel": "4:52",
         "percent": 5,
-        "category": "Bus"
+        "category": "Covoit",
+        "travelType": "Aller"
     },
     {
         "id": 2,
@@ -19,7 +20,8 @@
         "pricePerPerson": 51.00,
         "timeTravel": "4:54",
         "percent": 5,
-        "category": "Bus"
+        "category": "Covoit",
+        "travelType": "Aller"
     },
     {
         "id": 3,
@@ -30,7 +32,8 @@
         "pricePerPerson": 48.00,
         "timeTravel": "4:50",
         "percent": 5,
-        "category": "Bus"
+        "category": "Covoit",
+        "travelType": "Aller"
     },
     {
         "id": 4,
@@ -41,7 +44,8 @@
         "pricePerPerson": 58.00,
         "timeTravel": "4:50",
         "percent": 5,
-        "category": "Bus"
+        "category": "Covoit",
+        "travelType": "Aller"
     },
     {
         "id": 5,
@@ -52,6 +56,7 @@
         "pricePerPerson": 42.00,
         "timeTravel": "4:50",
         "percent": 5,
-        "category": "Bus"
+        "category": "Covoit",
+        "travelType": "Aller"
     }
 ]

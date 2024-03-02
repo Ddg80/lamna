@@ -122,25 +122,51 @@ class _NestedTabBarState extends State<NestedTabBar>
   static const bus = 'Bus';
   static const covoit = 'Covoit';
 
-  Future<List<Travel>> fetchListTravelsTrain() async {
+  Future<List<Travel>> fetchListTravelsTrainAller() async {
     String data = await DefaultAssetBundle.of(context)
-        .loadString("assets/json/trainTravels.json");
+        .loadString("assets/json/trainTravelsAller.json");
     List mapData = jsonDecode(data);
     // print(mapData);
     return mapData.map((travelTrain) => Travel.fromJson(travelTrain)).toList();
   }
 
-  Future<List<Travel>> fetchListTravelsBus() async {
+  Future<List<Travel>> fetchListTravelsTrainRetour() async {
     String data = await DefaultAssetBundle.of(context)
-        .loadString("assets/json/busTravels.json");
+        .loadString("assets/json/trainTravelsRetour.json");
+    List mapData = jsonDecode(data);
+    // print(mapData);
+    return mapData.map((travelTrain) => Travel.fromJson(travelTrain)).toList();
+  }
+
+  Future<List<Travel>> fetchListTravelsBusAller() async {
+    String data = await DefaultAssetBundle.of(context)
+        .loadString("assets/json/busTravelsAller.json");
     List mapData = jsonDecode(data);
     // print(mapData);
     return mapData.map((travelBus) => Travel.fromJson(travelBus)).toList();
   }
 
-  Future<List<Travel>> fetchListTravelsCovoit() async {
+  Future<List<Travel>> fetchListTravelsBusRetour() async {
     String data = await DefaultAssetBundle.of(context)
-        .loadString("assets/json/covoitTravels.json");
+        .loadString("assets/json/busTravelsRetour.json");
+    List mapData = jsonDecode(data);
+    // print(mapData);
+    return mapData.map((travelBus) => Travel.fromJson(travelBus)).toList();
+  }
+
+  Future<List<Travel>> fetchListTravelsCovoitAller() async {
+    String data = await DefaultAssetBundle.of(context)
+        .loadString("assets/json/covoitTravelsAller.json");
+    List mapData = jsonDecode(data);
+    // print(mapData);
+    return mapData
+        .map((travelCovoit) => Travel.fromJson(travelCovoit))
+        .toList();
+  }
+
+  Future<List<Travel>> fetchListTravelsCovoitRetour() async {
+    String data = await DefaultAssetBundle.of(context)
+        .loadString("assets/json/covoitTravelsRetour.json");
     List mapData = jsonDecode(data);
     // print(mapData);
     return mapData
@@ -181,7 +207,9 @@ class _NestedTabBarState extends State<NestedTabBar>
             children: <Widget>[
               SingleChildScrollView(
                 child: FutureBuilder<List<Travel>>(
-                  future: fetchListTravelsTrain(),
+                  future: widget.outerTab == 'Aller'
+                      ? fetchListTravelsTrainAller()
+                      : fetchListTravelsTrainRetour(),
                   builder: (context, snapshot) {
                     if (snapshot.hasData) {
                       List<Travel> travelList = snapshot.data!;
@@ -199,11 +227,8 @@ class _NestedTabBarState extends State<NestedTabBar>
                                       .setTravelSelected(travelList[index]);
                                 },
                                 child: Card(
-                                  color: (provider.isNotEmptyTravelSelected() &&
-                                          provider.getIdTravelSelected() ==
-                                              travelList[index].id &&
-                                          provider.getCategoryTravelSelected() ==
-                                              train)
+                                  color: (provider
+                                          .isSelectedTravel(travelList[index]))
                                       ? ColorConstants.greenBlurSecondaryColor
                                       : ColorConstants.whiteAppColor,
                                   shape: RoundedRectangleBorder(
@@ -328,7 +353,9 @@ class _NestedTabBarState extends State<NestedTabBar>
               ),
               SingleChildScrollView(
                 child: FutureBuilder<List<Travel>>(
-                  future: fetchListTravelsBus(),
+                  future: widget.outerTab == 'Aller'
+                      ? fetchListTravelsBusAller()
+                      : fetchListTravelsBusRetour(),
                   builder: (context, snapshot) {
                     if (snapshot.hasData) {
                       List<Travel> travelList = snapshot.data!;
@@ -346,11 +373,8 @@ class _NestedTabBarState extends State<NestedTabBar>
                                       .setTravelSelected(travelList[index]);
                                 },
                                 child: Card(
-                                  color: (provider.isNotEmptyTravelSelected() &&
-                                          provider.getIdTravelSelected() ==
-                                              travelList[index].id &&
-                                          provider.getCategoryTravelSelected() ==
-                                              bus)
+                                  color: (provider
+                                          .isSelectedTravel(travelList[index]))
                                       ? ColorConstants.greenBlurSecondaryColor
                                       : ColorConstants.whiteAppColor,
                                   shape: RoundedRectangleBorder(
@@ -475,7 +499,9 @@ class _NestedTabBarState extends State<NestedTabBar>
               ),
               SingleChildScrollView(
                 child: FutureBuilder<List<Travel>>(
-                  future: fetchListTravelsCovoit(),
+                  future: widget.outerTab == 'Aller'
+                      ? fetchListTravelsCovoitAller()
+                      : fetchListTravelsCovoitRetour(),
                   builder: (context, snapshot) {
                     if (snapshot.hasData) {
                       List<Travel> travelList = snapshot.data!;
@@ -493,11 +519,8 @@ class _NestedTabBarState extends State<NestedTabBar>
                                       .setTravelSelected(travelList[index]);
                                 },
                                 child: Card(
-                                  color: (provider.isNotEmptyTravelSelected() &&
-                                          provider.getIdTravelSelected() ==
-                                              travelList[index].id &&
-                                          provider.getCategoryTravelSelected() ==
-                                              covoit)
+                                  color: (provider
+                                          .isSelectedTravel(travelList[index]))
                                       ? ColorConstants.greenBlurSecondaryColor
                                       : ColorConstants.whiteAppColor,
                                   shape: RoundedRectangleBorder(

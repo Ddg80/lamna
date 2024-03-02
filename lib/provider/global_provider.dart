@@ -65,31 +65,41 @@ class GlobalProvider extends ChangeNotifier {
 
 // Add Travel Selected
   setTravelSelected(Travel travel) {
-    if (_travelReserved.isEmpty) {
+    print("TRAVEL SELECTED $travel");
+
+    // si vide on ajoute sans ce préoccuper de aller / retour
+    var travelExisting = _travelReserved
+        .where((element) => element.travelType == travel.travelType);
+    if (travelExisting.isEmpty) {
       _travelReserved.add(travel);
     } else {
-      _travelReserved.clear();
+      int indexItem = _travelReserved
+          .indexWhere((item) => item.travelType == travel.travelType);
+      _travelReserved.removeAt(indexItem);
       _travelReserved.add(travel);
     }
+
+    // _travelReserved.add(travel);
+
+    print("TRAVEL RESERVED $_travelReserved");
     notifyListeners();
+  }
+
+  bool isSelectedTravel(travel) {
+    int indexItem = _travelReserved.indexWhere(
+      (item) =>
+          item.travelType == travel.travelType &&
+          item.category == travel.category &&
+          item.id == travel.id,
+    );
+    if (indexItem >= 0) {
+      return true;
+    }
+    return false;
   }
 
   bool isNotEmptyTravelSelected() {
     return _travelReserved.isNotEmpty;
-  }
-
-  int getIdTravelSelected() {
-    if (_travelReserved.isNotEmpty) {
-      return _travelReserved[0].id;
-    }
-    return 0;
-  }
-
-  String getCategoryTravelSelected() {
-    if (_travelReserved.isNotEmpty) {
-      return _travelReserved[0].category;
-    }
-    return '';
   }
 
 // ITINERARY
