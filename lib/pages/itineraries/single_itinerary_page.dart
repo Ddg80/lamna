@@ -80,17 +80,20 @@ class _SingleItineraryPageState extends State<SingleItineraryPage> {
                                   widget.itinerary.titleItinerary,
                                   style: TextStyle(
                                     color: ColorConstants.greenLightAppColor,
-                                    fontSize: 30,
+                                    fontSize: 23,
                                     fontFamily: FontConstants.regularFont,
                                     fontWeight: FontWeight.w400,
                                     height: 0.04,
                                   ),
                                 ),
+                                const SizedBox(
+                                  width: 3,
+                                ),
                                 Text(
                                   widget.itinerary.subtitleItinerary,
                                   style: TextStyle(
                                     color: ColorConstants.greenLightAppColor,
-                                    fontSize: 30,
+                                    fontSize: 23,
                                     fontFamily: FontConstants.principalFont,
                                     fontWeight: FontWeight.w600,
                                     height: 0.04,

@@ -65,6 +65,7 @@ flutter:
     - assets/json/busTravelsRetour.json
     - assets/json/covoitTravelsAller.json
     - assets/json/covoitTravelsRetour.json
+    - assets/json/itineraries.json
     - assets/logos/darkIconTypo.svg
     - assets/itineraryCards/route1.png
     - assets/itineraryCards/route2.png

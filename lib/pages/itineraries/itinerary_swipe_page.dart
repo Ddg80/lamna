@@ -3,7 +3,6 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_card_swiper/flutter_card_swiper.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:lamna/models/itinerary.dart';
 import 'package:lamna/pages/reserved/form_transportation_page.dart';
 import 'package:lamna/provider/global_provider.dart';
 import 'package:lamna/utils/constants/color_constants.dart';
@@ -24,7 +23,7 @@ class _ItineraryPageState extends State<ItineraryPage> {
   final CardSwiperController controller = CardSwiperController();
   late final provider = Provider.of<GlobalProvider>(context, listen: true);
   int _counter = 0;
-  int _maxTap = itineraries.length;
+  int _maxTap = 6;
   int _idItinerary = 0;
   @override
   void initState() {
@@ -59,6 +58,7 @@ class _ItineraryPageState extends State<ItineraryPage> {
 
   @override
   Widget build(BuildContext context) {
+    var itineraries = provider.getItineraries();
     return Scaffold(
       appBar: AppBar(
         title: const Padding(

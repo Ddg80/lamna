@@ -118,9 +118,6 @@ class _NestedTabBarState extends State<NestedTabBar>
     with TickerProviderStateMixin {
   late final TabController _tabController;
   late final provider = Provider.of<GlobalProvider>(context, listen: true);
-  static const train = 'Train';
-  static const bus = 'Bus';
-  static const covoit = 'Covoit';
 
   Future<List<Travel>> fetchListTravelsTrainAller() async {
     String data = await DefaultAssetBundle.of(context)

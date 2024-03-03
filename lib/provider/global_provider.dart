@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:lamna/models/city.dart';
 import 'package:lamna/models/itinerary.dart';
 import 'package:lamna/models/mastercard.dart';
@@ -9,12 +8,14 @@ import 'package:lamna/models/travel.dart';
 class GlobalProvider extends ChangeNotifier {
   int idCity = 0;
   int _counterItinerary = 0;
+  final List<Itinerary> _itineraries = [];
   final List<Itinerary> _itinerariesSelected = [];
   final List<Itinerary> _itinerariesNoSelected = [];
   final List<Travel> _travelReserved = [];
   final List<MasterCard> _masterCard = [];
   List<City> cities = [];
   Map<String, String> _formReservation = {};
+  List<Reservation> listReservations = [];
   double _total = 0.0;
   double _commission = 0.0;
   String _startDate = '';
@@ -29,27 +30,37 @@ class GlobalProvider extends ChangeNotifier {
       var dataFormReservation = _formReservation.values.toList();
       int nbPassengers =
           int.parse(dataFormReservation[dataFormReservation.length - 1]);
-      double pricePerPerson = _travelReserved[0].pricePerPerson;
-      double total = (pricePerPerson * nbPassengers);
-      int percent = _travelReserved[0].percent;
-      Reservation infosReservation = Reservation(
-        id: _travelReserved[0].id,
-        startHour: _travelReserved[0].startHour,
-        cityStart: _travelReserved[0].cityStart,
-        startDate: dataFormReservation[1],
-        finishHour: _travelReserved[0].finishHour,
-        cityFinish: _travelReserved[0].cityFinish,
-        returnDate: dataFormReservation[3],
-        pricePerPerson: pricePerPerson,
-        timeTravel: _travelReserved[0].timeTravel,
-        percent: percent,
-        category: _travelReserved[0].category,
-        numberPassengers: nbPassengers,
-        total: total.toPrecision(2),
-        commission: ((percent / total) * 100).toPrecision(2),
-      );
-      _total = infosReservation.total;
-      _commission = infosReservation.commission;
+      _total = 0.0;
+      _commission = 0.0;
+
+      print("TRAVEL RESERVED $_travelReserved");
+
+      for (int i = 0; i < _travelReserved.length; i++) {
+        double pricePerPerson = _travelReserved[i].pricePerPerson;
+        double totaltmp = (pricePerPerson * nbPassengers);
+        int percent = _travelReserved[i].percent;
+        _total += totaltmp;
+
+        Reservation infosReservation = Reservation(
+          id: _travelReserved[i].id,
+          startHour: _travelReserved[i].startHour,
+          cityStart: _travelReserved[i].cityStart,
+          startDate: dataFormReservation[1],
+          finishHour: _travelReserved[i].finishHour,
+          cityFinish: _travelReserved[i].cityFinish,
+          returnDate: dataFormReservation[3],
+          pricePerPerson: pricePerPerson,
+          timeTravel: _travelReserved[i].timeTravel,
+          percent: percent,
+          category: _travelReserved[i].category,
+          numberPassengers: nbPassengers,
+          total: _total.toPrecision(2),
+          commission: _total * (percent / 100),
+        );
+        _total = infosReservation.total;
+        _commission = infosReservation.commission;
+      }
+
       notifyListeners();
     }
     setHaveATravel(false);
@@ -65,9 +76,6 @@ class GlobalProvider extends ChangeNotifier {
 
 // Add Travel Selected
   setTravelSelected(Travel travel) {
-    print("TRAVEL SELECTED $travel");
-
-    // si vide on ajoute sans ce préoccuper de aller / retour
     var travelExisting = _travelReserved
         .where((element) => element.travelType == travel.travelType);
     if (travelExisting.isEmpty) {
@@ -78,10 +86,6 @@ class GlobalProvider extends ChangeNotifier {
       _travelReserved.removeAt(indexItem);
       _travelReserved.add(travel);
     }
-
-    // _travelReserved.add(travel);
-
-    print("TRAVEL RESERVED $_travelReserved");
     notifyListeners();
   }
 
@@ -173,7 +177,7 @@ class GlobalProvider extends ChangeNotifier {
   // Add Itinerary selected
   setItinerariesSelected(int index) {
     List<Itinerary> itinerary =
-        itineraries.where((it) => it.id == index).toList();
+        _itineraries.where((it) => it.id == index).toList();
     if (!_itinerariesSelected
             .map((item) => item.id)
             .contains(itinerary[0].id) &&
@@ -191,7 +195,7 @@ class GlobalProvider extends ChangeNotifier {
 
   setItinerariesNoSelected(int index) {
     List<Itinerary> itinerary =
-        itineraries.where((it) => it.id == index).toList();
+        _itineraries.where((it) => it.id == index).toList();
     if (!_itinerariesNoSelected
             .map((item) => item.id)
             .contains(itinerary[0].id) &&
@@ -215,6 +219,15 @@ class GlobalProvider extends ChangeNotifier {
 
   int getLengthItineraiesSelected() {
     return _itinerariesSelected.length;
+  }
+
+  // ITINERARIES
+  void setItineraries(List<Itinerary> itineraries) {
+    _itineraries.addAll(itineraries);
+  }
+
+  getItineraries() {
+    return _itineraries;
   }
 
   // RESERVATION
