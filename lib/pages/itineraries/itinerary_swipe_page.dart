@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_card_swiper/flutter_card_swiper.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -22,32 +20,34 @@ class ItineraryPage extends StatefulWidget {
 class _ItineraryPageState extends State<ItineraryPage> {
   final CardSwiperController controller = CardSwiperController();
   late final provider = Provider.of<GlobalProvider>(context, listen: true);
-  int _counter = 0;
-  int _maxTap = 6;
-  int _idItinerary = 0;
+  int _index = 0;
   @override
   void initState() {
     super.initState();
   }
 
-  _likeAction() {
+  _nopAction() {
     setState(() {
-      if (_maxTap >= 1) {
-        _counter++;
-        provider.setCounterItinerary(_counter);
-        _maxTap--;
-        _idItinerary++;
+      if (_index > 5) {
+        _index = 0;
+        provider.setItineraryDisLiked(_index);
+      } else {
+        provider.setItineraryDisLiked(_index);
+        _index++;
       }
     });
-    log(_maxTap.toString());
   }
 
-  _nopeAction() {
-    if (_maxTap >= 1) {
-      _maxTap--;
-      _idItinerary++;
-    }
-    log(_maxTap.toString());
+  _likeAction() {
+    setState(() {
+      if (_index > 5) {
+        _index = 0;
+        provider.setItineraryLiked(_index);
+      } else {
+        provider.setItineraryLiked(_index);
+        _index++;
+      }
+    });
   }
 
   @override
@@ -83,7 +83,6 @@ class _ItineraryPageState extends State<ItineraryPage> {
               controller: controller,
               cardsCount: itineraries.length,
               onSwipe: _onSwipe,
-              onUndo: _onUndo,
               cardBuilder: (
                 context,
                 index,
@@ -112,10 +111,8 @@ class _ItineraryPageState extends State<ItineraryPage> {
                       InkWell(
                         borderRadius: BorderRadius.circular(100),
                         onTap: () {
-                          controller.swipe(CardSwiperDirection.right);
-                          _nopeAction();
-                          Provider.of<GlobalProvider>(context, listen: false)
-                              .setItinerariesNoSelected(_idItinerary);
+                          controller.swipe(CardSwiperDirection.left);
+                          _nopAction();
                         },
                         child: Container(
                           height: 60,
@@ -152,8 +149,6 @@ class _ItineraryPageState extends State<ItineraryPage> {
                         onTap: () {
                           controller.swipe(CardSwiperDirection.right);
                           _likeAction();
-                          Provider.of<GlobalProvider>(context, listen: false)
-                              .setItinerariesSelected(_idItinerary);
                         },
                         child: Container(
                           height: 60,
@@ -191,7 +186,8 @@ class _ItineraryPageState extends State<ItineraryPage> {
                     ],
                   ),
                 ),
-                TextItineraryCounter(counter: provider.getCounterItinerary()),
+                TextItineraryCounter(
+                    counter: provider.getCountItinerarySelected()),
               ],
             ),
           )
@@ -217,7 +213,7 @@ class _ItineraryPageState extends State<ItineraryPage> {
                 SnackBar(
                   behavior: SnackBarBehavior.floating,
                   backgroundColor: ColorConstants.greenLightAppColor,
-                  content: provider.getCounterItinerary() > 0
+                  content: provider.getCountItinerarySelected() > 0
                       ? const Text('Sauvegarde de vos itinéraires')
                       : const Text('Aucun itinéraire sauvegardé'),
                 ),
@@ -236,17 +232,6 @@ class _ItineraryPageState extends State<ItineraryPage> {
   ) {
     debugPrint(
       'The card $previousIndex was swiped to the ${direction.name}. Now the card $currentIndex is on top',
-    );
-    return true;
-  }
-
-  bool _onUndo(
-    int? previousIndex,
-    int currentIndex,
-    CardSwiperDirection direction,
-  ) {
-    debugPrint(
-      'The card $currentIndex was undod from the ${direction.name}',
     );
     return true;
   }

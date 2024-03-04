@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:lamna/pages/itineraries/single_itinerary_page.dart';
+import 'package:lamna/models/itinerary.dart';
 
 class HeaderItineraryDetails extends StatelessWidget {
+  final Itinerary itinerary;
   const HeaderItineraryDetails({
     super.key,
-    required this.widget,
+    required this.itinerary,
   });
-
-  final SingleItineraryPage widget;
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +14,7 @@ class HeaderItineraryDetails extends StatelessWidget {
       alignment: Alignment.bottomLeft,
       children: [
         Image.asset(
-          widget.itinerary.headerImage,
+          itinerary.headerImage,
           height: 215,
           width: MediaQuery.of(context).size.width,
           fit: BoxFit.cover,
@@ -25,7 +24,7 @@ class HeaderItineraryDetails extends StatelessWidget {
           child: SizedBox(
             width: MediaQuery.of(context).size.width * .4,
             child: Image.asset(
-              widget.itinerary.createdBy,
+              itinerary.createdBy,
             ),
           ),
         ),

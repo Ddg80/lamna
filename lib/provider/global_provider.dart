@@ -7,10 +7,7 @@ import 'package:lamna/models/travel.dart';
 
 class GlobalProvider extends ChangeNotifier {
   int idCity = 0;
-  int _counterItinerary = 0;
-  final List<Itinerary> _itineraries = [];
-  final List<Itinerary> _itinerariesSelected = [];
-  final List<Itinerary> _itinerariesNoSelected = [];
+  List<Itinerary> _itineraries = [];
   final List<Travel> _travelReserved = [];
   final List<MasterCard> _masterCard = [];
   List<City> cities = [];
@@ -24,6 +21,8 @@ class GlobalProvider extends ChangeNotifier {
   bool _haveAItinerary = false;
   int _days = 0;
 
+  int _countItinerarySelected = 0;
+
 // TRAVEL
   getInfosSelectedForTravel() {
     if (_travelReserved.isNotEmpty && _formReservation.isNotEmpty) {
@@ -32,9 +31,6 @@ class GlobalProvider extends ChangeNotifier {
           int.parse(dataFormReservation[dataFormReservation.length - 1]);
       _total = 0.0;
       _commission = 0.0;
-
-      print("TRAVEL RESERVED $_travelReserved");
-
       for (int i = 0; i < _travelReserved.length; i++) {
         double pricePerPerson = _travelReserved[i].pricePerPerson;
         double totaltmp = (pricePerPerson * nbPassengers);
@@ -106,13 +102,44 @@ class GlobalProvider extends ChangeNotifier {
     return _travelReserved.isNotEmpty;
   }
 
-// ITINERARY
-  getCounterItinerary() {
-    return _counterItinerary;
+// SINGLE ITINERARY
+  getSingleItinerary(int id) {
+    return _itineraries.where((it) => it.id == id).toList();
   }
 
-  setCounterItinerary(int counter) {
-    _counterItinerary = counter;
+  setSingleItineraryLike(bool like, int id) {
+    int indexItinerary = _itineraries.indexWhere((it) => it.id == id);
+    if (like) {
+      setItineraryDisLiked(indexItinerary);
+    } else {
+      setItineraryLiked(indexItinerary);
+    }
+    print("ITINERARY CHANGED LIKE : ${_itineraries[indexItinerary]}");
+  }
+
+// ITINERARY
+  getCurrentNbItineraryLiked() {
+    print(
+        " COUNTER : ${_itineraries.where((it) => it.like == true).toList().length}");
+    _countItinerarySelected =
+        _itineraries.where((it) => it.like == true).toList().length;
+  }
+
+  getCountItinerarySelected() {
+    getCurrentNbItineraryLiked();
+    print(_itineraries.toString());
+    return _countItinerarySelected;
+  }
+
+  setItineraryLiked(int index) {
+    setHaveAItinerary(true);
+    _itineraries[index].like = true;
+    notifyListeners();
+  }
+
+  setItineraryDisLiked(int index) {
+    _itineraries[index].like = false;
+    notifyListeners();
   }
 
   getHaveAItinerary() {
@@ -136,94 +163,20 @@ class GlobalProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  // setLikeItinerary(int index, bool like) {
-  //   if (like) {
-  //     List<Itinerary> itinerary =
-  //         _itinerariesSelected.where((it) => it.id == index).toList();
-  //     final indexItinerary = _itinerariesSelected.indexOf(itinerary[0]);
-  //     itinerary[0].like = false;
-  //     print('$index, $like');
-  //     print('$itinerary');
-  //     print('$indexItinerary');
-  //     print('$_itinerariesSelected');
-  //   } else {
-  //     List<Itinerary> itinerary =
-  //         _itinerariesNoSelected.where((it) => it.id == index).toList();
-  //     final indexItinerary = _itinerariesNoSelected.indexOf(itinerary[0]);
-  //     itinerary[0].like = true;
-  //     print('$index, $like');
-  //     print('$itinerary');
-  //     print('$indexItinerary');
-  //     print('$_itinerariesNoSelected');
-
-  //     // // Retrouver dans les itinéraires dislike
-  //     // List<Itinerary> itinerary =
-  //     //     _itinerariesSelected.where((it) => it.id == index).toList();
-  //     // print('ITINERARY OLD : ${itinerary}');
-  //     // // Mettre la valeur like = true
-  //     // itinerary[0].like = true;
-  //     // print('New LIKE  : ${itinerary[0].like}');
-  //     // // Mettre dans les itinéraires like
-  //     // _itinerariesNoSelected.add(itinerary[0]);
-  //     // print(' _itinerariesNoSelected : ${_itinerariesNoSelected}');
-  //     // // Supprimer des itinéraires dislike
-  //     // final indexItinerary = _itinerariesSelected.indexOf(itinerary[0]);
-  //     // _itinerariesSelected.removeAt(indexItinerary);
-  //     // print(' _itinerariesSelected : ${_itinerariesSelected}');
-  //   }
-  //   notifyListeners();
-  // }
-
-  // Add Itinerary selected
-  setItinerariesSelected(int index) {
-    List<Itinerary> itinerary =
-        _itineraries.where((it) => it.id == index).toList();
-    if (!_itinerariesSelected
-            .map((item) => item.id)
-            .contains(itinerary[0].id) &&
-        !_itinerariesNoSelected
-            .map((item) => item.id)
-            .contains(itinerary[0].id)) {
-      itinerary[0].like = true;
-      _itinerariesSelected.add(itinerary[0]);
-    }
-    setHaveAItinerary(true);
-    // print('itineraries SELECTED:  $_itinerariesSelected');
-    // print('Have a Itinerary: $_haveAItinerary');
-    notifyListeners();
-  }
-
-  setItinerariesNoSelected(int index) {
-    List<Itinerary> itinerary =
-        _itineraries.where((it) => it.id == index).toList();
-    if (!_itinerariesNoSelected
-            .map((item) => item.id)
-            .contains(itinerary[0].id) &&
-        !_itinerariesSelected
-            .map((item) => item.id)
-            .contains(itinerary[0].id)) {
-      itinerary[0].like = false;
-      _itinerariesNoSelected.add(itinerary[0]);
-    }
-    // print('itineraries NO SELECTED:  $_itinerariesNoSelected');
-    notifyListeners();
-  }
-
   getItinerariesSelected() {
-    return _itinerariesSelected;
+    return _itineraries.where((it) => it.like == true).toList();
   }
 
   getItinerariesNoSelected() {
-    return _itinerariesNoSelected;
-  }
-
-  int getLengthItineraiesSelected() {
-    return _itinerariesSelected.length;
+    return _itineraries.where((it) => it.like == false).toList();
   }
 
   // ITINERARIES
-  void setItineraries(List<Itinerary> itineraries) {
-    _itineraries.addAll(itineraries);
+  setItineraries(List<Itinerary> itineraries) {
+    if (_itineraries.isEmpty) {
+      _itineraries = itineraries;
+    }
+    notifyListeners();
   }
 
   getItineraries() {

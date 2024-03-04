@@ -13,15 +13,16 @@ import 'package:lamna/utils/widgets/itinerary/label_itinerary.dart';
 import 'package:provider/provider.dart';
 
 class SingleItineraryPage extends StatefulWidget {
-  final Itinerary itinerary;
-  const SingleItineraryPage({super.key, required this.itinerary});
+  final int id;
+  const SingleItineraryPage({super.key, required this.id});
 
   @override
   State<SingleItineraryPage> createState() => _SingleItineraryPageState();
 }
 
 class _SingleItineraryPageState extends State<SingleItineraryPage> {
-  late final provider = Provider.of<GlobalProvider>(context, listen: false);
+  late final provider = Provider.of<GlobalProvider>(context, listen: true);
+
   void _navigate() {
     Navigator.pop(
       context,
@@ -38,7 +39,7 @@ class _SingleItineraryPageState extends State<SingleItineraryPage> {
 
   @override
   Widget build(BuildContext context) {
-    print("TODO LIKE AND DISLIKE:${widget.itinerary}");
+    List<Itinerary> itinerary = provider.getSingleItinerary(widget.id);
     return Scaffold(
       appBar: AppBar(
         leading: ElevatedButton(
@@ -67,69 +68,68 @@ class _SingleItineraryPageState extends State<SingleItineraryPage> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            HeaderItineraryDetails(widget: widget),
+            HeaderItineraryDetails(itinerary: itinerary[0]),
             SizedBox(
               width: MediaQuery.of(context).size.width,
               child: Padding(
                   padding: const EdgeInsets.only(top: 28.0, left: 14.0),
-                  child:
-                      widget.itinerary.titleItinerary != 'Flâneries médiévales '
-                          ? Row(
-                              children: [
-                                Text(
-                                  widget.itinerary.titleItinerary,
-                                  style: TextStyle(
-                                    color: ColorConstants.greenLightAppColor,
-                                    fontSize: 23,
-                                    fontFamily: FontConstants.regularFont,
-                                    fontWeight: FontWeight.w400,
-                                    height: 0.04,
-                                  ),
-                                ),
-                                const SizedBox(
-                                  width: 3,
-                                ),
-                                Text(
-                                  widget.itinerary.subtitleItinerary,
-                                  style: TextStyle(
-                                    color: ColorConstants.greenLightAppColor,
-                                    fontSize: 23,
-                                    fontFamily: FontConstants.principalFont,
-                                    fontWeight: FontWeight.w600,
-                                    height: 0.04,
-                                  ),
-                                ),
-                              ],
-                            )
-                          : Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  widget.itinerary.titleItinerary,
-                                  style: TextStyle(
-                                    color: ColorConstants.greenLightAppColor,
-                                    fontSize: 30,
-                                    fontFamily: FontConstants.principalFont,
-                                    fontWeight: FontWeight.w600,
-                                    height: 0.04,
-                                  ),
-                                ),
-                                const SizedBox(
-                                  height: 25,
-                                ),
-                                Text(
-                                  widget.itinerary.subtitleItinerary,
-                                  style: TextStyle(
-                                    color: ColorConstants.greenLightAppColor,
-                                    fontSize: 30,
-                                    fontFamily: FontConstants.regularFont,
-                                    fontWeight: FontWeight.w400,
-                                    height: 0.04,
-                                  ),
-                                ),
-                              ],
-                            )),
+                  child: itinerary[0].titleItinerary != 'Flâneries médiévales '
+                      ? Row(
+                          children: [
+                            Text(
+                              itinerary[0].titleItinerary,
+                              style: TextStyle(
+                                color: ColorConstants.greenLightAppColor,
+                                fontSize: 23,
+                                fontFamily: FontConstants.regularFont,
+                                fontWeight: FontWeight.w400,
+                                height: 0.04,
+                              ),
+                            ),
+                            const SizedBox(
+                              width: 3,
+                            ),
+                            Text(
+                              itinerary[0].subtitleItinerary,
+                              style: TextStyle(
+                                color: ColorConstants.greenLightAppColor,
+                                fontSize: 23,
+                                fontFamily: FontConstants.principalFont,
+                                fontWeight: FontWeight.w600,
+                                height: 0.04,
+                              ),
+                            ),
+                          ],
+                        )
+                      : Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              itinerary[0].titleItinerary,
+                              style: TextStyle(
+                                color: ColorConstants.greenLightAppColor,
+                                fontSize: 30,
+                                fontFamily: FontConstants.principalFont,
+                                fontWeight: FontWeight.w600,
+                                height: 0.04,
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 25,
+                            ),
+                            Text(
+                              itinerary[0].subtitleItinerary,
+                              style: TextStyle(
+                                color: ColorConstants.greenLightAppColor,
+                                fontSize: 30,
+                                fontFamily: FontConstants.regularFont,
+                                fontWeight: FontWeight.w400,
+                                height: 0.04,
+                              ),
+                            ),
+                          ],
+                        )),
             ),
             Padding(
               padding: const EdgeInsets.only(top: 18.0),
@@ -140,17 +140,17 @@ class _SingleItineraryPageState extends State<SingleItineraryPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     LabelItinerary(
-                      indicator: widget.itinerary.nbSite,
+                      indicator: itinerary[0].nbSite,
                       content: ' LIEUX',
                       icon: "assets/icons/ping.svg",
                     ),
                     LabelItinerary(
-                      distance: widget.itinerary.distance,
+                      distance: itinerary[0].distance,
                       content: ' KM',
                       icon: 'assets/icons/route.svg',
                     ),
                     LabelItinerary(
-                      indicator: widget.itinerary.days,
+                      indicator: itinerary[0].days,
                       content: ' JOURS',
                       icon: 'assets/icons/calendar.svg',
                     ),
@@ -162,7 +162,7 @@ class _SingleItineraryPageState extends State<SingleItineraryPage> {
               width: MediaQuery.of(context).size.width * .9,
               child: Padding(
                 padding: const EdgeInsets.only(top: 15.0, left: 15.0),
-                child: Text(widget.itinerary.description),
+                child: Text(itinerary[0].description),
               ),
             ),
             const SizedBox(
@@ -183,7 +183,8 @@ class _SingleItineraryPageState extends State<SingleItineraryPage> {
                 enlargeFactor: 0.3,
                 scrollDirection: Axis.horizontal,
               ),
-              items: widget.itinerary.images
+              items: itinerary[0]
+                  .images
                   .map(
                     (item) => ClipRRect(
                       borderRadius: BorderRadius.circular(8.0),
@@ -250,10 +251,10 @@ class _SingleItineraryPageState extends State<SingleItineraryPage> {
             children: [
               GestureDetector(
                 onTap: () {
-                  print(
-                      "LIKE OU DISLIKE : ${widget.itinerary.like} ${widget.itinerary.id}");
+                  provider.setSingleItineraryLike(
+                      itinerary[0].like, itinerary[0].id);
                 },
-                child: widget.itinerary.like
+                child: itinerary[0].like
                     ? Padding(
                         padding: const EdgeInsets.only(right: 8.0),
                         child: Container(

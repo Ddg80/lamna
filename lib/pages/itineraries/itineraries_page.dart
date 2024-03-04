@@ -104,8 +104,7 @@ class _ItinerariesPageState extends State<ItinerariesPage> {
                                           MaterialPageRoute(
                                             builder: (context) =>
                                                 SingleItineraryPage(
-                                              itinerary:
-                                                  listItinerariesSelected[i],
+                                              id: listItinerariesSelected[i].id,
                                             ),
                                           ),
                                         );
@@ -149,7 +148,7 @@ class _ItinerariesPageState extends State<ItinerariesPage> {
                         const SizedBox(
                           height: 20,
                         ),
-                        provider.getItinerariesSelected().length > 0
+                        provider.getItinerariesNoSelected().length > 0
                             ? Column(
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -164,8 +163,8 @@ class _ItinerariesPageState extends State<ItinerariesPage> {
                                           MaterialPageRoute(
                                             builder: (context) =>
                                                 SingleItineraryPage(
-                                              itinerary:
-                                                  listItinerariesNoSelected[i],
+                                              id: listItinerariesNoSelected[i]
+                                                  .id,
                                             ),
                                           ),
                                         );
