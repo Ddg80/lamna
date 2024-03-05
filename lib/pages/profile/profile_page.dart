@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:lamna/pages/profile/collaboration_page.dart';
+import 'package:lamna/pages/profile/details_application_page.dart';
+import 'package:lamna/pages/profile/settings_page.dart';
 import 'package:lamna/pages/profile/subscription_page.dart';
 import 'package:lamna/pages/stats_page.dart';
 import 'package:lamna/utils/constants/color_constants.dart';
@@ -185,7 +188,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 assetSVG: 'assets/icons/clock-refresh.svg',
                 text: 'Parrainage',
                 arrow: 'assets/icons/right.svg',
-                page: SubscriptionPage(),
+                page: CollaborationPage(),
               ),
             ),
             Container(
@@ -195,7 +198,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 assetSVG: 'assets/icons/settings-01.svg',
                 text: 'Réglages',
                 arrow: 'assets/icons/right.svg',
-                page: SubscriptionPage(),
+                page: SettingsPage(),
               ),
             ),
             Container(
@@ -205,7 +208,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 assetSVG: 'assets/icons/info-circle.svg',
                 text: 'Détails de l\'application',
                 arrow: 'assets/icons/right.svg',
-                page: SubscriptionPage(),
+                page: DetailsApplicationPage(),
               ),
             ),
           ],
