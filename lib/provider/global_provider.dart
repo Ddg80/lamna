@@ -7,6 +7,7 @@ import 'package:lamna/models/travel.dart';
 
 class GlobalProvider extends ChangeNotifier {
   int idCity = 0;
+  String _linkCollaboration = "";
   List<Itinerary> _itineraries = [];
   final List<Travel> _travelReserved = [];
   final List<MasterCard> _masterCard = [];
@@ -114,20 +115,16 @@ class GlobalProvider extends ChangeNotifier {
     } else {
       setItineraryLiked(indexItinerary);
     }
-    print("ITINERARY CHANGED LIKE : ${_itineraries[indexItinerary]}");
   }
 
 // ITINERARY
   getCurrentNbItineraryLiked() {
-    print(
-        " COUNTER : ${_itineraries.where((it) => it.like == true).toList().length}");
     _countItinerarySelected =
         _itineraries.where((it) => it.like == true).toList().length;
   }
 
   getCountItinerarySelected() {
     getCurrentNbItineraryLiked();
-    print(_itineraries.toString());
     return _countItinerarySelected;
   }
 
@@ -259,6 +256,16 @@ class GlobalProvider extends ChangeNotifier {
       _masterCard.clear();
       _masterCard.add(card);
     }
+    notifyListeners();
+  }
+
+  // linkCollaboration
+  getLinkCollaboration() {
+    return _linkCollaboration;
+  }
+
+  setLinkCollaboration(String link) {
+    _linkCollaboration = link;
     notifyListeners();
   }
 }
