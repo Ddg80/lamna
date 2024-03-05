@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:lamna/utils/constants/color_constants.dart';
 
 Widget titleCollaboration(BuildContext context) {
-  return Padding(
-    padding: const EdgeInsets.only(top: 18.0),
-    child: Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: [
-        Text.rich(
+  return Column(
+    mainAxisAlignment: MainAxisAlignment.start,
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Container(
+        transform: Matrix4.translationValues(-18, 0, 0),
+        child: Text.rich(
           textAlign: TextAlign.start,
           style: TextStyle(
               color: ColorConstants.greenDarkAppColor), //style for all textspan
@@ -23,14 +24,17 @@ Widget titleCollaboration(BuildContext context) {
             ],
           ),
         ),
-        Text(
+      ),
+      Container(
+        transform: Matrix4.translationValues(-18, 0, 0),
+        child: Text(
           "promotions exclusives   ",
           style: TextStyle(
               fontSize: 25,
               color: ColorConstants.greenDarkAppColor,
               fontWeight: FontWeight.w800),
         ),
-      ],
-    ),
+      ),
+    ],
   );
 }

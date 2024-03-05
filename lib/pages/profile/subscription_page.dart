@@ -30,7 +30,7 @@ class _SubscriptionPageState extends State<SubscriptionPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsets.only(left: 18.0),
+              padding: const EdgeInsets.only(left: 38.0),
               child: SizedBox(
                 width: MediaQuery.of(context).size.width * .8,
                 child: Text(

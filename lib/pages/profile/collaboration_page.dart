@@ -30,11 +30,11 @@ class _CollaborationPageState extends State<CollaborationPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsets.only(left: 18.0),
+              padding: const EdgeInsets.only(left: 38.0),
               child: SizedBox(
                 width: MediaQuery.of(context).size.width * .8,
                 child: Text(
-                  "Découvrez notre offre d'abonnement et choisissez l'option qui correspond le mieux à vos besoins. ",
+                  "Invitez vos proches à s’inscrire avec votre lien de parrainage, et débloquez davantage de réductions auprès de commerçants locaux lors de vos prochaines voyages.",
                   style: TextStyle(
                     color: ColorConstants.blackAppColor,
                   ),
@@ -42,21 +42,21 @@ class _CollaborationPageState extends State<CollaborationPage> {
               ),
             ),
             const SizedBox(
-              height: 20,
+              height: 30,
             ),
             Center(
               child: Image.asset(
-                'assets/subscription/price-premium.png',
-                width: MediaQuery.of(context).size.width * .8,
+                'assets/collaboration/parrainage-frise.png',
+                width: MediaQuery.of(context).size.width * .9,
               ),
             ),
-            const SizedBox(
-              height: 20,
-            ),
-            Center(
-              child: Image.asset(
-                'assets/subscription/price-free.png',
-                width: MediaQuery.of(context).size.width * .8,
+            Container(
+              transform: Matrix4.translationValues(0, -35, 0),
+              child: Center(
+                child: Image.asset(
+                  'assets/collaboration/parrainage-img.png',
+                  width: MediaQuery.of(context).size.width * .95,
+                ),
               ),
             ),
             const SizedBox(
