@@ -1,4 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lamna/models/itinerary.dart';
@@ -11,6 +12,7 @@ import 'package:lamna/utils/widgets/button_next_page_new_vision.dart';
 import 'package:lamna/utils/widgets/itinerary/header_itinerary_details.dart';
 import 'package:lamna/utils/widgets/itinerary/label_itinerary.dart';
 import 'package:provider/provider.dart';
+import 'package:widget_zoom/widget_zoom.dart';
 
 class SingleItineraryPage extends StatefulWidget {
   final int id;
@@ -213,10 +215,14 @@ class _SingleItineraryPageState extends State<SingleItineraryPage> {
               padding: const EdgeInsets.only(top: 14.0, left: 18.0),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(8.0),
-                child: SizedBox(
-                  width: MediaQuery.of(context).size.width * .9,
-                  height: 400,
-                  child: Image.asset('assets/FakeMap.png'),
+                child: Center(
+                  child: WidgetZoom(
+                    heroAnimationTag: 'tag',
+                    zoomWidget: Image.asset(
+                      'assets/FakeMap.png',
+                      width: MediaQuery.of(context).size.width * .8,
+                    ),
+                  ),
                 ),
               ),
             ),
