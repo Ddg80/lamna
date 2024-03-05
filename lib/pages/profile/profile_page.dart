@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:lamna/pages/profile/subscription_page.dart';
+import 'package:lamna/pages/stats_page.dart';
 import 'package:lamna/utils/constants/color_constants.dart';
 import 'package:lamna/utils/constants/font_constants.dart';
 import 'package:lamna/utils/widgets/button_next_page_new_vision.dart';
+import 'package:lamna/utils/widgets/profile/profil_options.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -157,7 +160,7 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
             ButtonNextPageNewVison(
               context: context,
-              page: '',
+              page: const StatsPage(),
               title: 'Toutes les stats.',
               color: ColorConstants.greenLightAppColor,
               icon: Icons.east,
@@ -168,124 +171,46 @@ class _ProfilePageState extends State<ProfilePage> {
             Container(
               alignment: Alignment.topLeft,
               width: MediaQuery.of(context).size.width * .9,
-              child: ProfileOptions(
+              child: const ProfileOptions(
                 assetSVG: 'assets/icons/users-01.svg',
+                text: 'Abonnements',
+                arrow: 'assets/icons/right.svg',
+                page: SubscriptionPage(),
+              ),
+            ),
+            Container(
+              alignment: Alignment.topLeft,
+              width: MediaQuery.of(context).size.width * .9,
+              child: const ProfileOptions(
+                assetSVG: 'assets/icons/clock-refresh.svg',
                 text: 'Parrainage',
                 arrow: 'assets/icons/right.svg',
-                onPressed: () {
-                  return;
-                },
+                page: SubscriptionPage(),
               ),
             ),
             Container(
               alignment: Alignment.topLeft,
               width: MediaQuery.of(context).size.width * .9,
-              child: ProfileOptions(
-                assetSVG: 'assets/icons/clock-refresh.svg',
-                text: 'Historique',
-                arrow: 'assets/icons/right.svg',
-                onPressed: () {
-                  return;
-                },
-              ),
-            ),
-            Container(
-              alignment: Alignment.topLeft,
-              width: MediaQuery.of(context).size.width * .9,
-              child: ProfileOptions(
+              child: const ProfileOptions(
                 assetSVG: 'assets/icons/settings-01.svg',
                 text: 'Réglages',
                 arrow: 'assets/icons/right.svg',
-                onPressed: () {
-                  return;
-                },
+                page: SubscriptionPage(),
               ),
             ),
             Container(
               alignment: Alignment.topLeft,
               width: MediaQuery.of(context).size.width * .9,
-              child: ProfileOptions(
+              child: const ProfileOptions(
                 assetSVG: 'assets/icons/info-circle.svg',
                 text: 'Détails de l\'application',
                 arrow: 'assets/icons/right.svg',
-                onPressed: () {
-                  return;
-                },
+                page: SubscriptionPage(),
               ),
             ),
           ],
         ),
       ),
-    );
-  }
-}
-
-class ProfileOptions extends StatefulWidget {
-  final String assetSVG;
-  final String text;
-  final String arrow;
-  final GestureTapCallback onPressed;
-
-  const ProfileOptions({
-    super.key,
-    required this.assetSVG,
-    required this.text,
-    required this.arrow,
-    required this.onPressed,
-  });
-
-  @override
-  State<ProfileOptions> createState() => _ProfileOptionsState();
-}
-
-class _ProfileOptionsState extends State<ProfileOptions> {
-  @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Padding(
-          padding: const EdgeInsets.all(3.0),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              SvgPicture.asset(
-                widget.assetSVG,
-                width: 24,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 8.0),
-                child: Text(
-                  widget.text,
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontFamily: FontConstants.mediumFont,
-                    fontWeight: FontWeight.w700,
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-        ElevatedButton(
-          onPressed: () {
-            widget.onPressed;
-          },
-          style: ElevatedButton.styleFrom(
-            elevation: 0,
-            backgroundColor: ColorConstants.lightScaffoldBackgroundColor,
-          ),
-          child: SvgPicture.asset(
-            widget.arrow,
-            width: 8,
-          ),
-        )
-      ],
     );
   }
 }

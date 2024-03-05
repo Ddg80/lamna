@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:lamna/pages/collaboration_page.dart';
+import 'package:lamna/pages/profile/collaboration_page.dart';
 import 'package:lamna/pages/qr_code_page.dart';
 import 'package:lamna/provider/global_provider.dart';
 import 'package:lamna/utils/constants/color_constants.dart';
