@@ -11,15 +11,6 @@ class CollaborationPage extends StatefulWidget {
 }
 
 class _CollaborationPageState extends State<CollaborationPage> {
-  void _navigate() {
-    Navigator.pop(
-      context,
-      MaterialPageRoute(
-        builder: (context) => const ProfilePage(),
-      ),
-    );
-  }
-
   @override
   void initState() {
     super.initState();
