@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:lamna/pages/profile/profile_page.dart';
 import 'package:lamna/utils/constants/color_constants.dart';
 import 'package:lamna/utils/widgets/profile/title_collaboration.dart';
 

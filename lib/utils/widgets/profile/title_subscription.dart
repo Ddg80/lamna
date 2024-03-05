@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lamna/utils/constants/color_constants.dart';
 
-Widget titleCollaboration(BuildContext context) {
+Widget titleSubscription(BuildContext context) {
   return Padding(
     padding: const EdgeInsets.only(top: 18.0),
     child: Column(
@@ -14,21 +14,21 @@ Widget titleCollaboration(BuildContext context) {
           TextSpan(
             children: [
               TextSpan(
-                text: "Débloquez des ",
+                text: "Offres d' ",
                 style: TextStyle(
                     fontSize: 25,
                     color: ColorConstants.greenDarkAppColor,
                     fontWeight: FontWeight.w400),
               ),
+              TextSpan(
+                text: "abonnements   ",
+                style: TextStyle(
+                    fontSize: 25,
+                    color: ColorConstants.greenDarkAppColor,
+                    fontWeight: FontWeight.w800),
+              ),
             ],
           ),
-        ),
-        Text(
-          "promotions exclusives   ",
-          style: TextStyle(
-              fontSize: 25,
-              color: ColorConstants.greenDarkAppColor,
-              fontWeight: FontWeight.w800),
         ),
       ],
     ),
