@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lamna/utils/constants/color_constants.dart';
+import 'package:widget_zoom/widget_zoom.dart';
 
 class QrCodePage extends StatefulWidget {
   const QrCodePage({super.key});
@@ -20,7 +21,15 @@ class _QrCodePageState extends State<QrCodePage> {
       appBar: AppBar(
         backgroundColor: ColorConstants.lightScaffoldBackgroundColor,
       ),
-      body: const Text('QR Code page'),
+      body: Center(
+        child: WidgetZoom(
+          heroAnimationTag: 'tag',
+          zoomWidget: Image.asset(
+            'assets/QrCode/QR_Code.png',
+            width: MediaQuery.of(context).size.width * .8,
+          ),
+        ),
+      ),
     );
   }
 }
