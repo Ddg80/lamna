@@ -3,6 +3,7 @@ import 'package:lamna/models/city.dart';
 import 'package:lamna/models/itinerary.dart';
 import 'package:lamna/models/mastercard.dart';
 import 'package:lamna/models/reservation.dart';
+import 'package:lamna/models/setting.dart';
 import 'package:lamna/models/travel.dart';
 
 class GlobalProvider extends ChangeNotifier {
@@ -21,8 +22,46 @@ class GlobalProvider extends ChangeNotifier {
   bool _haveATravel = false;
   bool _haveAItinerary = false;
   int _days = 0;
-
   int _countItinerarySelected = 0;
+  final Setting _logout = Setting(
+    id: 6,
+    pictureSVG: 'assets/icons/logout.svg',
+    title: 'Logout',
+    subtitle: 'A bientôt !',
+  );
+
+  final List<Setting> _settings = [
+    Setting(
+      id: 1,
+      pictureSVG: 'assets/menu-icons/user.svg',
+      title: 'Compte',
+      subtitle: 'Profil, Sécurité, mentions légales',
+    ),
+    Setting(
+      id: 2,
+      pictureSVG: 'assets/icons/settings-01.svg',
+      title: 'Apparence',
+      subtitle: 'Theme, Couleurs, fonds',
+    ),
+    Setting(
+      id: 3,
+      pictureSVG: 'assets/icons/bell.svg',
+      title: 'Notifications',
+      subtitle: 'Nouveautés, Mise à jour, Suggestions',
+    ),
+    Setting(
+      id: 4,
+      pictureSVG: 'assets/icons/key.svg',
+      title: 'Permissions',
+      subtitle: 'Caméra, Storage, GPS',
+    ),
+    Setting(
+      id: 5,
+      pictureSVG: 'assets/icons/network-wireless.svg',
+      title: 'Autre',
+      subtitle: 'Language, réseaux',
+    )
+  ];
 
 // TRAVEL
   getInfosSelectedForTravel() {
@@ -267,6 +306,16 @@ class GlobalProvider extends ChangeNotifier {
   setLinkCollaboration(String link) {
     _linkCollaboration = link;
     notifyListeners();
+  }
+
+  // SETTINGS
+  getSettings() {
+    return _settings;
+  }
+
+  // LOGOUT
+  getLogoutSettings() {
+    return _logout;
   }
 }
 

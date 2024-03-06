@@ -144,6 +144,10 @@ flutter:
     - assets/QrCode/QR_Code.png
     - assets/collaboration/parrainage-img.png
     - assets/collaboration/parrainage-frise.png
+    - assets/icons/bell.svg
+    - assets/icons/key.svg
+    - assets/icons/network-wireless.svg
+    - assets/icons/logout.svg
   fonts:
     - family: ClashDisplay
       fonts: 

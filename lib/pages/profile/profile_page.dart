@@ -7,6 +7,7 @@ import 'package:lamna/pages/profile/stats_page.dart';
 import 'package:lamna/utils/constants/color_constants.dart';
 import 'package:lamna/utils/constants/font_constants.dart';
 import 'package:lamna/utils/widgets/buttons/button_next_page_new_vision.dart';
+import 'package:lamna/utils/widgets/cards/card_lamna.dart';
 import 'package:lamna/utils/widgets/profile/profil_options.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -81,81 +82,27 @@ class _ProfilePageState extends State<ProfilePage> {
                   fontSize: 14,
                   color: ColorConstants.blackAppColor.withOpacity(.4)),
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
+            const Padding(
+              padding: EdgeInsets.only(top: 12.0, bottom: 8.0),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  Container(
-                    width: MediaQuery.of(context).size.width / 2.5,
-                    height: 98,
-                    decoration: ShapeDecoration(
-                      color: Colors.white,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8)),
-                      shadows: const [
-                        BoxShadow(
-                          color: Color(0x14000000),
-                          blurRadius: 24,
-                          offset: Offset(0, 8),
-                          spreadRadius: 0,
-                        )
-                      ],
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          '12',
-                          style: TextStyle(
-                            color: ColorConstants.yellowPrimaryAppColor,
-                            fontFamily: FontConstants.boldFont,
-                            fontSize: 24,
-                          ),
-                        ),
-                        const Text(
-                          textAlign: TextAlign.center,
-                          "Commerçants remerciés",
-                        ),
-                      ],
-                    ),
+                  CardLamna(
+                    statistic: 12,
+                    title: 'commerçants ',
+                    subtitle: ' remerciés!',
+                    label: 'C’est super 😍',
                   ),
-                  Container(
-                    width: MediaQuery.of(context).size.width / 3,
-                    height: 98,
-                    decoration: ShapeDecoration(
-                      color: Colors.white,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8)),
-                      shadows: const [
-                        BoxShadow(
-                          color: Color(0x14000000),
-                          blurRadius: 24,
-                          offset: Offset(0, 8),
-                          spreadRadius: 0,
-                        )
-                      ],
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          '2',
-                          style: TextStyle(
-                            color: ColorConstants.yellowPrimaryAppColor,
-                            fontFamily: FontConstants.boldFont,
-                            fontSize: 24,
-                          ),
-                        ),
-                        const Text(
-                          textAlign: TextAlign.center,
-                          "Trajets effectués",
-                        ),
-                      ],
-                    ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  CardLamna(
+                    statistic: 6.19,
+                    unity: "km",
+                    title: 'Parcourus ',
+                    label: 'Encore plus la',
+                    sublabel: ' prochaine fois ? 😜',
                   ),
                 ],
               ),
