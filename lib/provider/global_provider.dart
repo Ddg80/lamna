@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:lamna/models/city.dart';
 import 'package:lamna/models/itinerary.dart';
 import 'package:lamna/models/mastercard.dart';
 import 'package:lamna/models/reservation.dart';
 import 'package:lamna/models/setting.dart';
 import 'package:lamna/models/travel.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
 class GlobalProvider extends ChangeNotifier {
   int idCity = 0;
@@ -316,6 +318,17 @@ class GlobalProvider extends ChangeNotifier {
   // LOGOUT
   getLogoutSettings() {
     return _logout;
+  }
+
+  getCurrentDate(context) {
+    initializeDateFormatting('en', null);
+    String locale = Localizations.localeOf(context).languageCode;
+    DateTime now = DateTime.now();
+    String dayOfWeek = DateFormat.EEEE(locale).format(now);
+    String dayMonth = DateFormat.MMMMd(locale).format(now);
+    String year = DateFormat.y(locale).format(now);
+
+    return "$dayOfWeek $dayMonth $year";
   }
 }
 
