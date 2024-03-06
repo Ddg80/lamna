@@ -7,7 +7,7 @@ import 'package:lamna/pages/map/map_page.dart';
 import 'package:lamna/provider/global_provider.dart';
 import 'package:lamna/utils/constants/color_constants.dart';
 import 'package:lamna/utils/constants/font_constants.dart';
-import 'package:lamna/utils/widgets/button_next_page_new_vision.dart';
+import 'package:lamna/utils/widgets/buttons/button_next_page_new_vision.dart';
 import 'package:lamna/utils/widgets/itinerary/header_itinerary_details.dart';
 import 'package:lamna/utils/widgets/itinerary/label_itinerary.dart';
 import 'package:provider/provider.dart';

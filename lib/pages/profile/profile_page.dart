@@ -6,7 +6,7 @@ import 'package:lamna/pages/profile/subscription_page.dart';
 import 'package:lamna/pages/stats_page.dart';
 import 'package:lamna/utils/constants/color_constants.dart';
 import 'package:lamna/utils/constants/font_constants.dart';
-import 'package:lamna/utils/widgets/button_next_page_new_vision.dart';
+import 'package:lamna/utils/widgets/buttons/button_next_page_new_vision.dart';
 import 'package:lamna/utils/widgets/profile/profil_options.dart';
 
 class ProfilePage extends StatefulWidget {

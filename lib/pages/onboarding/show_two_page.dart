@@ -3,7 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lamna/pages/onboarding/show_three_page.dart';
 import 'package:lamna/utils/constants/color_constants.dart';
 import 'package:lamna/utils/widgets/Indicators/indicators_sliders.dart';
-import 'package:lamna/utils/widgets/button_next_page_new_vision.dart';
+import 'package:lamna/utils/widgets/buttons/button_next_page_new_vision.dart';
 
 import '../../utils/widgets/teaser/travel_title.dart';
 

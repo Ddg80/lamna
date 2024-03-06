@@ -6,7 +6,7 @@ import 'package:lamna/pages/reserved/destination_page.dart';
 import 'package:lamna/pages/itineraries/itinerary_swipe_page.dart';
 import 'package:lamna/utils/constants/color_constants.dart';
 import 'package:lamna/utils/constants/font_constants.dart';
-import 'package:lamna/utils/widgets/button_next_page_new_vision.dart';
+import 'package:lamna/utils/widgets/buttons/button_next_page_new_vision.dart';
 import 'package:lamna/utils/widgets/detailsDestination/header_details_destination.dart';
 
 class CityDetailsPage extends StatefulWidget {

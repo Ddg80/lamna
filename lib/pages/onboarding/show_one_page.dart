@@ -7,7 +7,7 @@ import 'package:lamna/pages/onboarding/show_two_page.dart';
 import 'package:lamna/provider/global_provider.dart';
 import 'package:lamna/utils/constants/color_constants.dart';
 import 'package:lamna/utils/widgets/Indicators/indicators_sliders.dart';
-import 'package:lamna/utils/widgets/button_next_page_new_vision.dart';
+import 'package:lamna/utils/widgets/buttons/button_next_page_new_vision.dart';
 import 'package:lamna/utils/widgets/teaser/travel_title.dart';
 import 'package:provider/provider.dart';
 

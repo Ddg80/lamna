@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lamna/utils/constants/color_constants.dart';
+import 'package:lamna/utils/widgets/buttons/button_back_widget.dart';
 import 'package:widget_zoom/widget_zoom.dart';
 
 class QrCodePage extends StatefulWidget {
@@ -19,6 +20,7 @@ class _QrCodePageState extends State<QrCodePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: const ButtonBackWidget(),
         backgroundColor: ColorConstants.lightScaffoldBackgroundColor,
       ),
       body: Center(
