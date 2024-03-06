@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:lamna/utils/widgets/buttons/button_back_widget.dart';
 import 'package:provider/provider.dart';
 
 import 'package:lamna/models/travel.dart';
@@ -34,6 +35,7 @@ class _OptionsTransportPageState extends State<OptionsTransportPage> {
         extendBody: true,
         appBar: AppBar(
           title: const TitleOptionsTransport(),
+          leading: const ButtonBackWidget(),
           toolbarHeight: 80,
           bottom: TabBar(
             dividerColor: Colors.transparent,

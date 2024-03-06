@@ -55,9 +55,12 @@ class _SingleItineraryPageState extends State<SingleItineraryPage> {
           },
           child: Container(
             transform: Matrix4.translationValues(-10, 0, 0),
-            child: const Icon(
-              Icons.arrow_back,
-              color: Colors.white,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Icon(
+                Icons.arrow_back_ios,
+                color: ColorConstants.whiteAppColor,
+              ),
             ),
           ),
         ),

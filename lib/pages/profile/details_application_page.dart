@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lamna/utils/constants/color_constants.dart';
+import 'package:lamna/utils/widgets/buttons/button_back_widget.dart';
 
 class DetailsApplicationPage extends StatefulWidget {
   const DetailsApplicationPage({super.key});
@@ -18,6 +19,7 @@ class _DetailsApplicationPageState extends State<DetailsApplicationPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: const ButtonBackWidget(),
         backgroundColor: ColorConstants.lightScaffoldBackgroundColor,
       ),
       body: const Text('Details application page'),

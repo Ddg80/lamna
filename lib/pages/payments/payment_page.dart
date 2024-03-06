@@ -7,6 +7,7 @@ import 'package:lamna/pages/payments/validate_command_page.dart';
 import 'package:lamna/provider/global_provider.dart';
 import 'package:lamna/utils/constants/color_constants.dart';
 import 'package:lamna/utils/constants/font_constants.dart';
+import 'package:lamna/utils/widgets/buttons/button_back_widget.dart';
 import 'package:provider/provider.dart';
 
 class PaymentPage extends StatefulWidget {
@@ -34,15 +35,6 @@ class PaymentPageState extends State<PaymentPage> {
   );
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   late final provider = Provider.of<GlobalProvider>(context, listen: true);
-
-  void _navigate() {
-    Navigator.pop(
-      context,
-      MaterialPageRoute(
-        builder: (context) => const OptionsTransportPage(),
-      ),
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -103,24 +95,7 @@ class PaymentPageState extends State<PaymentPage> {
       home: Scaffold(
         extendBody: true,
         appBar: AppBar(
-          leading: ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              backgroundColor: ColorConstants.greenBlurSecondaryColor,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(50),
-              ),
-            ),
-            onPressed: () {
-              _navigate();
-            },
-            child: Container(
-              transform: Matrix4.translationValues(-10, 0, 0),
-              child: Icon(
-                Icons.arrow_back,
-                color: ColorConstants.greenDarkAppColor,
-              ),
-            ),
-          ),
+          leading: const ButtonBackWidget(),
           title: Text.rich(
             textAlign: TextAlign.start,
             style: TextStyle(

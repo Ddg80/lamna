@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lamna/provider/global_provider.dart';
 import 'package:lamna/utils/constants/color_constants.dart';
 import 'package:lamna/utils/constants/font_constants.dart';
+import 'package:lamna/utils/widgets/buttons/button_back_widget.dart';
 import 'package:lamna/utils/widgets/profile/title_collaboration.dart';
 import 'package:provider/provider.dart';
 
@@ -26,6 +27,7 @@ class _CollaborationPageState extends State<CollaborationPage> {
     return Scaffold(
         appBar: AppBar(
           title: titleCollaboration(context),
+          leading: const ButtonBackWidget(),
           backgroundColor: ColorConstants.lightScaffoldBackgroundColor,
           elevation: 0,
           toolbarHeight: 80,

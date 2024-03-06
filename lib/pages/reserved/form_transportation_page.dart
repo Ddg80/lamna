@@ -6,6 +6,7 @@ import 'package:lamna/pages/reserved/options_transport.dart';
 import 'package:lamna/provider/global_provider.dart';
 import 'package:lamna/utils/constants/color_constants.dart';
 import 'package:lamna/utils/constants/font_constants.dart';
+import 'package:lamna/utils/widgets/buttons/button_back_widget.dart';
 import 'package:lamna/utils/widgets/buttons/button_large.dart';
 import 'package:lamna/utils/widgets/reserved/title_reserved.dart';
 import 'package:numberpicker/numberpicker.dart';
@@ -141,8 +142,10 @@ class _FormTransportationPageState extends State<FormTransportationPage> {
     return Scaffold(
       appBar: AppBar(
         title: Container(
-            transform: Matrix4.translationValues(-38, 0, 0),
-            child: const TitleReserved()),
+          transform: Matrix4.translationValues(-38, 0, 0),
+          child: const TitleReserved(),
+        ),
+        leading: const ButtonBackWidget(),
         backgroundColor: ColorConstants.lightScaffoldBackgroundColor,
         elevation: 0,
         toolbarHeight: 80,

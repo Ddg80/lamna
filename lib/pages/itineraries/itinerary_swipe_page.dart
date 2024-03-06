@@ -5,6 +5,7 @@ import 'package:lamna/pages/reserved/form_transportation_page.dart';
 import 'package:lamna/provider/global_provider.dart';
 import 'package:lamna/utils/constants/color_constants.dart';
 import 'package:lamna/utils/constants/font_constants.dart';
+import 'package:lamna/utils/widgets/buttons/button_back_widget.dart';
 import 'package:lamna/utils/widgets/buttons/button_large.dart';
 import 'package:lamna/utils/widgets/itinerary/title_itinerary.dart';
 import 'package:lamna/utils/widgets/itinerary/text_itinerary_counter.dart';
@@ -65,6 +66,7 @@ class _ItineraryPageState extends State<ItineraryPage> {
           padding: EdgeInsets.only(top: 6.0),
           child: TitleItinerary(),
         ),
+        leading: const ButtonBackWidget(),
         backgroundColor: ColorConstants.lightScaffoldBackgroundColor,
         elevation: 0,
         toolbarHeight: 80,

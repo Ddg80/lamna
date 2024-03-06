@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lamna/utils/constants/color_constants.dart';
+import 'package:lamna/utils/widgets/buttons/button_back_widget.dart';
 import 'package:lamna/utils/widgets/profile/title_subscription.dart';
 
 class SubscriptionPage extends StatefulWidget {
@@ -20,6 +21,7 @@ class _SubscriptionPageState extends State<SubscriptionPage> {
     return Scaffold(
       appBar: AppBar(
         title: titleSubscription(context),
+        leading: const ButtonBackWidget(),
         backgroundColor: ColorConstants.lightScaffoldBackgroundColor,
         elevation: 0,
         toolbarHeight: 80,
@@ -37,6 +39,7 @@ class _SubscriptionPageState extends State<SubscriptionPage> {
                   "Découvrez notre offre d'abonnement et choisissez l'option qui correspond le mieux à vos besoins. ",
                   style: TextStyle(
                     color: ColorConstants.blackAppColor,
+                    fontSize: 16,
                   ),
                 ),
               ),

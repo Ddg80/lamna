@@ -3,7 +3,7 @@ import 'package:lamna/pages/profile/collaboration_page.dart';
 import 'package:lamna/pages/profile/details_application_page.dart';
 import 'package:lamna/pages/profile/settings_page.dart';
 import 'package:lamna/pages/profile/subscription_page.dart';
-import 'package:lamna/pages/stats_page.dart';
+import 'package:lamna/pages/profile/stats_page.dart';
 import 'package:lamna/utils/constants/color_constants.dart';
 import 'package:lamna/utils/constants/font_constants.dart';
 import 'package:lamna/utils/widgets/buttons/button_next_page_new_vision.dart';
