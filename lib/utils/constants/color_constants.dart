@@ -11,15 +11,22 @@ Color hexToColor(String hex) {
 }
 
 class ColorConstants {
-  static Color lightScaffoldBackgroundColor = hexToColor('#FFFAE9');
-  static Color greenLightAppColor = hexToColor('#69B483');
-  static Color greenDarkAppColor = hexToColor('#3B6B4F');
-  static Color yellowPrimaryAppColor = hexToColor('#FDA92B');
-  static Color yellowSecondaryAppColor = hexToColor('#FDC22B');
-  static Color redDarkAppColor = hexToColor('#ED755B');
-  static Color whiteAppColor = Colors.white;
-  static Color blackAppColor = Colors.black;
-  static Color greyAppColor = hexToColor('#C2C2C2');
-  static Color redBlurSecondaryColor = hexToColor('#E3ADAD');
-  static Color greenBlurSecondaryColor = hexToColor('#B6E3AD');
+  static final Color lightScaffoldBackgroundColor = hexToColor('#FFFAE9');
+  static final Color greenLightAppColor = hexToColor('#69B483');
+  static final Color greenDarkAppColor = hexToColor('#3B6B4F');
+  static final Color greenUltraDarkColor = hexToColor('#3C674C');
+  static final Color yellowPrimaryAppColor = hexToColor('#FDA92B');
+  static final Color yellowSecondaryAppColor = hexToColor('#FDC22B');
+  static final Color redDarkAppColor = hexToColor('#ED755B');
+  static final Color whiteAppColor = hexToColor('#FFFFFF');
+  static final Color blackAppColor = hexToColor('#000000');
+  static final Color greyAppColor = hexToColor('#C2C2C2');
+  static final Color redBlurSecondaryColor = hexToColor('#E3ADAD');
+  static final Color greenBlurSecondaryColor = hexToColor('#B6E3AD');
+  static final Color cardBgColor = hexToColor('#090942');
+  static final Color cardBgLightColor = hexToColor('#000000');
+  static final Color colorB58D67 = hexToColor('#B58D67');
+  static final Color colorE5D1B2 = hexToColor('#E5D1B2');
+  static final Color colorF9EED2 = hexToColor('#F9EED2');
+  static final Color colorEFEFED = hexToColor('#EFEFED');
 }

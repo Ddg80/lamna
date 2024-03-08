@@ -3,8 +3,8 @@ import 'package:lamna/utils/constants/color_constants.dart';
 import 'package:lamna/utils/constants/font_constants.dart';
 
 class ButtonLargeNetwork extends StatelessWidget {
-  const ButtonLargeNetwork({Key? key, required this.text, required this.image})
-      : super(key: key);
+  const ButtonLargeNetwork(
+      {super.key, required this.text, required this.image});
 
   final String text;
   final String image;
@@ -36,10 +36,11 @@ class ButtonLargeNetwork extends StatelessWidget {
               Text(
                 text,
                 style: TextStyle(
-                    color: ColorConstants.blackAppColor,
-                    fontSize: 16,
-                    fontFamily: FontConstants.regularFont,
-                    fontWeight: FontWeight.w600),
+                  color: ColorConstants.blackAppColor,
+                  fontSize: 16,
+                  fontFamily: FontConstants.interExtraLightFont,
+                  fontWeight: FontWeight.w900,
+                ),
               ),
             ],
           )

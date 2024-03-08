@@ -3,7 +3,7 @@ import 'package:lamna/pages/auth/register_page.dart';
 import 'package:lamna/utils/constants/color_constants.dart';
 import 'package:lamna/utils/constants/font_constants.dart';
 import 'package:lamna/utils/validator_fields.dart';
-import 'package:lamna/utils/widgets/buttons/button_large.dart';
+import 'package:lamna/utils/widgets/buttons/button_large_auth.dart';
 import 'package:lamna/utils/widgets/buttons/button_large_network.dart';
 
 class LoginPage extends StatefulWidget {
@@ -19,6 +19,8 @@ class _LoginPageState extends State<LoginPage> {
   TextEditingController passwordController = TextEditingController();
   bool _isObscure = true;
   bool enable = false;
+
+  final Map<String, dynamic> textFieldsValue = {};
 
   @override
   void initState() {
@@ -84,6 +86,11 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                           ),
                           onChanged: (data) {
+                            textFieldsValue.update(
+                              'email',
+                              (value) => emailController.text,
+                              ifAbsent: () => emailController.text,
+                            );
                             if (emailController.text.isEmpty ||
                                 passwordController.text.isEmpty) {
                               enable = false;
@@ -140,6 +147,11 @@ class _LoginPageState extends State<LoginPage> {
                                 }),
                           ),
                           onChanged: (data) {
+                            textFieldsValue.update(
+                              'password',
+                              (value) => passwordController.text,
+                              ifAbsent: () => passwordController.text,
+                            );
                             if (emailController.text.isEmpty ||
                                 passwordController.text.isEmpty) {
                               enable = false;
@@ -158,14 +170,14 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                         Padding(
                           padding: const EdgeInsets.only(top: 18.0),
-                          child: ButtonLarge(
-                            text: "Se connecter",
-                            color: enable
-                                ? ColorConstants.greenLightAppColor
-                                : Colors.grey,
-                            keyForm: _formKey,
-                            fontsize: 20,
-                          ),
+                          child: ButtonLargeAuth(
+                              text: "Se connecter",
+                              color: enable
+                                  ? ColorConstants.greenLightAppColor
+                                  : Colors.grey,
+                              keyForm: _formKey,
+                              fontsize: 20,
+                              textFieldsValue: textFieldsValue),
                         ),
                         Center(
                           child: Padding(

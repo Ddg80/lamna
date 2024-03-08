@@ -10,29 +10,69 @@ dependencies:
   carousel_slider: ^4.2.1
   flutter:
     sdk: flutter
-  flutter_card_swiper: ^6.0.0
+  flutter_card_swiper: ^7.0.0
+  flutter_credit_card: ^4.0.1
+  flutter_spinkit: ^5.2.0
   flutter_svg: ^2.0.9
+  indexed: ^0.0.8
   intl: ^0.19.0
   numberpicker: ^2.1.2
   provider: ^6.1.1
+  flutter_map: ^6.1.0
+  geolocator: ^11.0.0
+  latlong2: ^0.9.0
+  qr_flutter: ^4.1.0
+  qr_code_scanner: ^1.0.1
+  fluttertoast: ^8.2.4
+  open_route_service: ^1.2.4
+  flutter_map_cancellable_tile_provider: ^2.0.0
+  scrollable_positioned_list: ^0.3.8
+  flutter_map_marker_popup: ^6.1.2
+  flutter_map_cache: ^1.5.0
+  path_provider: ^2.1.2
+  flutter_map_location_marker: ^8.0.8
+  dio_cache_interceptor_file_store: ^1.2.3
+  dio_cache_interceptor: ^3.5.0
+  faker: ^2.1.0
+  widget_zoom: ^0.0.3
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
+  flutter_lints: ^3.0.1
 
 flutter:
   uses-material-design: true
   assets:
+    - assets/icons/
+    - assets/logos/
+    - assets/pictures/
+    - assets/json/
+    - assets/itineraryCards/
+    - assets/avatar/
     - assets/logos/logo_mockup.png
     - assets/logos/logo.svg
     - assets/logos/logoSimple.svg
     - assets/logos/logo_google.png
     - assets/logos/logo_mac_os.png
+    - assets/logos/logoLamnaApp.svg
+    - assets/menu-icons/home.svg
+    - assets/menu-icons/homeDisabled.svg
+    - assets/menu-icons/map.svg
+    - assets/menu-icons/mapDisabled.svg
+    - assets/menu-icons/route.svg
+    - assets/menu-icons/routeDisabled.svg
+    - assets/menu-icons/user.svg
+    - assets/menu-icons/userDisabled.svg
+    - assets/pictures/landingPagePana.svg
+    - assets/pictures/TravelersPana.svg
+    - assets/pictures/Trip-pana.svg
     - assets/pictures/Location search_pana.png
     - assets/pictures/Madrid_pana.png
     - assets/pictures/Retail markdown_pana.png
     - assets/pictures/World Bicycle Day_pana.png
+    - assets/pictures/User-flow-pana.png
+    - assets/pictures/directionsPana.png  
     - assets/pictures/rennes.png
     - assets/pictures/Rennes/rennes1.png
     - assets/pictures/Rennes/rennes2.png
@@ -42,8 +82,13 @@ flutter:
     - assets/pictures/brest.png
     - assets/pictures/lorient.png
     - assets/json/cities.json
-    - assets/pictures/itinerary/itinerary1.png
-    - assets/pictures/itinerary/itinerary2.png
+    - assets/json/trainTravelsAller.json
+    - assets/json/trainTravelsRetour.json
+    - assets/json/busTravelsAller.json
+    - assets/json/busTravelsRetour.json
+    - assets/json/covoitTravelsAller.json
+    - assets/json/covoitTravelsRetour.json
+    - assets/json/itineraries.json
     - assets/logos/darkIconTypo.svg
     - assets/itineraryCards/route1.png
     - assets/itineraryCards/route2.png
@@ -51,27 +96,124 @@ flutter:
     - assets/itineraryCards/route4.png
     - assets/itineraryCards/route5.png
     - assets/itineraryCards/route6.png
+    - assets/miniCardsItineraries/route1S.png
+    - assets/miniCardsItineraries/route2S.png
+    - assets/miniCardsItineraries/route3S.png 
+    - assets/miniCardsItineraries/route4S.png
+    - assets/miniCardsItineraries/route5S.png
+    - assets/miniCardsItineraries/route6S.png
+    - assets/labelsItineraries/createdByBrunoMaltor.png
+    - assets/labelsItineraries/createdByDestinationRennes.png
+    - assets/labelsItineraries/createdByLamna.png
+    - assets/labelsItineraries/createdByNosCurieuxVoyageurs.png
+    - assets/auFilDeLeau/image1.png
+    - assets/auFilDeLeau/image2.png
+    - assets/auFilDeLeau/image3.png
+    - assets/auFilDeLeau/image4.png
+    - assets/auFilDeLeau/header.png
+    - assets/medieval/image1.png
+    - assets/medieval/image2.png
+    - assets/medieval/image3.png
+    - assets/medieval/image4.png
+    - assets/medieval/header.png
+    - assets/EchappeGourmande/image1.png
+    - assets/EchappeGourmande/image2.png
+    - assets/EchappeGourmande/image3.png
+    - assets/EchappeGourmande/image4.png
+    - assets/EchappeGourmande/header.png
+    - assets/tresorsCaches/image1.png
+    - assets/tresorsCaches/image2.png
+    - assets/tresorsCaches/image3.png
+    - assets/tresorsCaches/header.png
+    - assets/odysseModerne/image1.png
+    - assets/odysseModerne/image2.png
+    - assets/odysseModerne/image3.png
+    - assets/odysseModerne/image4.png
+    - assets/odysseModerne/header.png
+    - assets/enRythme/image1.png
+    - assets/enRythme/image2.png
+    - assets/enRythme/image3.png
+    - assets/enRythme/header.png
     - assets/icons/chevron-left-double.svg
     - assets/icons/chevron-right-double.svg
     - assets/icons/like.png
     - assets/icons/unlike.png
     - assets/avatar/avatar.jpg
+    - assets/icons/clock-refresh.svg
+    - assets/icons/info-circle.svg
+    - assets/icons/right.svg
+    - assets/icons/settings-01.svg
+    - assets/icons/users-01.svg
+    - assets/icons/trendDown.svg
+    - assets/icons/busEmoji.png
+    - assets/icons/trainEmoji.png
+    - assets/icons/voitureEmoji.png
+    - assets/icons/route.svg
+    - assets/icons/ping.svg
+    - assets/icons/calendar.svg
+    - assets/mastercard/bgDark.png
+    - assets/mastercard/bgLight.png
+    - assets/mastercard/cardBg.png
+    - assets/mastercard/mastercard.png
+    - assets/icons/heart.svg
+    - assets/FakeMap.png
+    - assets/icons/dislike.svg
+    - assets/icons/like.svg
+    - assets/pictures/Collaboration-pana.svg
+    - assets/pictures/QRCode-pana.svg
+    - assets/subscription/price-free.png
+    - assets/subscription/price-premium.png
+    - assets/QrCode/QR_Code.png
+    - assets/collaboration/parrainage-img.png
+    - assets/collaboration/parrainage-frise.png
+    - assets/icons/bell.svg
+    - assets/icons/key.svg
+    - assets/icons/network-wireless.svg
+    - assets/icons/logout.svg
   fonts:
     - family: ClashDisplay
-      fonts: 
+      fonts:
         - asset: fonts/ClashDisplay-Variable.ttf
     - family: ClashDisplayBold
-      fonts: 
+      fonts:
         - asset: fonts/ClashDisplay-Bold.ttf
     - family: ClashDisplayLight
-      fonts: 
+      fonts:
         - asset: fonts/ClashDisplay-Light.ttf
     - family: ClashDisplayMedium
-      fonts: 
+      fonts:
         - asset: fonts/ClashDisplay-Medium.ttf
     - family: ClashDisplayRegular
-      fonts: 
+      fonts:
         - asset: fonts/ClashDisplay-Regular.ttf
     - family: ClashDisplaySemiBold
-      fonts: 
+      fonts:
         - asset: fonts/ClashDisplay-Semibold.ttf
+    - family: InterBlack
+      fonts: 
+        - asset: fonts/Inter-Black.ttf
+    - family: InterBold
+      fonts: 
+        - asset: fonts/Inter-Bold.ttf
+    - family: InterExtraBold
+      fonts: 
+        - asset: fonts/Inter-ExtraBold.ttf
+    - family: InterExtraLight
+      fonts: 
+        - asset: fonts/Inter-ExtraLight.ttf
+    - family: InterLight
+      fonts: 
+        - asset: fonts/Inter-Light.ttf
+    - family: InterMedium
+      fonts: 
+        - asset: fonts/Inter-Medium.ttf
+    - family: InterRegular
+      fonts: 
+        - asset: fonts/Inter-Regular.ttf
+    - family: InterSemiBold
+      fonts: 
+        - asset: fonts/Inter-SemiBold.ttf
+    - family: InterThin
+      fonts: 
+        - asset: fonts/Inter-Thin.ttf
+    

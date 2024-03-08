@@ -3,7 +3,7 @@ import 'package:lamna/pages/auth/login_page.dart';
 import 'package:lamna/utils/constants/color_constants.dart';
 import 'package:lamna/utils/constants/font_constants.dart';
 import 'package:lamna/utils/validator_fields.dart';
-import 'package:lamna/utils/widgets/buttons/button_large.dart';
+import 'package:lamna/utils/widgets/buttons/button_large_auth.dart';
 import 'package:lamna/utils/widgets/buttons/button_large_network.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -20,6 +20,8 @@ class _RegisterPageState extends State<RegisterPage> {
   bool _isObscure = true;
   Color colorButton = ColorConstants.greenLightAppColor;
   bool enable = false;
+
+  final Map<String, dynamic> textFieldsValue = {};
 
   @override
   void initState() {
@@ -85,6 +87,11 @@ class _RegisterPageState extends State<RegisterPage> {
                             ),
                           ),
                           onChanged: (data) {
+                            textFieldsValue.update(
+                              'email',
+                              (value) => emailController.text,
+                              ifAbsent: () => emailController.text,
+                            );
                             if (emailController.text.isEmpty ||
                                 passwordController.text.isEmpty) {
                               enable = false;
@@ -141,6 +148,11 @@ class _RegisterPageState extends State<RegisterPage> {
                                 }),
                           ),
                           onChanged: (data) {
+                            textFieldsValue.update(
+                              'password',
+                              (value) => passwordController.text,
+                              ifAbsent: () => passwordController.text,
+                            );
                             if (emailController.text.isEmpty ||
                                 passwordController.text.isEmpty) {
                               enable = false;
@@ -159,14 +171,14 @@ class _RegisterPageState extends State<RegisterPage> {
                         ),
                         Padding(
                           padding: const EdgeInsets.only(top: 18.0),
-                          child: ButtonLarge(
-                            text: "S'inscrire",
-                            color: enable
-                                ? ColorConstants.greenLightAppColor
-                                : Colors.grey,
-                            keyForm: _formKey,
-                            fontsize: 20,
-                          ),
+                          child: ButtonLargeAuth(
+                              text: "S'inscrire",
+                              color: enable
+                                  ? ColorConstants.greenLightAppColor
+                                  : Colors.grey,
+                              keyForm: _formKey,
+                              fontsize: 20,
+                              textFieldsValue: textFieldsValue),
                         ),
                         Row(children: [
                           Expanded(

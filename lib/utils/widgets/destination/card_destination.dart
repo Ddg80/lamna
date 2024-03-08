@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lamna/pages/city_details_page.dart';
+import 'package:lamna/pages/reserved/city_details_page.dart';
 import 'package:lamna/provider/global_provider.dart';
 import 'package:lamna/utils/constants/color_constants.dart';
 import 'package:lamna/utils/constants/font_constants.dart';
@@ -7,14 +7,14 @@ import 'package:provider/provider.dart';
 
 class CardDestination extends StatelessWidget {
   const CardDestination({
-    Key? key,
+    super.key,
     required this.id,
     required this.picture,
     required this.enable,
     required this.name,
     required this.label,
     required this.subtitle,
-  }) : super(key: key);
+  });
 
   final int id;
   final String picture;
@@ -81,7 +81,7 @@ class CardDestination extends StatelessWidget {
                                   ),
                                   Text(
                                     label,
-                                    style: TextStyle(
+                                    style:  TextStyle(
                                         color: ColorConstants.whiteAppColor,
                                         fontSize: 12),
                                   )

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lamna/pages/auth/register_page.dart';
+import 'package:lamna/pages/auth/login_page.dart';
 import 'package:lamna/utils/constants/color_constants.dart';
 import 'package:lamna/utils/widgets/indicators.dart';
 
@@ -27,7 +27,8 @@ class IndicatorsSliders extends StatelessWidget {
           onTap: () => Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => const RegisterPage(),
+              // builder: (context) => const RegisterPage(),
+              builder: (context) => const LoginPage(),
             ),
           ),
           child: Text(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lamna/utils/constants/color_constants.dart';
 
 class ExamplePage extends StatefulWidget {
   const ExamplePage({super.key});
@@ -16,7 +17,9 @@ class _ExamplePageState extends State<ExamplePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        backgroundColor: ColorConstants.lightScaffoldBackgroundColor,
+      ),
       body: const Text('Example page'),
     );
   }

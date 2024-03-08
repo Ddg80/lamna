@@ -1,0 +1,8 @@
+<svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="map-01">
+<g id="Icon">
+<path d="M2.375 6V22L9.375 18L16.375 22L22.375 18V2L16.375 6L9.375 2L2.375 6Z" fill="#D9D9D9"/>
+<path d="M9.375 18L2.375 22V6L9.375 2M9.375 18L16.375 22M9.375 18V2M16.375 22L22.375 18V2L16.375 6M16.375 22V6M16.375 6L9.375 2" stroke="#131313" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+</svg>

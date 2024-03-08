@@ -2,9 +2,11 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:lamna/models/city.dart';
+import 'package:lamna/pages/reserved/options_transport.dart';
 import 'package:lamna/provider/global_provider.dart';
 import 'package:lamna/utils/constants/color_constants.dart';
 import 'package:lamna/utils/constants/font_constants.dart';
+import 'package:lamna/utils/widgets/buttons/button_back_widget.dart';
 import 'package:lamna/utils/widgets/buttons/button_large.dart';
 import 'package:lamna/utils/widgets/reserved/title_reserved.dart';
 import 'package:numberpicker/numberpicker.dart';
@@ -19,16 +21,17 @@ class FormTransportationPage extends StatefulWidget {
 }
 
 class _FormTransportationPageState extends State<FormTransportationPage> {
-  final _formkey = GlobalKey<FormState>();
+  final _formkeyTransportation = GlobalKey<FormState>();
   late List<City> city;
   TextEditingController startCityController = TextEditingController();
   TextEditingController finishCityController = TextEditingController();
   TextEditingController startDateController = TextEditingController();
   TextEditingController returnDateController = TextEditingController();
-  TextEditingController numbersTravelController = TextEditingController();
+  TextEditingController numberPassengersController = TextEditingController();
   bool enable = false;
   DateTime currentDate = DateTime.now();
   int _currentHorizontalIntValue = 1;
+  late final provider = Provider.of<GlobalProvider>(context, listen: false);
 
   Future<List<City>> fetchCityById(int id) async {
     String data = await DefaultAssetBundle.of(context)
@@ -43,11 +46,31 @@ class _FormTransportationPageState extends State<FormTransportationPage> {
         context: context,
         initialDate: currentDate,
         firstDate: DateTime(2015),
-        lastDate: DateTime(2050));
+        lastDate: DateTime(2050),
+        builder: (context, child) {
+          return Theme(
+            data: Theme.of(context).copyWith(
+              colorScheme: ColorScheme.light(
+                primary: ColorConstants.greenLightAppColor,
+                onPrimary: ColorConstants.greenDarkAppColor,
+                onSurface: ColorConstants.blackAppColor,
+              ),
+              textButtonTheme: TextButtonThemeData(
+                style: TextButton.styleFrom(
+                  backgroundColor: ColorConstants.greenDarkAppColor,
+                ),
+              ),
+            ),
+            child: child!,
+          );
+        });
     if (pickedDate != null && pickedDate != currentDate) {
+      enable = true;
       setState(() {
         startDateController.text = DateFormat('dd/MM/yyyy').format(pickedDate);
       });
+    } else {
+      enable = false;
     }
   }
 
@@ -56,11 +79,32 @@ class _FormTransportationPageState extends State<FormTransportationPage> {
         context: context,
         initialDate: currentDate,
         firstDate: DateTime(2015),
-        lastDate: DateTime(2050));
+        lastDate: DateTime(2050),
+        builder: (context, child) {
+          return Theme(
+            data: Theme.of(context).copyWith(
+              colorScheme: ColorScheme.light(
+                primary: ColorConstants.greenLightAppColor,
+                onPrimary: ColorConstants.greenDarkAppColor,
+                onSurface: ColorConstants.blackAppColor,
+              ),
+              textButtonTheme: TextButtonThemeData(
+                style: TextButton.styleFrom(
+                  backgroundColor: ColorConstants.greenLightAppColor,
+                  foregroundColor: ColorConstants.blackAppColor,
+                ),
+              ),
+            ),
+            child: child!,
+          );
+        });
     if (pickedDate != null && pickedDate != currentDate) {
+      enable = true;
       setState(() {
         returnDateController.text = DateFormat('dd/MM/yyyy').format(pickedDate);
       });
+    } else {
+      enable = false;
     }
   }
 
@@ -69,6 +113,7 @@ class _FormTransportationPageState extends State<FormTransportationPage> {
     city = result;
     // print(city[0]);
     finishCityController.text = city[0].name;
+    enable = true;
   }
 
   @override
@@ -84,7 +129,7 @@ class _FormTransportationPageState extends State<FormTransportationPage> {
     finishCityController.dispose();
     startDateController.dispose();
     returnDateController.dispose();
-    numbersTravelController.dispose();
+    numberPassengersController.dispose();
     super.dispose();
   }
 
@@ -97,8 +142,10 @@ class _FormTransportationPageState extends State<FormTransportationPage> {
     return Scaffold(
       appBar: AppBar(
         title: Container(
-            transform: Matrix4.translationValues(-38, 0, 0),
-            child: const TitleReserved()),
+          transform: Matrix4.translationValues(-38, 0, 0),
+          child: const TitleReserved(),
+        ),
+        leading: const ButtonBackWidget(),
         backgroundColor: ColorConstants.lightScaffoldBackgroundColor,
         elevation: 0,
         toolbarHeight: 80,
@@ -119,7 +166,7 @@ class _FormTransportationPageState extends State<FormTransportationPage> {
               ),
             ),
             Form(
-              key: _formkey,
+              key: _formkeyTransportation,
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: SingleChildScrollView(
@@ -165,7 +212,7 @@ class _FormTransportationPageState extends State<FormTransportationPage> {
                         },
                         validator: (value) {
                           if (value == null || value.isEmpty) {
-                            return 'Merci de renseigner une ville de départ email valide.';
+                            return 'Merci de renseigner une ville de départ valide.';
                           }
                           return null;
                         },
@@ -241,7 +288,7 @@ class _FormTransportationPageState extends State<FormTransportationPage> {
                           bottom: 8.0,
                         ),
                         child: Text(
-                          'Date d\'arrivée',
+                          'Date de retour',
                           style: TextStyle(
                             fontFamily: FontConstants.principalFont,
                             color: ColorConstants.greenDarkAppColor,
@@ -301,7 +348,7 @@ class _FormTransportationPageState extends State<FormTransportationPage> {
                       ),
                       NumberPicker(
                         value: _currentHorizontalIntValue,
-                        minValue: 0,
+                        minValue: 1,
                         maxValue: 100,
                         step: 1,
                         itemHeight: 30,
@@ -325,6 +372,7 @@ class _FormTransportationPageState extends State<FormTransportationPage> {
                               final newValue = _currentHorizontalIntValue - 1;
                               _currentHorizontalIntValue =
                                   newValue.clamp(0, 100);
+                              enable = true;
                             }),
                           ),
                           Text(
@@ -339,20 +387,10 @@ class _FormTransportationPageState extends State<FormTransportationPage> {
                               final newValue = _currentHorizontalIntValue + 1;
                               _currentHorizontalIntValue =
                                   newValue.clamp(0, 100);
+                              enable = true;
                             }),
                           ),
                         ],
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 18.0),
-                        child: ButtonLarge(
-                          text: "Voir les options de transports",
-                          color: enable
-                              ? ColorConstants.greenLightAppColor
-                              : Colors.grey,
-                          keyForm: _formkey,
-                          fontsize: 18,
-                        ),
                       ),
                     ],
                   ),
@@ -360,6 +398,44 @@ class _FormTransportationPageState extends State<FormTransportationPage> {
               ),
             )
           ],
+        ),
+      ),
+      bottomNavigationBar: Container(
+        alignment: Alignment.center,
+        color: Colors.transparent,
+        height: 50,
+        child: SizedBox(
+          width: MediaQuery.of(context).size.width * 0.95,
+          child: ButtonLarge(
+            text: "Voir les options de transports",
+            color: enable ? ColorConstants.greenLightAppColor : Colors.grey,
+            fontsize: 18,
+            onPressed: () {
+              if (enable && _formkeyTransportation.currentState!.validate()) {
+                provider.setReservationSelected({
+                  'startCity': startCityController.text,
+                  'startDate': startDateController.text,
+                  'finishCity': finishCityController.text,
+                  'returnDate': returnDateController.text,
+                  'numberPassengers': _currentHorizontalIntValue.toString()
+                });
+              }
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (_) => const OptionsTransportPage(),
+                ),
+              );
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  behavior: SnackBarBehavior.floating,
+                  backgroundColor: ColorConstants.greenLightAppColor,
+                  content: enable
+                      ? const Text('Sauvegarde des données du formulaire')
+                      : const Text('Tous les champs doivent être remplis'),
+                ),
+              );
+            },
+          ),
         ),
       ),
     );
