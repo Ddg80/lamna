@@ -202,7 +202,7 @@ class PaymentPageState extends State<PaymentPage> {
                                   const Opacity(
                                     opacity: 0.75,
                                     child: Text(
-                                      'Commision lämna :',
+                                      'Commission lämna :',
                                       style: TextStyle(
                                         color: Color(0xFF5A5A5A),
                                         fontSize: 16,

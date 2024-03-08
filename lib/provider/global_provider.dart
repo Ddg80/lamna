@@ -96,7 +96,7 @@ class GlobalProvider extends ChangeNotifier {
           commission: _total * (percent / 100),
         );
         _total = infosReservation.total;
-        _commission = infosReservation.commission;
+        _commission = infosReservation.commission.toPrecision(2);
       }
 
       notifyListeners();
