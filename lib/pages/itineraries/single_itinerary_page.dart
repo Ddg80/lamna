@@ -2,12 +2,12 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lamna/models/itinerary.dart';
+import 'package:lamna/pages/home_page.dart';
 import 'package:lamna/pages/itineraries/itineraries_page.dart';
-import 'package:lamna/pages/map/map_page.dart';
 import 'package:lamna/provider/global_provider.dart';
 import 'package:lamna/utils/constants/color_constants.dart';
 import 'package:lamna/utils/constants/font_constants.dart';
-import 'package:lamna/utils/widgets/buttons/button_next_page_new_vision.dart';
+import 'package:lamna/utils/widgets/buttons/button_next_page.dart';
 import 'package:lamna/utils/widgets/itinerary/header_itinerary_details.dart';
 import 'package:lamna/utils/widgets/itinerary/label_itinerary.dart';
 import 'package:provider/provider.dart';
@@ -300,13 +300,52 @@ class _SingleItineraryPageState extends State<SingleItineraryPage> {
                         ),
                       ),
               ),
-              ButtonNextPageNewVison(
-                context: context,
-                page: const MapPage(),
-                title: 'Lancer l\'itinéraire',
+              ButtonNextPage(
+                onPressed: () {
+                  Provider.of<GlobalProvider>(context, listen: false)
+                      .setItineraryStarted(false);
+                  Provider.of<GlobalProvider>(context, listen: false)
+                      .setSelectedItineraryId(widget.id);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const HomePage(currentIndex: 1),
+                    ),
+                  );
+                },
                 color: ColorConstants.greenDarkAppColor,
-                icon: Icons.east,
-              ),
+                child: FittedBox(
+                  fit: BoxFit.fitWidth,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Wrap(
+                        crossAxisAlignment: WrapCrossAlignment.center,
+                        children: [
+                          Text(
+                            'Lancer l\'itinéraire',
+                            style: TextStyle(
+                              color: ColorConstants.whiteAppColor,
+                              fontSize: 20,
+                              fontFamily: FontConstants.regularFont,
+                              fontWeight: FontWeight.w600,
+                              height: 0,
+                            ),
+                          ),
+                          const SizedBox(
+                            width: 10.0,
+                          ),
+                          const Icon(
+                            Icons.east,
+                            color: Colors.white,
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
+                ),
+              )
             ],
           ),
         ),

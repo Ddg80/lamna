@@ -137,4 +137,179 @@ List<Itinerary> itineraries = [
                 "https://lh5.googleusercontent.com/p/AF1QipNeeTv1mAsE5QXnWEEuQJ6AsGMhUa0bhMQxZp0=w408-h257-k-no",
             coordinate: const LatLng(48.11441745252013, -1.669492931862416)),
       ]),
+  Itinerary(
+      //[[ ---------
+      like: true,
+      subtitleItinerary: "",
+      createdBy: "",
+      headerImage: "",
+      description: "",
+      images: [],
+      smallImage: "",
+      // ---------]]
+      id: 2,
+      nameCity: 'Rennes',
+      titleItinerary: 'Flâneries médiévales au coeur de Rennes',
+      image: 'assets/itineraryCards/route3.png',
+      nbSite: 8,
+      distance: 6,
+      days: 1,
+      places: [
+        Place(
+            name: "Demo place 20",
+            image:
+                "https://lh5.googleusercontent.com/p/AF1QipP94Cf5_StSoPgNfRKTm4SccJqYLVxRqYCz71ef=w408-h306-k-no",
+            coordinate: const LatLng(48.105214552043954, -1.7112716175587777)),
+        Place(
+            name: "Demo place 21",
+            image:
+                "https://lh5.googleusercontent.com/p/AF1QipP94Cf5_StSoPgNfRKTm4SccJqYLVxRqYCz71ef=w408-h306-k-no",
+            coordinate: const LatLng(48.09245481192589, -1.6462449857805834)),
+      ]),
+  Itinerary(
+      //[[ ---------
+      like: true,
+      subtitleItinerary: "",
+      createdBy: "",
+      headerImage: "",
+      description: "",
+      images: [],
+      smallImage: "",
+      // ---------]]
+      id: 3,
+      nameCity: 'Rennes',
+      titleItinerary: 'Flâneries médiévales au coeur de Rennes',
+      image: 'assets/itineraryCards/route3.png',
+      nbSite: 8,
+      distance: 6,
+      days: 1,
+      places: [
+        Place(
+            name: "Demo place 20",
+            image:
+                "https://lh5.googleusercontent.com/p/AF1QipP94Cf5_StSoPgNfRKTm4SccJqYLVxRqYCz71ef=w408-h306-k-no",
+            coordinate: const LatLng(48.105214552043954, -1.7112716175587777)),
+        Place(
+            name: "Demo place 21",
+            image:
+                "https://lh5.googleusercontent.com/p/AF1QipP94Cf5_StSoPgNfRKTm4SccJqYLVxRqYCz71ef=w408-h306-k-no",
+            coordinate: const LatLng(48.09245481192589, -1.6462449857805834)),
+      ]),
+  Itinerary(
+      //[[ ---------
+      like: true,
+      subtitleItinerary: "",
+      createdBy: "",
+      headerImage: "",
+      description: "",
+      images: [],
+      smallImage: "",
+      // ---------]]
+      id: 4,
+      nameCity: 'Rennes',
+      titleItinerary: 'Trésors historiques cachés',
+      image: 'assets/itineraryCards/route4.png',
+      nbSite: 15,
+      distance: 19,
+      days: 1,
+      places: [
+        Place(
+            name: "Demo place 8",
+            image:
+                "https://lh5.googleusercontent.com/p/AF1QipP94Cf5_StSoPgNfRKTm4SccJqYLVxRqYCz71ef=w408-h306-k-no",
+            coordinate: const LatLng(48.13054497505201, -1.656197115798586)),
+        Place(
+            name: "Demo place 9",
+            image:
+                "https://lh5.googleusercontent.com/p/AF1QipP94Cf5_StSoPgNfRKTm4SccJqYLVxRqYCz71ef=w408-h306-k-no",
+            coordinate: const LatLng(48.13656191725825, -1.6070935116964642)),
+        Place(
+            name: "Demo place 10",
+            image:
+                "https://lh5.googleusercontent.com/p/AF1QipP94Cf5_StSoPgNfRKTm4SccJqYLVxRqYCz71ef=w408-h306-k-no",
+            coordinate: const LatLng(48.11742691669266, -1.594390569350951)),
+        Place(
+            name: "Demo place 11",
+            image:
+                "https://lh5.googleusercontent.com/p/AF1QipP94Cf5_StSoPgNfRKTm4SccJqYLVxRqYCz71ef=w408-h306-k-no",
+            coordinate: const LatLng(48.09495997780831, -1.5904423575408588)),
+      ]),
+  Itinerary(
+      //[[ ---------
+      like: true,
+      subtitleItinerary: "",
+      createdBy: "",
+      headerImage: "",
+      description: "",
+      images: [],
+      smallImage: "",
+      // ---------]]
+      id: 5,
+      nameCity: 'Rennes',
+      titleItinerary: 'Odyssée moderne',
+      image: 'assets/itineraryCards/route5.png',
+      nbSite: 12,
+      distance: 15,
+      days: 2,
+      places: [
+        Place(
+            name: "Demo place 12",
+            image:
+                "https://lh5.googleusercontent.com/p/AF1QipP94Cf5_StSoPgNfRKTm4SccJqYLVxRqYCz71ef=w408-h306-k-no",
+            coordinate: const LatLng(48.15351392345713, -1.6747280966171703)),
+        Place(
+            name: "Demo place 13",
+            image:
+                "https://lh5.googleusercontent.com/p/AF1QipP94Cf5_StSoPgNfRKTm4SccJqYLVxRqYCz71ef=w408-h306-k-no",
+            coordinate: const LatLng(48.15042174526032, -1.6589352493768024)),
+        Place(
+            name: "Demo place 14",
+            image:
+                "https://lh5.googleusercontent.com/p/AF1QipP94Cf5_StSoPgNfRKTm4SccJqYLVxRqYCz71ef=w408-h306-k-no",
+            coordinate: const LatLng(48.12235457438159, -1.6388508675602476)),
+      ]),
+  Itinerary(
+      //[[ ---------
+      like: true,
+      subtitleItinerary: "",
+      createdBy: "",
+      headerImage: "",
+      description: "",
+      images: [],
+      smallImage: "",
+      // ---------]]
+      id: 6,
+      nameCity: 'Rennes',
+      titleItinerary: 'Rennes en rythme',
+      image: 'assets/itineraryCards/route6.png',
+      nbSite: 8,
+      distance: 27,
+      days: 3,
+      places: [
+        Place(
+            name: "Demo place 15",
+            image:
+                "https://lh5.googleusercontent.com/p/AF1QipP94Cf5_StSoPgNfRKTm4SccJqYLVxRqYCz71ef=w408-h306-k-no",
+            coordinate: const LatLng(48.100647701332306, -1.6408134614318093)),
+        Place(
+            name: "Demo place 16",
+            image:
+                "https://lh5.googleusercontent.com/p/AF1QipP94Cf5_StSoPgNfRKTm4SccJqYLVxRqYCz71ef=w408-h306-k-no",
+            coordinate: const LatLng(48.088668705116845, -1.6420130519520133)),
+        Place(
+            name: "Demo place 17",
+            image:
+                "https://lh5.googleusercontent.com/p/AF1QipP94Cf5_StSoPgNfRKTm4SccJqYLVxRqYCz71ef=w408-h306-k-no",
+            coordinate: const LatLng(48.086489998883266, -1.629653432372595)),
+        Place(
+            name: "Demo place 18",
+            image:
+                "https://lh5.googleusercontent.com/p/AF1QipP94Cf5_StSoPgNfRKTm4SccJqYLVxRqYCz71ef=w408-h306-k-no",
+            coordinate: const LatLng(48.098414418785005, -1.6013293041697614)),
+        Place(
+            name: "Demo place 19",
+            image:
+                "https://lh5.googleusercontent.com/p/AF1QipP94Cf5_StSoPgNfRKTm4SccJqYLVxRqYCz71ef=w408-h306-k-no",
+            coordinate: const LatLng(48.065365054818386, -1.603166328797821)),
+      ]),
 ];

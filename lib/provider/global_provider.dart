@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_map_marker_popup/flutter_map_marker_popup.dart';
@@ -13,7 +15,7 @@ import 'package:lamna/models/travel.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
 class GlobalProvider extends ChangeNotifier {
-  int idCity = 0;
+  int? idCity;
   String _linkCollaboration = "";
   List<Itinerary> _itineraries = [];
   final List<Travel> _travelReserved = [];
@@ -66,6 +68,7 @@ class GlobalProvider extends ChangeNotifier {
     selectedItineraryId = id;
     notifyListeners();
   }
+
   Map<String, String> _formReservation = {};
   List<Reservation> listReservations = [];
   double _total = 0.0;
@@ -345,6 +348,7 @@ class GlobalProvider extends ChangeNotifier {
   }
 
   getIdCity() {
+    log(idCity?.toString() ?? "empty");
     return idCity;
   }
 

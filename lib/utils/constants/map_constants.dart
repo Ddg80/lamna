@@ -10,6 +10,6 @@ class MapConstants {
   static const String openRouteServiceBaseUrl = 'https://osrm.lamna.app/ors';
 
   static const LatLng defaultCenter = LatLng(48.117266, -1.6777926);
-  static const double defaultZoom = 9.2;
+  static const double defaultZoom = 12;
   static const double maxZoomOnTap = 15;
 }

@@ -7,22 +7,25 @@ import 'package:lamna/pages/welcome/welcome_page.dart';
 import 'package:lamna/utils/constants/color_constants.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  final int? currentIndex;
+  const HomePage({super.key, this.currentIndex});
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
-  int currentIndex = 0;
+  late int currentIndex;
   final screens = [
     const WelcomePage(),
     MapPage(),
     const ItinerariesPage(),
     const ProfilePage()
   ];
+
   @override
   void initState() {
     super.initState();
+    currentIndex = widget.currentIndex ?? 0;
   }
 
   @override

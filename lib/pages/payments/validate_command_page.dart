@@ -5,9 +5,11 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:indexed/indexed.dart';
 import 'package:lamna/pages/home_page.dart';
+import 'package:lamna/provider/global_provider.dart';
 import 'package:lamna/utils/constants/color_constants.dart';
 import 'package:lamna/utils/constants/font_constants.dart';
 import 'package:lamna/utils/widgets/buttons/button_large.dart';
+import 'package:provider/provider.dart';
 
 class ValidateCommandPage extends StatefulWidget {
   const ValidateCommandPage({super.key});
@@ -92,9 +94,16 @@ class _ValidateCommandPageState extends State<ValidateCommandPage> {
                               fontsize: 18,
                               onPressed: () {
                                 if (!isLoading) {
+                                  Provider.of<GlobalProvider>(context,
+                                          listen: false)
+                                      .setItineraryStarted(false);
+                                  Provider.of<GlobalProvider>(context,
+                                          listen: false)
+                                      .setSelectedItineraryId(null);
                                   Navigator.of(context).push(
                                     MaterialPageRoute(
-                                      builder: (context) => const HomePage(),
+                                      builder: (context) =>
+                                          const HomePage(currentIndex: 1),
                                     ),
                                   );
                                 }

@@ -515,29 +515,79 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
                 },
               ),
             )),
-      if ((Provider.of<GlobalProvider>(context, listen: true)
-                  .selectedItineraryId !=
-              null) &&
-          (Provider.of<GlobalProvider>(context, listen: true)
-                  .itineraryStarted ==
-              true))
-        Positioned(
-          left: 0.0,
-          right: 0.0,
-          bottom: 0.0,
-          child: Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                if (Provider.of<GlobalProvider>(context, listen: false)
-                        .qrCodeToggled ==
-                    false)
-                  const QrCodeLayer(),
+      Positioned(
+        left: 0.0,
+        right: 0.0,
+        bottom: 0.0,
+        child: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              IconButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.white,
+                ),
+                onPressed: () {
+                  setState(() {
+                    Provider.of<GlobalProvider>(context, listen: false)
+                        .mapController
+                        .move(MapConstants.defaultCenter,
+                            MapConstants.defaultZoom);
+                  });
+                },
+                icon: const Icon(Icons.center_focus_strong_rounded),
+              ),
+              IconButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.white,
+                  ),
+                  onPressed: () {
+                    int randomNumber =
+                        math.Random().nextInt(itineraries.length);
+                    /* itineraries id's start at 1 */
+                    randomNumber++;
+                    log("Itineraries length : ${itineraries.length} Random Index : ${randomNumber.toString()}");
+                    Provider.of<GlobalProvider>(context, listen: false)
+                        .setSelectedItineraryId(randomNumber);
+                  },
+                  icon: const Icon(Icons.radar)),
+              IconButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.white,
+                ),
+                onPressed: () {
+                  Provider.of<GlobalProvider>(context, listen: false)
+                      .setSelectedItineraryId(null);
+                  Provider.of<GlobalProvider>(context, listen: false)
+                      .setItineraryStarted(false);
+                },
+                icon: const Icon(Icons.wrong_location_rounded),
+              ),
+              IconButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.white,
+                  ),
+                  onPressed: () {
+                    _animatedMapMove(
+                        currentLatLng,
+                        Provider.of<GlobalProvider>(context, listen: false)
+                            .mapController
+                            .camera
+                            .zoom);
+                  },
+                  icon: const Icon(Icons.adjust)),
+              const QrCodeLayer(),
+              if ((Provider.of<GlobalProvider>(context, listen: true)
+                          .itineraryStarted ==
+                      true) &&
+                  (Provider.of<GlobalProvider>(context, listen: true)
+                          .selectedItineraryId !=
+                      null))
                 ProximityLayer(
                     itemScrollController: itemScrollController,
                     merchantTapCallback: merchantTapCallback),
-              ]),
-        ),
+            ]),
+      ),
       if (Provider.of<GlobalProvider>(context, listen: true).qrCodeToggled ==
           true)
         Positioned.fill(
@@ -555,7 +605,7 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
                     padding: const EdgeInsets.all(10),
                     child: Container(
                       decoration: BoxDecoration(
-                        color: Theme.of(context).colorScheme.background,
+                        color: Colors.white,
                         border: Border.all(width: 0, style: BorderStyle.none),
                         borderRadius:
                             const BorderRadius.all(Radius.circular(10)),
@@ -707,53 +757,6 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
               ),
             ),
           )),
-      Positioned(
-        left: 0.0,
-        bottom: 200,
-        child: Row(
-          children: [
-            ElevatedButton(
-                onPressed: () {
-                  setState(() {
-                    Provider.of<GlobalProvider>(context, listen: false)
-                        .mapController
-                        .move(MapConstants.defaultCenter,
-                            MapConstants.defaultZoom);
-                  });
-                },
-                child: const Text("P")),
-            ElevatedButton(
-                onPressed: () {
-                  int randomNumber = math.Random().nextInt(itineraries.length);
-                  /* itineraries id's start at 1 */
-                  randomNumber++;
-                  log("Itineraries length : ${itineraries.length} Random Index : ${randomNumber.toString()}");
-                  Provider.of<GlobalProvider>(context, listen: false)
-                      .setSelectedItineraryId(randomNumber);
-                },
-                child: const Text("R")),
-            ElevatedButton(
-              onPressed: () {
-                Provider.of<GlobalProvider>(context, listen: false)
-                    .setSelectedItineraryId(null);
-                Provider.of<GlobalProvider>(context, listen: false)
-                    .setItineraryStarted(false);
-              },
-              child: const Text("C"),
-            ),
-            IconButton(
-                onPressed: () {
-                  _animatedMapMove(
-                      currentLatLng,
-                      Provider.of<GlobalProvider>(context, listen: false)
-                          .mapController
-                          .camera
-                          .zoom);
-                },
-                icon: const Icon(Icons.adjust)),
-          ],
-        ),
-      )
     ]));
   }
 }

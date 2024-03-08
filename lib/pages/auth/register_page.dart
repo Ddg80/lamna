@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:lamna/pages/auth/login_page.dart';
 import 'package:lamna/utils/constants/color_constants.dart';
 import 'package:lamna/utils/constants/font_constants.dart';
@@ -45,14 +46,9 @@ class _RegisterPageState extends State<RegisterPage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Text(
-              'lämna',
-              style: TextStyle(
-                fontWeight: FontWeight.w400,
-                fontSize: 50,
-                color: ColorConstants.greenLightAppColor,
-                fontFamily: FontConstants.principalFont,
-              ),
+            SvgPicture.asset(
+              'assets/logos/darkIconTypo.svg',
+              width: 200,
             ),
             Form(
               key: _formKey,
