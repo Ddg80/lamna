@@ -170,6 +170,7 @@ flutter:
     - assets/icons/key.svg
     - assets/icons/network-wireless.svg
     - assets/icons/logout.svg
+    - assets/pictures/booking.svg
   fonts:
     - family: ClashDisplay
       fonts:
