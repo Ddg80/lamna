@@ -38,46 +38,51 @@ class _ProfileOptionsState extends State<ProfileOptions> {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Padding(
-          padding: const EdgeInsets.all(3.0),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              SvgPicture.asset(
-                widget.assetSVG,
-                width: 24,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 8.0),
-                child: Text(
-                  widget.text,
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontFamily: FontConstants.mediumFont,
-                    fontWeight: FontWeight.w700,
+    return GestureDetector(
+      onTap: () {
+        _navigate(context, widget.page);
+      },
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(3.0),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                SvgPicture.asset(
+                  widget.assetSVG,
+                  width: 24,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 8.0),
+                  child: Text(
+                    widget.text,
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontFamily: FontConstants.mediumFont,
+                      fontWeight: FontWeight.w700,
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-        ),
-        ElevatedButton(
-          onPressed: () {
-            _navigate(context, widget.page);
-          },
-          style: ElevatedButton.styleFrom(
-            elevation: 0,
-            backgroundColor: ColorConstants.lightScaffoldBackgroundColor,
-          ),
-          child: SvgPicture.asset(
-            widget.arrow,
-            width: 8,
-          ),
-        )
-      ],
+          ElevatedButton(
+            onPressed: () {
+              _navigate(context, widget.page);
+            },
+            style: ElevatedButton.styleFrom(
+              elevation: 0,
+              backgroundColor: ColorConstants.lightScaffoldBackgroundColor,
+            ),
+            child: SvgPicture.asset(
+              widget.arrow,
+              width: 8,
+            ),
+          )
+        ],
+      ),
     );
   }
 }
