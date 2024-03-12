@@ -48,6 +48,7 @@ void main() {
         "assets/auFilDeLeau/image4.png"
       ],
       like: true,
+      places: [],
     );
     final itinerary2 = Itinerary(
       id: 2,
@@ -70,6 +71,7 @@ void main() {
         "assets/auFilDeLeau/image4.png"
       ],
       like: false,
+      places: [],
     );
 
     provider.setItineraries([itinerary1, itinerary2]);
@@ -105,6 +107,7 @@ void main() {
         "assets/auFilDeLeau/image4.png"
       ],
       like: true,
+      places: [],
     );
     final itinerary2 = Itinerary(
       id: 2,
@@ -127,6 +130,7 @@ void main() {
         "assets/auFilDeLeau/image4.png"
       ],
       like: false,
+      places: [],
     );
 
     provider.setItineraries([itinerary1, itinerary2]);
