@@ -80,9 +80,13 @@ class _WelcomePageState extends State<WelcomePage> {
                                   height: 0.05,
                                 ),
                               ),
-                              const TextSpan(
-                                text: 'Lucas !',
-                                style: TextStyle(
+                              TextSpan(
+                                text: Provider.of<GlobalProvider>(context,
+                                            listen: true)
+                                        .account
+                                        ?.firstName ??
+                                    "Lucas ",
+                                style: const TextStyle(
                                   color: Colors.white,
                                   fontSize: 24,
                                   fontFamily: 'Clash Display Variable',

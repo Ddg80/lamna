@@ -9,7 +9,7 @@
         "timeTravel": "4:11",
         "percent": 5,
         "category": "Train",
-        "travelType": "Retour"
+        "travelType": "Aller"
     },
     {
         "id": 2,
@@ -21,7 +21,7 @@
         "timeTravel": "4:14",
         "percent": 5,
         "category": "Train",
-        "travelType": "Retour"
+        "travelType": "Aller"
     },
     {
         "id": 3,
@@ -33,7 +33,7 @@
         "timeTravel": "3:54",
         "percent": 5,
         "category": "Train",
-        "travelType": "Retour"
+        "travelType": "Aller"
     },
     {
         "id": 4,
@@ -45,7 +45,7 @@
         "timeTravel": "4:21",
         "percent": 5,
         "category": "Train",
-        "travelType": "Retour"
+        "travelType": "Aller"
     },
     {
         "id": 5,
@@ -57,6 +57,6 @@
         "timeTravel": "5:04",
         "percent": 5,
         "category": "Train",
-        "travelType": "Retour"
+        "travelType": "Aller"
     }
 ]
