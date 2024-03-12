@@ -1,8 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:lamna/pages/onboarding/onBoarding_page.dart';
-import 'package:lamna/pages/onboarding/start_page.dart';
+import 'package:lamna/pages/onboarding/on_boarding_page.dart';
 import 'package:lamna/utils/constants/color_constants.dart';
 import 'package:lamna/utils/widgets/images/lamna_logo.dart';
 

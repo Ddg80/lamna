@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lamna/models/itinerary.dart';
 import 'package:lamna/pages/onboarding/show_two_page.dart';
 import 'package:lamna/provider/global_provider.dart';

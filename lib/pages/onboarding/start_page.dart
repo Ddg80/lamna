@@ -19,16 +19,22 @@ class StartPage extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Container(
-              width: MediaQuery.of(context).size.width * 0.70,
-              height: MediaQuery.of(context).size.height * 0.3,
               alignment: Alignment.topLeft,
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const NewVisonTitle(),
                   Padding(
-                    padding: const EdgeInsets.only(top: 4.0),
+                    padding: const EdgeInsets.only(left: 8.0, top: 10),
+                    child: SizedBox(
+                      width: MediaQuery.of(context).size.width * .8,
+                      child: const NewVisonTitle(),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 20.0),
                     child: ButtonNextPageNewVison(
                       context: context,
                       page: const ShowOnePage(),
@@ -37,13 +43,13 @@ class StartPage extends StatelessWidget {
                       icon: Icons.east,
                     ),
                   ),
+                  Image.asset(
+                    'assets/pictures/Madrid_pana.png',
+                    fit: BoxFit.fill,
+                    width: MediaQuery.of(context).size.width * 0.85,
+                  ),
                 ],
               ),
-            ),
-            Image.asset(
-              'assets/pictures/Madrid_pana.png',
-              fit: BoxFit.fill,
-              width: MediaQuery.of(context).size.width * 0.85,
             ),
           ],
         ),
