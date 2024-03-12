@@ -21,34 +21,9 @@ class ItineraryPage extends StatefulWidget {
 class _ItineraryPageState extends State<ItineraryPage> {
   final CardSwiperController controller = CardSwiperController();
   late final provider = Provider.of<GlobalProvider>(context, listen: true);
-  int _index = 0;
   @override
   void initState() {
     super.initState();
-  }
-
-  _nopAction() {
-    setState(() {
-      if (_index > 5) {
-        _index = 0;
-        provider.setItineraryDisLiked(_index);
-      } else {
-        provider.setItineraryDisLiked(_index);
-        _index++;
-      }
-    });
-  }
-
-  _likeAction() {
-    setState(() {
-      if (_index > 5) {
-        _index = 0;
-        provider.setItineraryLiked(_index);
-      } else {
-        provider.setItineraryLiked(_index);
-        _index++;
-      }
-    });
   }
 
   @override
@@ -114,7 +89,6 @@ class _ItineraryPageState extends State<ItineraryPage> {
                         borderRadius: BorderRadius.circular(100),
                         onTap: () {
                           controller.swipe(CardSwiperDirection.left);
-                          _nopAction();
                         },
                         child: Container(
                           height: 60,
@@ -150,7 +124,6 @@ class _ItineraryPageState extends State<ItineraryPage> {
                         borderRadius: BorderRadius.circular(100),
                         onTap: () {
                           controller.swipe(CardSwiperDirection.right);
-                          _likeAction();
                         },
                         child: Container(
                           height: 60,
@@ -232,6 +205,12 @@ class _ItineraryPageState extends State<ItineraryPage> {
     int? currentIndex,
     CardSwiperDirection direction,
   ) {
+    if (direction.name == 'right') {
+      provider.setItineraryLiked(previousIndex);
+    }
+    if (direction.name == 'left') {
+      provider.setItineraryDisLiked(previousIndex);
+    }
     debugPrint(
       'The card $previousIndex was swiped to the ${direction.name}. Now the card $currentIndex is on top',
     );
