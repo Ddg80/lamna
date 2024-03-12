@@ -37,33 +37,31 @@ class _ShowOnePageState extends State<ShowOnePage> {
       extendBody: true,
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: SizedBox(
-          height: 50,
-          child: SvgPicture.asset(
-            'assets/logos/logoLamnaApp.svg',
-            width: 150,
-          ),
-        ),
+        toolbarHeight: 0,
         backgroundColor: ColorConstants.lightScaffoldBackgroundColor,
       ),
+      extendBodyBehindAppBar: true,
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            IndicatorsSliders(indexPageActive: indexPageActive),
-            Center(
-              child: Image.asset(
-                'assets/pictures/World Bicycle Day_pana.png',
-                fit: BoxFit.fill,
+        child: Padding(
+          padding: const EdgeInsets.only(top: 88.0),
+          child: Column(
+            children: [
+              IndicatorsSliders(indexPageActive: indexPageActive),
+              Center(
+                child: Image.asset(
+                  'assets/pictures/World Bicycle Day_pana.png',
+                  fit: BoxFit.fill,
+                ),
               ),
-            ),
-            SizedBox(
-              width: MediaQuery.of(context).size.width * 0.80,
-              child: const TravelTitle(
-                text1: "Voyagez de manière ",
-                text2: " éco-responsable ",
+              SizedBox(
+                width: MediaQuery.of(context).size.width * 0.80,
+                child: const TravelTitle(
+                  text1: "Voyagez de manière ",
+                  text2: " éco-responsable ",
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
       bottomNavigationBar: Container(

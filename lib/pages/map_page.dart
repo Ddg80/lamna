@@ -127,7 +127,6 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
     _positionStream =
         factory.fromGeolocatorPositionStream().asBroadcastStream();
     _positionStream.listen((event) {
-      //TODO: fix wrong currnetlatlng ?!
       if (event != null) {
         currentLatLng = event.latLng;
       }
@@ -293,7 +292,6 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
                       null)
                     FutureBuilder(
                         future: widget._getRoutingPolylinesByItineraryId(
-                            //TODO: fix and use current position
                             MapConstants.defaultCenter,
                             // currentLatLng,
                             Provider.of<GlobalProvider>(context)

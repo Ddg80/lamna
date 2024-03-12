@@ -28,7 +28,7 @@ class TravelTitle extends StatelessWidget {
               TextSpan(
                 text: text1,
                 style: TextStyle(
-                    fontSize: 30,
+                    fontSize: 28,
                     color: ColorConstants.greenDarkAppColor,
                     fontWeight: FontWeight.w400),
               ),

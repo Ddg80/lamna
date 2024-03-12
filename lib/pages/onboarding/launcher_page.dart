@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:lamna/pages/onboarding/onBoarding_page.dart';
 import 'package:lamna/pages/onboarding/start_page.dart';
 import 'package:lamna/utils/constants/color_constants.dart';
 import 'package:lamna/utils/widgets/images/lamna_logo.dart';
@@ -20,7 +21,7 @@ class _LauncherPageState extends State<LauncherPage> {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (_) => const StartPage(),
+          builder: (_) => const OnBoardingPage(),
         ),
       );
     });

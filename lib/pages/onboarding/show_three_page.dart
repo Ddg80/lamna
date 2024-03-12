@@ -20,36 +20,34 @@ class _ShowThreePageState extends State<ShowThreePage> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: SizedBox(
-          height: 50,
-          child: SvgPicture.asset(
-            'assets/logos/logoLamnaApp.svg',
-            width: 150,
-          ),
-        ),
+        toolbarHeight: 0,
         backgroundColor: ColorConstants.lightScaffoldBackgroundColor,
       ),
+      extendBodyBehindAppBar: true,
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            IndicatorsSliders(indexPageActive: indexPageActive),
-            Padding(
-              padding: const EdgeInsets.only(top: 10.0),
-              child: Center(
-                child: Image.asset(
-                  'assets/pictures/Retail markdown_pana.png',
-                  fit: BoxFit.fill,
+        child: Padding(
+          padding: const EdgeInsets.only(top: 88.0),
+          child: Column(
+            children: [
+              IndicatorsSliders(indexPageActive: indexPageActive),
+              Padding(
+                padding: const EdgeInsets.only(top: 10.0),
+                child: Center(
+                  child: Image.asset(
+                    'assets/pictures/Retail markdown_pana.png',
+                    fit: BoxFit.fill,
+                  ),
                 ),
               ),
-            ),
-            SizedBox(
-              width: MediaQuery.of(context).size.width * 0.80,
-              child: const TravelTitle(
-                text1: "Et en faisant des ",
-                text2: "économies ",
+              SizedBox(
+                width: MediaQuery.of(context).size.width * 0.80,
+                child: const TravelTitle(
+                  text1: "Et en faisant des ",
+                  text2: "économies ",
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
       bottomNavigationBar: Container(

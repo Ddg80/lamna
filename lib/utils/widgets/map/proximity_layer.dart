@@ -187,7 +187,6 @@ class ProximityWidgetExpanded extends StatelessWidget {
                   itemScrollController: itemScrollController,
                   itemBuilder: (context, index) => ProximityCard(
                     name: merchants[index].name,
-                    // TODO: use matrix distance api
                     distance: "200m",
                     status: merchants[index].status,
                     image: merchants[index].image,

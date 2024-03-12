@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lamna/pages/onboarding/show_one_page.dart';
 import 'package:lamna/utils/constants/color_constants.dart';
 import 'package:lamna/utils/widgets/buttons/button_next_page_new_vision.dart';
@@ -15,20 +14,13 @@ class StartPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: SizedBox(
-          height: 50,
-          child: SvgPicture.asset(
-            'assets/logos/logoLamnaApp.svg',
-            width: 150,
-          ),
-        ),
+        toolbarHeight: 0,
         backgroundColor: ColorConstants.lightScaffoldBackgroundColor,
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
             Container(
-              padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
               width: MediaQuery.of(context).size.width * 0.70,
               height: MediaQuery.of(context).size.height * 0.3,
               alignment: Alignment.topLeft,

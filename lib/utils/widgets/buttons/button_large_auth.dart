@@ -13,13 +13,13 @@ import 'package:provider/provider.dart';
 
 class ButtonLargeAuth extends StatefulWidget {
   const ButtonLargeAuth({
-    Key? key,
+    super.key,
     required this.text,
     required this.color,
     required this.keyForm,
     required this.fontsize,
     required this.textFieldsValue,
-  }) : super(key: key);
+  });
 
   final Map<String, dynamic> textFieldsValue;
   final String text;

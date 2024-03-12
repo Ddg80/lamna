@@ -7,7 +7,6 @@ import 'package:lamna/pages/reserved/options_transport.dart';
 import 'package:lamna/provider/global_provider.dart';
 import 'package:lamna/utils/constants/color_constants.dart';
 import 'package:lamna/utils/constants/font_constants.dart';
-import 'package:lamna/utils/widgets/buttons/button_back_widget.dart';
 import 'package:provider/provider.dart';
 
 class PaymentPage extends StatefulWidget {

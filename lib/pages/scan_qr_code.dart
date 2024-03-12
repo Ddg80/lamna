@@ -8,7 +8,7 @@ import 'package:lamna/utils/widgets/taosts/info_toast.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 
 class ScanQRCodePage extends StatefulWidget {
-  const ScanQRCodePage({Key? key}) : super(key: key);
+  const ScanQRCodePage({super.key});
 
   @override
   State<StatefulWidget> createState() => _ScanQRCodePageState();
