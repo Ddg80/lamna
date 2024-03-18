@@ -1,10 +1,10 @@
 name: lamna
 description: "A new Flutter project."
-publish_to: 'none'
+publish_to: "none"
 version: 0.1.0
 
 environment:
-  sdk: '>=3.2.3 <4.0.0'
+  sdk: ">=3.2.3 <4.0.0"
 
 dependencies:
   carousel_slider: ^4.2.1
@@ -36,6 +36,7 @@ dependencies:
   faker: ^2.1.0
   widget_zoom: ^0.0.3
   http: ^1.2.0
+  badges: ^3.1.2
 
 dev_dependencies:
   flutter_test:
@@ -75,7 +76,7 @@ flutter:
     - assets/pictures/Retail markdown_pana.png
     - assets/pictures/World Bicycle Day_pana.png
     - assets/pictures/User-flow-pana.png
-    - assets/pictures/directionsPana.png  
+    - assets/pictures/directionsPana.png
     - assets/pictures/rennes.png
     - assets/pictures/Rennes/rennes1.png
     - assets/pictures/Rennes/rennes2.png
@@ -101,7 +102,7 @@ flutter:
     - assets/itineraryCards/route6.png
     - assets/miniCardsItineraries/route1S.png
     - assets/miniCardsItineraries/route2S.png
-    - assets/miniCardsItineraries/route3S.png 
+    - assets/miniCardsItineraries/route3S.png
     - assets/miniCardsItineraries/route4S.png
     - assets/miniCardsItineraries/route5S.png
     - assets/miniCardsItineraries/route6S.png
@@ -174,6 +175,12 @@ flutter:
     - assets/icons/network-wireless.svg
     - assets/icons/logout.svg
     - assets/pictures/booking.svg
+    - assets/auFilDeLeau/blossac.jpg
+    - assets/auFilDeLeau/lices.jpg
+    - assets/auFilDeLeau/SaintAnne.jpg
+    - assets/EchappeGourmande/saint georges.jpeg
+    - assets/EchappeGourmande/SaintMichel.jpeg
+    - assets/EchappeGourmande/vasselot.jpeg
   fonts:
     - family: ClashDisplay
       fonts:
@@ -194,30 +201,29 @@ flutter:
       fonts:
         - asset: fonts/ClashDisplay-Semibold.ttf
     - family: InterBlack
-      fonts: 
+      fonts:
         - asset: fonts/Inter-Black.ttf
     - family: InterBold
-      fonts: 
+      fonts:
         - asset: fonts/Inter-Bold.ttf
     - family: InterExtraBold
-      fonts: 
+      fonts:
         - asset: fonts/Inter-ExtraBold.ttf
     - family: InterExtraLight
-      fonts: 
+      fonts:
         - asset: fonts/Inter-ExtraLight.ttf
     - family: InterLight
-      fonts: 
+      fonts:
         - asset: fonts/Inter-Light.ttf
     - family: InterMedium
-      fonts: 
+      fonts:
         - asset: fonts/Inter-Medium.ttf
     - family: InterRegular
-      fonts: 
+      fonts:
         - asset: fonts/Inter-Regular.ttf
     - family: InterSemiBold
-      fonts: 
+      fonts:
         - asset: fonts/Inter-SemiBold.ttf
     - family: InterThin
-      fonts: 
+      fonts:
         - asset: fonts/Inter-Thin.ttf
-    

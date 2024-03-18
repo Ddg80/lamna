@@ -1,0 +1,110 @@
+[
+    {
+        "id": 1,
+        " itinerary_id": 1,
+        "points": [
+            {
+                "name": "Hôtel de Blossac",
+                "image": "assets/auFilDeLeau/blossac.jpg"
+            },
+            {
+                "name": "Place des Lices",
+                "image": "assets/auFilDeLeau/lices.jpg"
+            },
+            {
+                "name": "Saint Anne",
+                "image": "assets/auFilDeLeau/SaintAnne.jpg"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        " itinerary_id": 2,
+        "points": [
+            {
+                "name": "Saint Michel",
+                "image": "assets/EchappeGourmande/saint georges.jpeg"
+            },
+            {
+                "name": "Saint Georges",
+                "image": "assets/EchappeGourmande/SaintMichel.jpeg"
+            },
+            {
+                "name": "Vasselot",
+                "image": "assets/EchappeGourmande/vasselot.jpeg"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        " itinerary_id": 3,
+        "points": [
+            {
+                "name": "Hôtel de Blossac",
+                "image": "assets/auFilDeLeau/blossac.jpg"
+            },
+            {
+                "name": "Place des Lices",
+                "image": "assets/auFilDeLeau/lices.jpg"
+            },
+            {
+                "name": "Saint Anne",
+                "image": "assets/auFilDeLeau/SaintAnne.jpg"
+            }
+        ]
+    },
+    {
+        "id": 4,
+        " itinerary_id": 4,
+        "points": [
+            {
+                "name": "Saint Michel",
+                "image": "assets/EchappeGourmande/saint georges.jpeg"
+            },
+            {
+                "name": "Saint Georges",
+                "image": "assets/EchappeGourmande/SaintMichel.jpeg"
+            },
+            {
+                "name": "Vasselot",
+                "image": "assets/EchappeGourmande/vasselot.jpeg"
+            }
+        ]
+    },
+    {
+        "id": 5,
+        " itinerary_id": 5,
+        "points": [
+            {
+                "name": "Hôtel de Blossac",
+                "image": "assets/auFilDeLeau/blossac.jpg"
+            },
+            {
+                "name": "Place des Lices",
+                "image": "assets/auFilDeLeau/lices.jpg"
+            },
+            {
+                "name": "Saint Anne",
+                "image": "assets/auFilDeLeau/SaintAnne.jpg"
+            }
+        ]
+    },
+    {
+        "id": 6,
+        " itinerary_id": 6,
+        "points": [
+            {
+                "name": "Saint Michel",
+                "image": "assets/EchappeGourmande/saint georges.jpeg"
+            },
+            {
+                "name": "Saint Georges",
+                "image": "assets/EchappeGourmande/SaintMichel.jpeg"
+            },
+            {
+                "name": "Vasselot",
+                "image": "assets/EchappeGourmande/vasselot.jpeg"
+            }
+        ]
+    }
+]

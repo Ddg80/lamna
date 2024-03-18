@@ -12,6 +12,7 @@ import 'package:lamna/utils/widgets/itinerary/header_itinerary_details.dart';
 import 'package:lamna/utils/widgets/itinerary/label_itinerary.dart';
 import 'package:provider/provider.dart';
 import 'package:widget_zoom/widget_zoom.dart';
+import 'package:badges/badges.dart' as badges;
 
 class SingleItineraryPage extends StatefulWidget {
   final int id;
@@ -41,6 +42,7 @@ class _SingleItineraryPageState extends State<SingleItineraryPage> {
   @override
   Widget build(BuildContext context) {
     List<Itinerary> itinerary = provider.getSingleItinerary(widget.id);
+
     return Scaffold(
       appBar: AppBar(
         leading: ElevatedButton(
@@ -243,6 +245,31 @@ class _SingleItineraryPageState extends State<SingleItineraryPage> {
             ),
             const SizedBox(
               height: 20,
+            ),
+            Column(
+              children: <Widget>[
+                for (int i = 0; i < itinerary[0].images.length; i++)
+                  Column(
+                    children: [
+                      Card(
+                        color: ColorConstants.whiteAppColor,
+                        margin: const EdgeInsets.only(
+                            left: 20.0, right: 20.0, top: 5.0),
+                        child: Container(
+                          height: 300,
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(15.0),
+                            image: DecorationImage(
+                              fit: BoxFit.cover,
+                              image: AssetImage(itinerary[0].images[i]),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+              ],
             )
           ],
         ),

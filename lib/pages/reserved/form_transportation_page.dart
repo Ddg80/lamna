@@ -376,7 +376,7 @@ class _FormTransportationPageState extends State<FormTransportationPage> {
                             }),
                           ),
                           Text(
-                            'Selection actuelle: $_currentHorizontalIntValue',
+                            'Selection actuelle : $_currentHorizontalIntValue',
                             style: TextStyle(
                               fontFamily: FontConstants.regularFont,
                             ),
