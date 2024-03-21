@@ -12,7 +12,6 @@ import 'package:lamna/utils/widgets/itinerary/header_itinerary_details.dart';
 import 'package:lamna/utils/widgets/itinerary/label_itinerary.dart';
 import 'package:provider/provider.dart';
 import 'package:widget_zoom/widget_zoom.dart';
-import 'package:badges/badges.dart' as badges;
 
 class SingleItineraryPage extends StatefulWidget {
   final int id;
