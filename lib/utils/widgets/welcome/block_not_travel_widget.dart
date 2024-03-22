@@ -122,7 +122,7 @@ class BlockNoTravelWidget extends StatelessWidget {
                                 'En savoir plus',
                                 style: TextStyle(
                                   color: ColorConstants.whiteAppColor,
-                                  fontSize: 16,
+                                  fontSize: 15,
                                   fontFamily: FontConstants.interRegularFont,
                                   fontWeight: FontWeight.w600,
                                   decoration: TextDecoration.underline,

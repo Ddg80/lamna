@@ -19,10 +19,10 @@ class HaveNotTravel extends StatelessWidget {
             textAlign: TextAlign.center,
             style: TextStyle(
               color: Color(0xFF5A5A5A),
-              fontSize: 16,
+              fontSize: 14,
               fontFamily: 'Inter',
               fontWeight: FontWeight.w400,
-              height: 0.08,
+              height: 1,
             ),
           ),
           const SizedBox(
@@ -33,7 +33,7 @@ class HaveNotTravel extends StatelessWidget {
             textAlign: TextAlign.center,
             style: TextStyle(
               color: Color(0xFF5A5A5A),
-              fontSize: 16,
+              fontSize: 15,
               fontFamily: 'Inter',
               fontWeight: FontWeight.w400,
               height: 0.08,
@@ -46,7 +46,7 @@ class HaveNotTravel extends StatelessWidget {
             child: ButtonLarge(
               text: 'Réserver un voyage',
               color: ColorConstants.greenUltraDarkColor,
-              fontsize: 13,
+              fontsize: 12,
               onPressed: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
