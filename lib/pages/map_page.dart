@@ -269,6 +269,26 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
                       store: cacheStore,
                     ),
                   ),
+
+                  if (Provider.of<GlobalProvider>(context, listen: true)
+                          .selectedItineraryId !=
+                      null)
+                    FutureBuilder(
+                        future: widget._getRoutingPolylinesByItineraryId(
+                            //MapConstants.defaultCenter,
+                            currentLatLng,
+                            Provider.of<GlobalProvider>(context)
+                                .selectedItineraryId!),
+                        builder: (context, snapshot) {
+                          if (snapshot.hasData && !snapshot.hasError) {
+                            return PolylineLayer(
+                              polylines: snapshot.data!,
+                            );
+                          } else {
+                            log("future builder error ${snapshot.error}");
+                            return Container();
+                          }
+                        }),
                   CurrentLocationLayer(
                     positionStream: _positionStream,
                     alignPositionOnUpdate: AlignOnUpdate.never,
@@ -287,25 +307,6 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
                       markerDirection: MarkerDirection.heading,
                     ),
                   ),
-                  if (Provider.of<GlobalProvider>(context, listen: true)
-                          .selectedItineraryId !=
-                      null)
-                    FutureBuilder(
-                        future: widget._getRoutingPolylinesByItineraryId(
-                            MapConstants.defaultCenter,
-                            // currentLatLng,
-                            Provider.of<GlobalProvider>(context)
-                                .selectedItineraryId!),
-                        builder: (context, snapshot) {
-                          if (snapshot.hasData && !snapshot.hasError) {
-                            return PolylineLayer(
-                              polylines: snapshot.data!,
-                            );
-                          } else {
-                            log("future builder error ${snapshot.error}");
-                            return Container();
-                          }
-                        }),
                   if (Provider.of<GlobalProvider>(context, listen: true)
                           .selectedItineraryId !=
                       null)
