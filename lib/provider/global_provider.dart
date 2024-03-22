@@ -13,8 +13,11 @@ import 'package:lamna/models/reservation.dart';
 import 'package:lamna/models/setting.dart';
 import 'package:lamna/models/travel.dart';
 import 'package:intl/date_symbol_data_local.dart';
+import 'package:lamna/utils/constants/map_constants.dart';
+import 'package:latlong2/latlong.dart';
 
 class GlobalProvider extends ChangeNotifier {
+  LatLng currentLatLng = MapConstants.defaultCenter;
   int? idCity;
   String _linkCollaboration = "";
   List<Itinerary> _itineraries = [];

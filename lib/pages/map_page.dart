@@ -117,7 +117,7 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
 
   ItemScrollController itemScrollController = ItemScrollController();
 
-  LatLng currentLatLng = MapConstants.defaultCenter;
+  // LatLng currentLatLng = MapConstants.defaultCenter;
   late final Stream<LocationMarkerPosition?> _positionStream;
 
   @override
@@ -128,7 +128,9 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
         factory.fromGeolocatorPositionStream().asBroadcastStream();
     _positionStream.listen((event) {
       if (event != null) {
-        currentLatLng = event.latLng;
+        Provider.of<GlobalProvider>(context, listen: false).currentLatLng =
+            event.latLng;
+        // currentLatLng = event.latLng;
       }
       log(event.toString());
     });
@@ -252,7 +254,9 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
                     minZoom: 5,
                     maxZoom: 18,
                     initialZoom: MapConstants.defaultZoom,
-                    initialCenter: currentLatLng),
+                    initialCenter:
+                        Provider.of<GlobalProvider>(context, listen: false)
+                            .currentLatLng),
                 children: [
                   TileLayer(
                     // urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
@@ -275,7 +279,9 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
                     FutureBuilder(
                         future: widget._getRoutingPolylinesByItineraryId(
                             //MapConstants.defaultCenter,
-                            currentLatLng,
+                            // currentLatLng,
+                            Provider.of<GlobalProvider>(context, listen: false)
+                                .currentLatLng,
                             Provider.of<GlobalProvider>(context)
                                 .selectedItineraryId!),
                         builder: (context, snapshot) {
@@ -567,7 +573,9 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
                   ),
                   onPressed: () {
                     _animatedMapMove(
-                        currentLatLng,
+                        // currentLatLng,
+                        Provider.of<GlobalProvider>(context, listen: false)
+                            .currentLatLng,
                         Provider.of<GlobalProvider>(context, listen: false)
                             .mapController
                             .camera

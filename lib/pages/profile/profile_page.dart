@@ -75,7 +75,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   TextSpan(
                     text: Provider.of<GlobalProvider>(context, listen: true)
                             .account
-                            ?.firstName ??
+                            ?.lastName ??
                         "Guillard",
                     style: TextStyle(
                       fontSize: 28,
