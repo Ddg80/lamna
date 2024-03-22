@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lamna/pages/auth/login_page.dart';
 import 'package:lamna/pages/auth/register_page.dart';
 import 'package:lamna/utils/constants/color_constants.dart';
 import 'package:lamna/utils/widgets/Indicators/indicators_sliders.dart';
@@ -57,7 +58,7 @@ class _ShowThreePageState extends State<ShowThreePage> {
           width: MediaQuery.of(context).size.width * 0.60,
           child: ButtonNextPageNewVison(
             context: context,
-            page: const RegisterPage(),
+            page: const LoginPage(),
             title: 'Terminer',
             color: ColorConstants.greenLightAppColor,
             icon: Icons.check_circle_outline,

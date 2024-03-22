@@ -6,16 +6,15 @@ import 'package:lamna/pages/onboarding/show_two_page.dart';
 import 'package:lamna/pages/onboarding/start_page.dart';
 import 'package:lamna/utils/constants/color_constants.dart';
 
-List<dynamic> pages = [
-  const StartPage(),
-  const ShowOnePage(),
-  const ShowTwoPage(),
-  const ShowThreePage(),
-];
-
 class OnBoardingPage extends StatefulWidget {
+  final List<dynamic> pages = [
+    const StartPage(),
+    const ShowOnePage(),
+    const ShowTwoPage(),
+    const ShowThreePage(),
+  ];
   final initialPage = 0;
-  const OnBoardingPage({super.key});
+  OnBoardingPage({super.key});
 
   @override
   State<OnBoardingPage> createState() => _OnBoardingPageState();
@@ -49,10 +48,10 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
       ),
       extendBodyBehindAppBar: true,
       body: PageView.builder(
-        itemCount: pages.length,
+        itemCount: widget.pages.length,
         controller: _pageController,
         itemBuilder: (context, index) {
-          return pages[index];
+          return widget.pages[index];
         },
       ),
     );

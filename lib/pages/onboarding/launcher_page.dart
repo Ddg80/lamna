@@ -20,7 +20,7 @@ class _LauncherPageState extends State<LauncherPage> {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (_) => const OnBoardingPage(),
+          builder: (_) => OnBoardingPage(),
         ),
       );
     });
