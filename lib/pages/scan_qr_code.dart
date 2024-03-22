@@ -73,7 +73,8 @@ class _ScanQRCodePageState extends State<ScanQRCodePage> {
                             child: FutureBuilder(
                               future: controller?.getFlashStatus(),
                               builder: (context, snapshot) {
-                                return Text('Flash: ${snapshot.data}',
+                                return Text(
+                                    'Flash: ${snapshot.data == true ? "Allumé" : "Éteint"}',
                                     style:
                                         const TextStyle(color: Colors.white));
                               },

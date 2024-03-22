@@ -20,7 +20,7 @@ class CardOptions extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 150,
-      height: 195,
+      height: 200,
       decoration: ShapeDecoration(
         color: ColorConstants.whiteAppColor,
         shape: RoundedRectangleBorder(
@@ -32,40 +32,42 @@ class CardOptions extends StatelessWidget {
           SizedBox(
             width: 145,
             child: Padding(
-              padding: const EdgeInsets.only(top: 12.0, left: 8.0),
-              child: Text.rich(
-                TextSpan(
+                padding: const EdgeInsets.only(top: 12.0, left: 8.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    TextSpan(
-                      text: textPart1,
+                    Text(
+                      textPart1,
                       style: TextStyle(
                         color: ColorConstants.greenDarkAppColor,
-                        fontSize: 18,
+                        fontSize: 17,
                         fontFamily: 'Clash Display Variable',
                         fontWeight: FontWeight.w400,
                         height: 0.07,
                       ),
                     ),
-                    TextSpan(
-                      text: textPart2,
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    Text(
+                      textPart2,
                       style: TextStyle(
                         color: ColorConstants.greenDarkAppColor,
-                        fontSize: 18,
+                        fontSize: 17,
                         fontFamily: 'Clash Display Variable',
-                        fontWeight: FontWeight.w600,
+                        fontWeight: FontWeight.w400,
                         height: 0.07,
                       ),
-                    ),
+                    )
                   ],
-                ),
-              ),
-            ),
+                )),
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 12.0),
+            padding: const EdgeInsets.only(top: 27.0),
             child: SvgPicture.asset(
               image,
-              width: 150,
+              width: 140,
             ),
           ),
           Align(

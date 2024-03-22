@@ -175,7 +175,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 width: MediaQuery.of(context).size.width * .9,
                 child: const ProfileOptions(
                     assetSVG: 'assets/icons/info-circle.svg',
-                    text: 'Scanner un QR Code',
+                    text: 'Historique des QR codes',
                     arrow: 'assets/icons/right.svg',
                     page: HistoriqueQrCodes()),
               ),
@@ -186,7 +186,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 width: MediaQuery.of(context).size.width * .9,
                 child: const ProfileOptions(
                     assetSVG: 'assets/icons/info-circle.svg',
-                    text: 'Historique des QR codes',
+                    text: 'Scanner un QR Code',
                     arrow: 'assets/icons/right.svg',
                     page: ScanQRCodePage()),
               ),

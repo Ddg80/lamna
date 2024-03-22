@@ -110,7 +110,7 @@ class HaveItinerary extends StatelessWidget {
                               'à destination ?',
                               style: TextStyle(
                                 color: ColorConstants.greenDarkAppColor,
-                                fontSize: 16,
+                                fontSize: 14,
                                 fontFamily: FontConstants.lightFont,
                                 fontWeight: FontWeight.w600,
                                 height: 0.08,
@@ -134,7 +134,7 @@ class HaveItinerary extends StatelessWidget {
                         'L’équipe LÄMNA vous',
                         style: TextStyle(
                           color: ColorConstants.greenDarkAppColor,
-                          fontSize: 16,
+                          fontSize: 15,
                           fontFamily: 'Inter',
                           fontWeight: FontWeight.w400,
                           height: 0.08,
@@ -147,7 +147,7 @@ class HaveItinerary extends StatelessWidget {
                         'souhaite un excellent séjour !',
                         style: TextStyle(
                           color: ColorConstants.greenDarkAppColor,
-                          fontSize: 16,
+                          fontSize: 14,
                           fontFamily: 'Inter',
                           fontWeight: FontWeight.w400,
                           height: 0.08,
@@ -163,7 +163,7 @@ class HaveItinerary extends StatelessWidget {
             child: ButtonLarge(
               text: 'Voir les itinéraires',
               color: ColorConstants.greenUltraDarkColor,
-              fontsize: 15,
+              fontsize: 14,
               onPressed: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
