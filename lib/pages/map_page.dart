@@ -197,14 +197,14 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
     }
     Provider.of<GlobalProvider>(context, listen: false)
         .setSelectedMerchantIndex(index);
-    currentLatLng = merchants[index].location;
+    LatLng selectedLocation = merchants[index].location;
     var currentZoom = Provider.of<GlobalProvider>(context, listen: false)
         .mapController
         .camera
         .zoom;
     log("Current: $currentZoom Max: ${MapConstants.maxZoomOnTap}");
     _animatedMapMove(
-        currentLatLng,
+        selectedLocation,
         currentZoom < MapConstants.maxZoomOnTap
             ? MapConstants.maxZoomOnTap
             : currentZoom);
