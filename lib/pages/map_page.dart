@@ -288,6 +288,14 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
                             return Container();
                           }
                         }),
+                  if (Provider.of<GlobalProvider>(context, listen: true)
+                          .selectedItineraryId !=
+                      null)
+                    MarkerLayer(
+                        // markers: routingMarkers,
+                        markers: widget._getRoutingMarkersByItineraryId(
+                            Provider.of<GlobalProvider>(context, listen: true)
+                                .selectedItineraryId!)),
                   CurrentLocationLayer(
                     positionStream: _positionStream,
                     alignPositionOnUpdate: AlignOnUpdate.never,
@@ -306,14 +314,6 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
                       markerDirection: MarkerDirection.heading,
                     ),
                   ),
-                  if (Provider.of<GlobalProvider>(context, listen: true)
-                          .selectedItineraryId !=
-                      null)
-                    MarkerLayer(
-                        // markers: routingMarkers,
-                        markers: widget._getRoutingMarkersByItineraryId(
-                            Provider.of<GlobalProvider>(context, listen: true)
-                                .selectedItineraryId!)),
                   // Markers for merchants
                   PopupMarkerLayer(
                     options: PopupMarkerLayerOptions(
