@@ -242,12 +242,12 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
                       Provider.of<GlobalProvider>(context, listen: false)
                           .popupController
                           .hideAllPopups();
-                      // if (Provider.of<GlobalProvider>(context)
-                      //         .selectedMerchantIndex !=
-                      //     null) {
-                      //   Provider.of<GlobalProvider>(context, listen: false)
-                      //       .setSelectedMerchantIndex(null);
-                      // }
+                      if (Provider.of<GlobalProvider>(context, listen: false)
+                              .selectedMerchantIndex !=
+                          null) {
+                        Provider.of<GlobalProvider>(context, listen: false)
+                            .setSelectedMerchantIndex(null);
+                      }
                     },
                     minZoom: 5,
                     maxZoom: 18,
@@ -269,7 +269,6 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
                       store: cacheStore,
                     ),
                   ),
-
                   if (Provider.of<GlobalProvider>(context, listen: true)
                           .selectedItineraryId !=
                       null)
